@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "2eec6060-dfa4-426d-93f0-9fc078d0ddda",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 75,
+  "height": 75,
+  "platformSettings": {},
+  "subMetas": {
+    "fb-dangky-icon": {
+      "ver": "1.0.4",
+      "uuid": "cb3447d9-1fb4-49ad-bc4a-35b6d2deb94e",
+      "rawTextureUuid": "2eec6060-dfa4-426d-93f0-9fc078d0ddda",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 74,
+      "height": 74,
+      "rawWidth": 75,
+      "rawHeight": 75,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

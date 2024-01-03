@@ -1,0 +1,62 @@
+
+btn quay.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 126, 18
+  size: 95, 103
+  orig: 95, 103
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 223, 25
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+bg1
+  rotate: false
+  xy: 2, 2
+  size: 122, 119
+  orig: 122, 119
+  offset: 0, 0
+  index: -1
+la
+  rotate: true
+  xy: 461, 97
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+la 2
+  rotate: false
+  xy: 365, 48
+  size: 25, 38
+  orig: 25, 38
+  offset: 0, 0
+  index: -1
+la 3
+  rotate: true
+  xy: 412, 92
+  size: 29, 47
+  orig: 29, 47
+  offset: 0, 0
+  index: -1
+quay
+  rotate: false
+  xy: 321, 88
+  size: 89, 33
+  orig: 89, 33
+  offset: 0, 0
+  index: -1
+xanh
+  rotate: false
+  xy: 321, 35
+  size: 42, 51
+  orig: 42, 51
+  offset: 0, 0
+  index: -1

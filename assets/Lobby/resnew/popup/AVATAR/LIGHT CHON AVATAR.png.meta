@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4f28ef46-16f8-48a9-a8ea-dc53a9b46dc4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 156,
+  "height": 156,
+  "platformSettings": {},
+  "subMetas": {
+    "LIGHT CHON AVATAR": {
+      "ver": "1.0.4",
+      "uuid": "c0d6feaa-de2c-4395-a31a-403b4b947820",
+      "rawTextureUuid": "4f28ef46-16f8-48a9-a8ea-dc53a9b46dc4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 156,
+      "height": 156,
+      "rawWidth": 156,
+      "rawHeight": 156,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

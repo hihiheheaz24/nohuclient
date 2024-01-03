@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ed101cb4-0a6f-4a92-91c6-360a16ae5a83",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 43,
+  "height": 43,
+  "platformSettings": {},
+  "subMetas": {
+    "FRAME THONG BAO HOM THU": {
+      "ver": "1.0.4",
+      "uuid": "5a0efe80-29b5-414e-8251-c47281b3d16d",
+      "rawTextureUuid": "ed101cb4-0a6f-4a92-91c6-360a16ae5a83",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 43,
+      "height": 43,
+      "rawWidth": 43,
+      "rawHeight": 43,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

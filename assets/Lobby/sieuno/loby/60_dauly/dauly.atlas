@@ -1,0 +1,76 @@
+
+dauly.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 69382
+  rotate: false
+  xy: 2, 17
+  size: 262, 234
+  orig: 262, 234
+  offset: 0, 0
+  index: -1
+Layer 69382 copy
+  rotate: false
+  xy: 266, 18
+  size: 262, 233
+  orig: 262, 233
+  offset: 0, 0
+  index: -1
+Layer 69383
+  rotate: false
+  xy: 752, 32
+  size: 55, 150
+  orig: 55, 150
+  offset: 0, 0
+  index: -1
+Layer 69383 copy
+  rotate: true
+  xy: 953, 196
+  size: 55, 137
+  orig: 55, 137
+  offset: 0, 0
+  index: -1
+Layer 69384
+  rotate: false
+  xy: 809, 92
+  size: 93, 90
+  orig: 93, 90
+  offset: 0, 0
+  index: -1
+Layer 69384 copy
+  rotate: true
+  xy: 809, 2
+  size: 88, 94
+  orig: 88, 94
+  offset: 0, 0
+  index: -1
+Layer 69384 copy 2
+  rotate: false
+  xy: 1188, 161
+  size: 93, 90
+  orig: 93, 90
+  offset: 0, 0
+  index: -1
+Layer 69384 copy 3
+  rotate: true
+  xy: 1092, 163
+  size: 88, 94
+  orig: 88, 94
+  offset: 0, 0
+  index: -1
+c2
+  rotate: false
+  xy: 530, 26
+  size: 220, 225
+  orig: 220, 225
+  offset: 0, 0
+  index: -1
+nt
+  rotate: false
+  xy: 752, 184
+  size: 199, 67
+  orig: 199, 67
+  offset: 0, 0
+  index: -1

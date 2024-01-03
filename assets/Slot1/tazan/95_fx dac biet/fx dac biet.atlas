@@ -1,0 +1,41 @@
+
+fx dac biet.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 70
+  rotate: false
+  xy: 2, 2
+  size: 432, 432
+  orig: 432, 432
+  offset: 0, 0
+  index: -1
+bonus
+  rotate: false
+  xy: 436, 38
+  size: 280, 77
+  orig: 280, 77
+  offset: 0, 0
+  index: -1
+free
+  rotate: false
+  xy: 436, 252
+  size: 394, 83
+  orig: 394, 83
+  offset: 0, 0
+  index: -1
+no hu
+  rotate: false
+  xy: 436, 117
+  size: 318, 133
+  orig: 318, 133
+  offset: 0, 0
+  index: -1
+thang lon
+  rotate: false
+  xy: 436, 337
+  size: 401, 97
+  orig: 401, 97
+  offset: 0, 0
+  index: -1

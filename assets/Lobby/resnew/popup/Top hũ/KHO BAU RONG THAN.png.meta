@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "54944c75-b44e-4584-99e2-fc34a237e91c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 39,
+  "height": 39,
+  "platformSettings": {},
+  "subMetas": {
+    "KHO BAU RONG THAN": {
+      "ver": "1.0.4",
+      "uuid": "09232232-9291-42c7-8410-8b5c3a8f0fa2",
+      "rawTextureUuid": "54944c75-b44e-4584-99e2-fc34a237e91c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 39,
+      "height": 39,
+      "rawWidth": 39,
+      "rawHeight": 39,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

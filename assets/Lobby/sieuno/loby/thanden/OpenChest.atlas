@@ -1,0 +1,48 @@
+
+OpenChest.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 57
+  rotate: false
+  xy: 402, 72
+  size: 373, 159
+  orig: 373, 159
+  offset: 0, 0
+  index: -1
+back_light
+  rotate: true
+  xy: 777, 2
+  size: 229, 254
+  orig: 229, 254
+  offset: 0, 0
+  index: -1
+bg
+  rotate: true
+  xy: 2, 11
+  size: 220, 398
+  orig: 220, 398
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 1033, 38
+  size: 167, 105
+  orig: 167, 105
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 1249, 153
+  size: 77, 78
+  orig: 77, 78
+  offset: 0, 0
+  index: -1
+tx
+  rotate: false
+  xy: 1033, 145
+  size: 214, 86
+  orig: 214, 86
+  offset: 0, 0
+  index: -1

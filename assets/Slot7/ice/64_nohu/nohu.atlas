@@ -1,0 +1,34 @@
+
+nohu.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 45
+  rotate: false
+  xy: 2, 2
+  size: 495, 507
+  orig: 495, 507
+  offset: 0, 0
+  index: -1
+Layer 47
+  rotate: false
+  xy: 499, 241
+  size: 360, 116
+  orig: 360, 116
+  offset: 0, 0
+  index: -1
+NO HU
+  rotate: false
+  xy: 499, 359
+  size: 404, 150
+  orig: 404, 150
+  offset: 0, 0
+  index: -1
+icon 1 copy 2
+  rotate: false
+  xy: 499, 21
+  size: 241, 218
+  orig: 241, 218
+  offset: 0, 0
+  index: -1

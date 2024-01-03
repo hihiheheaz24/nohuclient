@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "83ac555d-0732-45ca-b639-0504070dd9a5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 110,
+  "height": 92,
+  "platformSettings": {},
+  "subMetas": {
+    "khoagame-icon": {
+      "ver": "1.0.4",
+      "uuid": "b3fca92e-ae73-4e7c-a3cc-1019e41ea5b0",
+      "rawTextureUuid": "83ac555d-0732-45ca-b639-0504070dd9a5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 110,
+      "height": 92,
+      "rawWidth": 110,
+      "rawHeight": 92,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

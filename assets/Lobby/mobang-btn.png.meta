@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "210924b4-529f-43eb-a4f7-83543dcd59ab",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 179,
+  "height": 52,
+  "platformSettings": {},
+  "subMetas": {
+    "mobang-btn": {
+      "ver": "1.0.4",
+      "uuid": "88b738d2-d6f9-4fe3-bdd3-cfdb704eee21",
+      "rawTextureUuid": "210924b4-529f-43eb-a4f7-83543dcd59ab",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 179,
+      "height": 52,
+      "rawWidth": 179,
+      "rawHeight": 52,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

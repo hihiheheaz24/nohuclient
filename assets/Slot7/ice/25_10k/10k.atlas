@@ -1,0 +1,83 @@
+
+10k.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+10K
+  rotate: false
+  xy: 783, 458
+  size: 168, 52
+  orig: 168, 52
+  offset: 0, 0
+  index: -1
+DAU 2
+  rotate: false
+  xy: 356, 92
+  size: 52, 62
+  orig: 52, 62
+  offset: 0, 0
+  index: -1
+DUOI
+  rotate: false
+  xy: 510, 220
+  size: 34, 49
+  orig: 34, 49
+  offset: 0, 0
+  index: -1
+Layer 4
+  rotate: false
+  xy: 356, 333
+  size: 425, 177
+  orig: 425, 177
+  offset: 0, 0
+  index: -1
+Layer 6
+  rotate: false
+  xy: 2, 14
+  size: 352, 496
+  orig: 352, 496
+  offset: 0, 0
+  index: -1
+TAI 1
+  rotate: false
+  xy: 783, 414
+  size: 31, 42
+  orig: 31, 42
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 510, 271
+  size: 251, 60
+  orig: 251, 60
+  offset: 0, 0
+  index: -1
+mat 1
+  rotate: true
+  xy: 2, 2
+  size: 10, 12
+  orig: 10, 12
+  offset: 0, 0
+  index: -1
+mat 2
+  rotate: false
+  xy: 16, 2
+  size: 11, 10
+  orig: 11, 10
+  offset: 0, 0
+  index: -1
+tai 2
+  rotate: false
+  xy: 953, 474
+  size: 35, 36
+  orig: 35, 36
+  offset: 0, 0
+  index: -1
+voi
+  rotate: false
+  xy: 356, 156
+  size: 152, 175
+  orig: 152, 175
+  offset: 0, 0
+  index: -1

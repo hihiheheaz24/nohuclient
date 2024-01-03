@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b18d26ed-8069-4098-9b69-d3865089fb40",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "SpartaIcon": {
+      "ver": "1.0.4",
+      "uuid": "3db053ca-f849-4f7a-983d-576f75d708f1",
+      "rawTextureUuid": "b18d26ed-8069-4098-9b69-d3865089fb40",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -4.5,
+      "offsetY": -0.5,
+      "trimX": 1,
+      "trimY": 3,
+      "width": 501,
+      "height": 507,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

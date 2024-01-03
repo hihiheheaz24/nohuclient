@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 268,88
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+item4-giayphai
+  rotate: false
+  xy: 2, 2
+  size: 131, 61
+  orig: 131, 61
+  offset: 0, 0
+  index: -1
+item4-giaytrai
+  rotate: false
+  xy: 135, 2
+  size: 113, 84
+  orig: 113, 84
+  offset: 0, 0
+  index: -1

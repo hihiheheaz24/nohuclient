@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "573a4c54-fc30-4558-baf1-479483a6b231",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 168,
+  "height": 76,
+  "platformSettings": {},
+  "subMetas": {
+    "tuquay-btn": {
+      "ver": "1.0.4",
+      "uuid": "6c218a59-fa7c-47b8-b101-54f85679d3d4",
+      "rawTextureUuid": "573a4c54-fc30-4558-baf1-479483a6b231",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 168,
+      "height": 76,
+      "rawWidth": 168,
+      "rawHeight": 76,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

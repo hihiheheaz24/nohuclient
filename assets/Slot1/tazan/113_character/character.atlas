@@ -1,0 +1,55 @@
+
+character.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 361, 93
+  size: 155, 413
+  orig: 155, 413
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 2, 2
+  size: 357, 504
+  orig: 357, 504
+  offset: 0, 0
+  index: -1
+mat nham
+  rotate: false
+  xy: 588, 490
+  size: 41, 16
+  orig: 41, 16
+  offset: 0, 0
+  index: -1
+tay 1
+  rotate: true
+  xy: 361, 42
+  size: 49, 151
+  orig: 49, 151
+  offset: 0, 0
+  index: -1
+tay 1-1
+  rotate: false
+  xy: 518, 311
+  size: 40, 95
+  orig: 40, 95
+  offset: 0, 0
+  index: -1
+tay 2
+  rotate: true
+  xy: 361, 6
+  size: 34, 65
+  orig: 34, 65
+  offset: 0, 0
+  index: -1
+tay 2-2
+  rotate: false
+  xy: 518, 408
+  size: 68, 98
+  orig: 68, 98
+  offset: 0, 0
+  index: -1

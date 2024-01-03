@@ -1,0 +1,62 @@
+
+ICON.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 762, 154
+  size: 105, 88
+  orig: 105, 88
+  offset: 0, 0
+  index: -1
+1c
+  rotate: false
+  xy: 703, 71
+  size: 92, 81
+  orig: 92, 81
+  offset: 0, 0
+  index: -1
+2g
+  rotate: false
+  xy: 592, 68
+  size: 109, 87
+  orig: 109, 87
+  offset: 0, 0
+  index: -1
+3HNB3B
+  rotate: true
+  xy: 869, 155
+  size: 87, 100
+  orig: 87, 100
+  offset: 0, 0
+  index: -1
+BG
+  rotate: true
+  xy: 2, 2
+  size: 240, 588
+  orig: 240, 588
+  offset: 0, 0
+  index: -1
+C1
+  rotate: true
+  xy: 971, 176
+  size: 66, 29
+  orig: 66, 29
+  offset: 0, 0
+  index: -1
+TS
+  rotate: false
+  xy: 592, 32
+  size: 124, 34
+  orig: 124, 34
+  offset: 0, 0
+  index: -1
+fr
+  rotate: false
+  xy: 592, 157
+  size: 168, 85
+  orig: 168, 85
+  offset: 0, 0
+  index: -1

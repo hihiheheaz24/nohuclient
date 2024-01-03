@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "1b920407-0d7c-4656-9a3a-56ccb2afc8be",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 100,
+  "height": 100,
+  "platformSettings": {},
+  "subMetas": {
+    "avatar-portal-bg": {
+      "ver": "1.0.4",
+      "uuid": "19f5865f-089c-416e-9264-8b6f50199042",
+      "rawTextureUuid": "1b920407-0d7c-4656-9a3a-56ccb2afc8be",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 100,
+      "height": 100,
+      "rawWidth": 100,
+      "rawHeight": 100,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

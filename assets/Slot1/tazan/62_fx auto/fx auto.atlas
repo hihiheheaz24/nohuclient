@@ -1,0 +1,55 @@
+
+fx auto.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+AUTO
+  rotate: false
+  xy: 2, 2
+  size: 68, 26
+  orig: 68, 26
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 2, 30
+  size: 98, 95
+  orig: 98, 95
+  offset: 0, 0
+  index: -1
+bg auto
+  rotate: false
+  xy: 302, 48
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+bg stop
+  rotate: false
+  xy: 381, 48
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+fx auto
+  rotate: true
+  xy: 102, 33
+  size: 92, 98
+  orig: 92, 98
+  offset: 0, 0
+  index: -1
+fx stop
+  rotate: true
+  xy: 202, 33
+  size: 92, 98
+  orig: 92, 98
+  offset: 0, 0
+  index: -1
+stop
+  rotate: true
+  xy: 460, 60
+  size: 65, 29
+  orig: 65, 29
+  offset: 0, 0
+  index: -1

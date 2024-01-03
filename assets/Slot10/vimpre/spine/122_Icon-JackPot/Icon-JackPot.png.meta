@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6636c1a4-0b4b-45e3-a7a3-3790beead0b3",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "Icon-JackPot": {
+      "ver": "1.0.4",
+      "uuid": "d459b407-aca4-4027-b7fd-572a4a8c5ec5",
+      "rawTextureUuid": "6636c1a4-0b4b-45e3-a7a3-3790beead0b3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1024,
+      "height": 512,
+      "rawWidth": 1024,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

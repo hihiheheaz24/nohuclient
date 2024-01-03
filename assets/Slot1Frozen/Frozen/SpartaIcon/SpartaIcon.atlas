@@ -1,0 +1,97 @@
+
+SpartaIcon.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+anna
+  rotate: true
+  xy: 2, 15
+  size: 136, 188
+  orig: 136, 188
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 2, 153
+  size: 196, 357
+  orig: 196, 357
+  offset: 0, 0
+  index: -1
+dau
+  rotate: true
+  xy: 430, 2
+  size: 68, 73
+  orig: 68, 73
+  offset: 0, 0
+  index: -1
+elsa
+  rotate: false
+  xy: 330, 14
+  size: 98, 133
+  orig: 98, 133
+  offset: 0, 0
+  index: -1
+kri
+  rotate: true
+  xy: 192, 51
+  size: 96, 136
+  orig: 96, 136
+  offset: 0, 0
+  index: -1
+line
+  rotate: false
+  xy: 200, 149
+  size: 189, 38
+  orig: 189, 38
+  offset: 0, 0
+  index: -1
+nuoc
+  rotate: false
+  xy: 200, 279
+  size: 208, 231
+  orig: 208, 231
+  offset: 0, 0
+  index: -1
+olaf
+  rotate: false
+  xy: 391, 152
+  size: 79, 125
+  orig: 79, 125
+  offset: 0, 0
+  index: -1
+t1
+  rotate: false
+  xy: 192, 28
+  size: 19, 21
+  orig: 19, 21
+  offset: 0, 0
+  index: -1
+t2
+  rotate: false
+  xy: 410, 292
+  size: 12, 13
+  orig: 12, 13
+  offset: 0, 0
+  index: -1
+toc
+  rotate: true
+  xy: 430, 72
+  size: 78, 58
+  orig: 78, 58
+  offset: 0, 0
+  index: -1
+tuan_loc
+  rotate: true
+  xy: 200, 189
+  size: 88, 189
+  orig: 88, 189
+  offset: 0, 0
+  index: -1
+txt
+  rotate: true
+  xy: 410, 307
+  size: 203, 64
+  orig: 203, 64
+  offset: 0, 0
+  index: -1

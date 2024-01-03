@@ -1,0 +1,132 @@
+
+mainitwk.png
+size: 949,406
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+anhsang
+  rotate: false
+  xy: 181, 107
+  size: 208, 67
+  orig: 210, 69
+  offset: 1, 1
+  index: -1
+anhsangvx
+  rotate: false
+  xy: 181, 176
+  size: 228, 228
+  orig: 230, 230
+  offset: 1, 1
+  index: -1
+cc12
+  rotate: false
+  xy: 699, 133
+  size: 44, 45
+  orig: 46, 47
+  offset: 1, 1
+  index: -1
+cc22
+  rotate: false
+  xy: 605, 133
+  size: 45, 45
+  orig: 47, 47
+  offset: 1, 1
+  index: -1
+cc23
+  rotate: false
+  xy: 877, 89
+  size: 44, 43
+  orig: 46, 45
+  offset: 1, 1
+  index: -1
+cc24
+  rotate: false
+  xy: 877, 44
+  size: 44, 43
+  orig: 46, 45
+  offset: 1, 1
+  index: -1
+cc25
+  rotate: true
+  xy: 877, 134
+  size: 44, 45
+  orig: 46, 47
+  offset: 1, 1
+  index: -1
+cc26
+  rotate: false
+  xy: 652, 133
+  size: 45, 45
+  orig: 47, 47
+  offset: 1, 1
+  index: -1
+daukhi
+  rotate: false
+  xy: 745, 45
+  size: 130, 133
+  orig: 132, 135
+  offset: 1, 1
+  index: -1
+duoikhi
+  rotate: true
+  xy: 627, 8
+  size: 123, 109
+  orig: 125, 111
+  offset: 1, 1
+  index: -1
+mayduoi
+  rotate: true
+  xy: 411, 176
+  size: 228, 125
+  orig: 230, 127
+  offset: 1, 1
+  index: -1
+maytren
+  rotate: false
+  xy: 2, 6
+  size: 132, 95
+  orig: 134, 97
+  offset: 1, 1
+  index: -1
+nen
+  rotate: true
+  xy: 538, 180
+  size: 224, 409
+  orig: 226, 411
+  offset: 1, 1
+  index: -1
+nenche
+  rotate: false
+  xy: 409, 2
+  size: 216, 110
+  orig: 218, 112
+  offset: 1, 1
+  index: -1
+taydam
+  rotate: true
+  xy: 273, 5
+  size: 100, 134
+  orig: 102, 136
+  offset: 1, 1
+  index: -1
+thankhi
+  rotate: false
+  xy: 2, 103
+  size: 177, 301
+  orig: 179, 303
+  offset: 1, 1
+  index: -1
+txt
+  rotate: false
+  xy: 391, 114
+  size: 212, 60
+  orig: 214, 62
+  offset: 1, 1
+  index: -1
+vatao
+  rotate: false
+  xy: 136, 33
+  size: 135, 68
+  orig: 137, 70
+  offset: 1, 1
+  index: -1

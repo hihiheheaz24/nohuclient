@@ -1,0 +1,41 @@
+
+ICON.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BUTTON
+  rotate: false
+  xy: 323, 142
+  size: 210, 95
+  orig: 210, 95
+  offset: 0, 0
+  index: -1
+LIGHT
+  rotate: false
+  xy: 2, 72
+  size: 319, 165
+  orig: 319, 165
+  offset: 0, 0
+  index: -1
+TEXT
+  rotate: false
+  xy: 2, 2
+  size: 152, 68
+  orig: 152, 68
+  offset: 0, 0
+  index: -1
+TIEN1
+  rotate: false
+  xy: 661, 159
+  size: 131, 78
+  orig: 131, 78
+  offset: 0, 0
+  index: -1
+TIEN2
+  rotate: false
+  xy: 535, 146
+  size: 124, 91
+  orig: 124, 91
+  offset: 0, 0
+  index: -1

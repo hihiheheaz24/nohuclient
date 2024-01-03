@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f6981d5d-6bc1-4c62-94ef-2a8960bdee8a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 209,
+  "height": 23,
+  "platformSettings": {},
+  "subMetas": {
+    "Điểm vip cấp độ tiếp theo": {
+      "ver": "1.0.4",
+      "uuid": "11601e20-c41b-432e-9384-2eab088aaa2a",
+      "rawTextureUuid": "f6981d5d-6bc1-4c62-94ef-2a8960bdee8a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 209,
+      "height": 23,
+      "rawWidth": 209,
+      "rawHeight": 23,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

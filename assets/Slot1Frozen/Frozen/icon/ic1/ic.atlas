@@ -1,0 +1,41 @@
+
+ic.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cha
+  rotate: true
+  xy: 2, 2
+  size: 109, 124
+  orig: 109, 124
+  offset: 0, 0
+  index: -1
+fx2
+  rotate: false
+  xy: 146, 125
+  size: 123, 123
+  orig: 123, 123
+  offset: 0, 0
+  index: -1
+khung
+  rotate: false
+  xy: 2, 113
+  size: 142, 135
+  orig: 142, 135
+  offset: 0, 0
+  index: -1
+l1
+  rotate: false
+  xy: 271, 190
+  size: 62, 58
+  orig: 62, 58
+  offset: 0, 0
+  index: -1
+l2
+  rotate: false
+  xy: 271, 126
+  size: 53, 62
+  orig: 53, 62
+  offset: 0, 0
+  index: -1

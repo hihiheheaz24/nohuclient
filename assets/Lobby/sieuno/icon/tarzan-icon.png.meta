@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "d51c4d0e-b440-41f5-89ae-ca6c986a08fa",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 90,
+  "height": 90,
+  "platformSettings": {},
+  "subMetas": {
+    "tarzan-icon": {
+      "ver": "1.0.4",
+      "uuid": "b6995332-a9b3-4cbb-938c-7ddb29c68d4b",
+      "rawTextureUuid": "d51c4d0e-b440-41f5-89ae-ca6c986a08fa",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 90,
+      "height": 90,
+      "rawWidth": 90,
+      "rawHeight": 90,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8254a16a-6a9b-453f-8146-79ddaec6b3a4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 267,
+  "height": 530,
+  "platformSettings": {},
+  "subMetas": {
+    "MINI SLOT": {
+      "ver": "1.0.4",
+      "uuid": "5e43b8e2-15b5-4a86-bd8a-46429ed49908",
+      "rawTextureUuid": "8254a16a-6a9b-453f-8146-79ddaec6b3a4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 267,
+      "height": 530,
+      "rawWidth": 267,
+      "rawHeight": 530,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

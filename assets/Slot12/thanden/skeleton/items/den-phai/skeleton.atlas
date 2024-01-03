@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+den phai
+  rotate: false
+  xy: 2, 2
+  size: 190, 201
+  orig: 190, 201
+  offset: 0, 0
+  index: -1
+den trai
+  rotate: false
+  xy: 194, 2
+  size: 188, 201
+  orig: 188, 201
+  offset: 0, 0
+  index: -1
+ngon lua
+  rotate: false
+  xy: 386, 2
+  size: 108, 236
+  orig: 108, 236
+  offset: 0, 0
+  index: -1

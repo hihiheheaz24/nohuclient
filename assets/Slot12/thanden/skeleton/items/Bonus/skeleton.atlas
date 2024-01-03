@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 431,127
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bonus-coin-a
+  rotate: false
+  xy: 145, 2
+  size: 96, 94
+  orig: 96, 94
+  offset: 0, 0
+  index: -1
+bonus-coin-b
+  rotate: false
+  xy: 288, 2
+  size: 126, 123
+  orig: 126, 123
+  offset: 0, 0
+  index: -1
+bonus-text
+  rotate: false
+  xy: 2, 2
+  size: 141, 47
+  orig: 141, 47
+  offset: 0, 0
+  index: -1

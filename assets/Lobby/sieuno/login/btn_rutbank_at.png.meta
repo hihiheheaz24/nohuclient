@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b12e3f15-cfea-46f6-8b17-cfe4760af5cf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 177,
+  "height": 65,
+  "platformSettings": {},
+  "subMetas": {
+    "btn_rutbank_at": {
+      "ver": "1.0.4",
+      "uuid": "8efbffbc-6bd2-4781-8c83-e65369a05f94",
+      "rawTextureUuid": "b12e3f15-cfea-46f6-8b17-cfe4760af5cf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 177,
+      "height": 65,
+      "rawWidth": 177,
+      "rawHeight": 65,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

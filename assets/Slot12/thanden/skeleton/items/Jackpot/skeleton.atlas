@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 581,200
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Jackpot
+  rotate: false
+  xy: 195, 2
+  size: 160, 45
+  orig: 160, 45
+  offset: 0, 0
+  index: -1
+Jackpot-a
+  rotate: false
+  xy: 2, 2
+  size: 153, 178
+  orig: 153, 178
+  offset: 0, 0
+  index: -1
+jackpot-b
+  rotate: false
+  xy: 388, 2
+  size: 191, 196
+  orig: 191, 196
+  offset: 0, 0
+  index: -1

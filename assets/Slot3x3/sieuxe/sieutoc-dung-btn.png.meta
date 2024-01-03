@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "664b435e-001c-437c-96d6-d1bc7b5b5bd8",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 165,
+  "height": 70,
+  "platformSettings": {},
+  "subMetas": {
+    "sieutoc-dung-btn": {
+      "ver": "1.0.4",
+      "uuid": "f622beb4-7347-4445-9f5a-f12fc37afec5",
+      "rawTextureUuid": "664b435e-001c-437c-96d6-d1bc7b5b5bd8",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 165,
+      "height": 70,
+      "rawWidth": 165,
+      "rawHeight": 70,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

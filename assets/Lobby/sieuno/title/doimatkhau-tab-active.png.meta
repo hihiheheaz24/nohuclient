@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "1447dfc5-158c-477a-a475-a83b8e7e1ced",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 245,
+  "height": 65,
+  "platformSettings": {},
+  "subMetas": {
+    "doimatkhau-tab-active": {
+      "ver": "1.0.4",
+      "uuid": "22637073-257f-4108-b7f6-bd5de1ad303d",
+      "rawTextureUuid": "1447dfc5-158c-477a-a475-a83b8e7e1ced",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 245,
+      "height": 65,
+      "rawWidth": 245,
+      "rawHeight": 65,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

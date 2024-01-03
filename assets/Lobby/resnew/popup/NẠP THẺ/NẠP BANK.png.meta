@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "47668206-5d09-4ebb-864b-434ff4539f97",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 101,
+  "height": 28,
+  "platformSettings": {},
+  "subMetas": {
+    "NẠP BANK": {
+      "ver": "1.0.4",
+      "uuid": "81d5b6c3-6d60-4b0f-9ccf-12a2115bfcdc",
+      "rawTextureUuid": "47668206-5d09-4ebb-864b-434ff4539f97",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 101,
+      "height": 28,
+      "rawWidth": 101,
+      "rawHeight": 28,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

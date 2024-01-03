@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f0fb3b1c-5fc9-4516-8edb-1e635df43917",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 621,
+  "height": 400,
+  "platformSettings": {},
+  "subMetas": {
+    "menhgia-help": {
+      "ver": "1.0.4",
+      "uuid": "3c1adc2a-1d05-4033-acc7-ccb63437775a",
+      "rawTextureUuid": "f0fb3b1c-5fc9-4516-8edb-1e635df43917",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 621,
+      "height": 400,
+      "rawWidth": 621,
+      "rawHeight": 400,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

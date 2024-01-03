@@ -1,0 +1,62 @@
+
+bigwin.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1images sieu no/21
+  rotate: false
+  xy: 217, 248
+  size: 225, 81
+  orig: 225, 81
+  offset: 0, 0
+  index: -1
+1images sieu no/22
+  rotate: false
+  xy: 217, 166
+  size: 226, 80
+  orig: 226, 80
+  offset: 0, 0
+  index: -1
+1images sieu no/23
+  rotate: false
+  xy: 217, 331
+  size: 227, 80
+  orig: 227, 80
+  offset: 0, 0
+  index: -1
+1images sieu no/Layer 1
+  rotate: false
+  xy: 2, 314
+  size: 213, 180
+  orig: 213, 180
+  offset: 0, 0
+  index: -1
+1images sieu no/label
+  rotate: false
+  xy: 2, 80
+  size: 213, 78
+  orig: 213, 78
+  offset: 0, 0
+  index: -1
+1images sieu no/sh
+  rotate: false
+  xy: 2, 160
+  size: 213, 152
+  orig: 213, 152
+  offset: 0, 0
+  index: -1
+1images sieu no/text
+  rotate: false
+  xy: 217, 413
+  size: 234, 81
+  orig: 234, 81
+  offset: 0, 0
+  index: -1
+sparks
+  rotate: false
+  xy: 453, 451
+  size: 43, 43
+  orig: 43, 43
+  offset: 0, 0
+  index: -1

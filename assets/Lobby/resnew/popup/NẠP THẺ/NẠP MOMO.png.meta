@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "2d3edaf5-d9ef-4f45-bf27-583410807386",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 108,
+  "height": 28,
+  "platformSettings": {},
+  "subMetas": {
+    "NẠP MOMO": {
+      "ver": "1.0.4",
+      "uuid": "95ac03e5-f2fb-4478-abae-24b01ded77ff",
+      "rawTextureUuid": "2d3edaf5-d9ef-4f45-bf27-583410807386",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 108,
+      "height": 28,
+      "rawWidth": 108,
+      "rawHeight": 28,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

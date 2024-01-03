@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 587,179
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Freespin
+  rotate: false
+  xy: 2, 2
+  size: 161, 46
+  orig: 161, 46
+  offset: 0, 0
+  index: -1
+Freespin-light
+  rotate: false
+  xy: 197, 2
+  size: 193, 151
+  orig: 193, 151
+  offset: 0, 0
+  index: -1
+freespin-bg
+  rotate: false
+  xy: 392, 2
+  size: 185, 175
+  orig: 185, 175
+  offset: 0, 0
+  index: -1

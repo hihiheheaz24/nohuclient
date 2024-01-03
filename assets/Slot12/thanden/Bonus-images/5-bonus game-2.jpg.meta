@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "955d3fe0-8e5c-45b4-a21b-1c4ec4ad6b4b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1280,
+  "height": 720,
+  "platformSettings": {},
+  "subMetas": {
+    "5-bonus game-2": {
+      "ver": "1.0.4",
+      "uuid": "156e6b2a-29a5-40ce-b3c2-f00f67fe64eb",
+      "rawTextureUuid": "955d3fe0-8e5c-45b4-a21b-1c4ec4ad6b4b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1280,
+      "height": 720,
+      "rawWidth": 1280,
+      "rawHeight": 720,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

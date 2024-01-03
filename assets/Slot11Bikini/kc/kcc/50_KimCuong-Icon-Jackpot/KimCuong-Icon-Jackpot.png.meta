@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "09c0b738-55f1-4aea-875e-3d1c54c3e073",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "KimCuong-Icon-Jackpot": {
+      "ver": "1.0.4",
+      "uuid": "d5e9d1e1-3bf6-4bd9-be73-6d8337b52307",
+      "rawTextureUuid": "09c0b738-55f1-4aea-875e-3d1c54c3e073",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -75,
+      "offsetY": 1,
+      "trimX": 3,
+      "trimY": 3,
+      "width": 356,
+      "height": 248,
+      "rawWidth": 512,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

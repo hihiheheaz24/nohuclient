@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "962ed721-6524-44e7-94dc-e73f2d87dad9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 257,
+  "height": 29,
+  "platformSettings": {},
+  "subMetas": {
+    "THÔNG TIN BẢO MẬT OTP": {
+      "ver": "1.0.4",
+      "uuid": "5b61ac17-87d7-4e4a-a4b8-6390505615e4",
+      "rawTextureUuid": "962ed721-6524-44e7-94dc-e73f2d87dad9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 257,
+      "height": 29,
+      "rawWidth": 257,
+      "rawHeight": 29,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

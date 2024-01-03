@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "32ff8172-e0ce-484e-9eea-3c0bdf1b3ef6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "NoHu-Footer-Fanpage": {
+      "ver": "1.0.4",
+      "uuid": "9a8f6aa3-f229-4d5e-a8a4-d47209357e32",
+      "rawTextureUuid": "32ff8172-e0ce-484e-9eea-3c0bdf1b3ef6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -20.5,
+      "offsetY": 20,
+      "trimX": 3,
+      "trimY": 3,
+      "width": 81,
+      "height": 82,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

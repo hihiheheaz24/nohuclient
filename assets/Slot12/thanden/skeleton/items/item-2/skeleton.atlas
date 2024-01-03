@@ -1,0 +1,13 @@
+
+skeleton.png
+size: 271,201
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+item_2-tham-bay
+  rotate: false
+  xy: 2, 2
+  size: 267, 197
+  orig: 267, 197
+  offset: 0, 0
+  index: -1

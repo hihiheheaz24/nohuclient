@@ -1,0 +1,41 @@
+
+Jackpot_icon.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Jackpot_eye_close_1
+  rotate: false
+  xy: 329, 194
+  size: 30, 18
+  orig: 30, 18
+  offset: 0, 0
+  index: -1
+Jackpot_eye_close_2
+  rotate: false
+  xy: 179, 58
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+Jackpot_icon
+  rotate: false
+  xy: 179, 74
+  size: 148, 138
+  orig: 148, 138
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: false
+  xy: 2, 55
+  size: 175, 157
+  orig: 175, 157
+  offset: 0, 0
+  index: -1
+wild
+  rotate: false
+  xy: 2, 2
+  size: 124, 51
+  orig: 124, 51
+  offset: 0, 0
+  index: -1

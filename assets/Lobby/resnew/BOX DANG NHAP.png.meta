@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f00e6ac7-d2a2-4501-bcda-90bafab7df4f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 193,
+  "height": 51,
+  "platformSettings": {},
+  "subMetas": {
+    "BOX DANG NHAP": {
+      "ver": "1.0.4",
+      "uuid": "b34bc7e5-0d06-4237-abee-7654f8e91d26",
+      "rawTextureUuid": "f00e6ac7-d2a2-4501-bcda-90bafab7df4f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 193,
+      "height": 51,
+      "rawWidth": 193,
+      "rawHeight": 51,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

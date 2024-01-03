@@ -1,0 +1,55 @@
+
+firework.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+exp_dust
+  rotate: false
+  xy: 658, 150
+  size: 99, 104
+  orig: 99, 104
+  offset: 0, 0
+  index: -1
+exp_flare
+  rotate: false
+  xy: 853, 172
+  size: 87, 82
+  orig: 87, 82
+  offset: 0, 0
+  index: -1
+exp_glow
+  rotate: false
+  xy: 393, 103
+  size: 150, 151
+  orig: 150, 151
+  offset: 0, 0
+  index: -1
+tx/TX_dice_1
+  rotate: false
+  xy: 545, 145
+  size: 111, 109
+  orig: 111, 109
+  offset: 0, 0
+  index: -1
+tx/TX_dice_2
+  rotate: false
+  xy: 759, 161
+  size: 92, 93
+  orig: 92, 93
+  offset: 0, 0
+  index: -1
+tx/bg
+  rotate: true
+  xy: 2, 38
+  size: 216, 389
+  orig: 216, 389
+  offset: 0, 0
+  index: -1
+tx/text
+  rotate: false
+  xy: 393, 2
+  size: 197, 99
+  orig: 197, 99
+  offset: 0, 0
+  index: -1

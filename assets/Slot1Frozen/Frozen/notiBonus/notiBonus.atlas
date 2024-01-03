@@ -1,0 +1,27 @@
+
+notiBonus.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 2
+  rotate: false
+  xy: 2, 407
+  size: 495, 507
+  orig: 495, 507
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 2, 2
+  size: 435, 403
+  orig: 435, 403
+  offset: 0, 0
+  index: -1
+bonus
+  rotate: false
+  xy: 499, 783
+  size: 466, 131
+  orig: 466, 131
+  offset: 0, 0
+  index: -1

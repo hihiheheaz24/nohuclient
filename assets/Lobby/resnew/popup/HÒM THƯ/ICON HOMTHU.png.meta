@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "af30f4ce-f6b9-45e4-9522-78447c6a24ee",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 59,
+  "height": 36,
+  "platformSettings": {},
+  "subMetas": {
+    "ICON HOMTHU": {
+      "ver": "1.0.4",
+      "uuid": "aee8a5ce-a09c-47cb-b199-2b9f3f0ff850",
+      "rawTextureUuid": "af30f4ce-f6b9-45e4-9522-78447c6a24ee",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 59,
+      "height": 36,
+      "rawWidth": 59,
+      "rawHeight": 36,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

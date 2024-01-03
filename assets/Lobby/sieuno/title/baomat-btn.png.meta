@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "8928b725-7c43-450b-abfa-aec04b75b925",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 268,
+  "height": 78,
+  "platformSettings": {},
+  "subMetas": {
+    "baomat-btn": {
+      "ver": "1.0.4",
+      "uuid": "d95e067f-1a5e-4c19-b650-23e1a93c6257",
+      "rawTextureUuid": "8928b725-7c43-450b-abfa-aec04b75b925",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 268,
+      "height": 78,
+      "rawWidth": 268,
+      "rawHeight": 78,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

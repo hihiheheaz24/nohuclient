@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "7d8ecd57-0899-4b1f-a0be-376d22df0323",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 420,
+  "height": 88,
+  "platformSettings": {},
+  "subMetas": {
+    "so-luot-mo-bg": {
+      "ver": "1.0.4",
+      "uuid": "5de0782f-4508-4ec5-9176-435fe8336fed",
+      "rawTextureUuid": "7d8ecd57-0899-4b1f-a0be-376d22df0323",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 420,
+      "height": 88,
+      "rawWidth": 420,
+      "rawHeight": 88,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

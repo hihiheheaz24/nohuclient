@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "eb5afe24-b127-4f3f-af94-1e38a8df9e7d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 557,
+  "height": 37,
+  "platformSettings": {},
+  "subMetas": {
+    "_Lưu ý_ Hãy chọn đúng mệnh giá thẻ của bạn, khách hàng lưu ý nạ": {
+      "ver": "1.0.4",
+      "uuid": "4225eba2-abda-404d-a18e-ede3d7e59f70",
+      "rawTextureUuid": "eb5afe24-b127-4f3f-af94-1e38a8df9e7d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 557,
+      "height": 37,
+      "rawWidth": 557,
+      "rawHeight": 37,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

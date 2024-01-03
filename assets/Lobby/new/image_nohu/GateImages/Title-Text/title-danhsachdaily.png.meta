@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "85b932b4-e8ff-44fd-80cc-fcf0a8a5457b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 298,
+  "height": 81,
+  "platformSettings": {},
+  "subMetas": {
+    "title-danhsachdaily": {
+      "ver": "1.0.4",
+      "uuid": "87da9f7b-3cc1-448f-b40b-f3ba91ebfa57",
+      "rawTextureUuid": "85b932b4-e8ff-44fd-80cc-fcf0a8a5457b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 298,
+      "height": 81,
+      "rawWidth": 298,
+      "rawHeight": 81,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

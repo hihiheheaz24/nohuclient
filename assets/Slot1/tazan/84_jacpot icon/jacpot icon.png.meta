@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "f9643fb6-078c-4df2-af33-3994eb4d041e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "jacpot icon": {
+      "ver": "1.0.4",
+      "uuid": "87ac2500-dd03-49fe-b23c-d8aa1e39eef9",
+      "rawTextureUuid": "f9643fb6-078c-4df2-af33-3994eb4d041e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -68,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 372,
+      "height": 124,
+      "rawWidth": 512,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

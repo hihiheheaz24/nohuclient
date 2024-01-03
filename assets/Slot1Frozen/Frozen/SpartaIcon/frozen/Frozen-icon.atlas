@@ -1,0 +1,97 @@
+
+Frozen-icon.png
+size: 507,519
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+anna
+  rotate: true
+  xy: 226, 194
+  size: 94, 188
+  orig: 136, 188
+  offset: 42, 0
+  index: -1
+bg
+  rotate: false
+  xy: 2, 151
+  size: 222, 366
+  orig: 223, 366
+  offset: 0, 0
+  index: -1
+dau
+  rotate: true
+  xy: 434, 250
+  size: 66, 71
+  orig: 68, 73
+  offset: 1, 1
+  index: -1
+elsa
+  rotate: true
+  xy: 306, 4
+  size: 98, 133
+  orig: 98, 133
+  offset: 0, 0
+  index: -1
+kri
+  rotate: true
+  xy: 170, 8
+  size: 94, 134
+  orig: 96, 136
+  offset: 1, 1
+  index: -1
+line
+  rotate: false
+  xy: 2, 15
+  size: 166, 134
+  orig: 166, 135
+  offset: 0, 1
+  index: -1
+nuoc
+  rotate: false
+  xy: 226, 290
+  size: 206, 227
+  orig: 208, 231
+  offset: 1, 1
+  index: -1
+olaf
+  rotate: false
+  xy: 416, 123
+  size: 79, 125
+  orig: 79, 125
+  offset: 0, 0
+  index: -1
+t1
+  rotate: true
+  xy: 414, 104
+  size: 17, 19
+  orig: 19, 21
+  offset: 1, 1
+  index: -1
+t2
+  rotate: false
+  xy: 2, 2
+  size: 10, 11
+  orig: 12, 13
+  offset: 1, 1
+  index: -1
+toc
+  rotate: true
+  xy: 441, 43
+  size: 78, 58
+  orig: 78, 58
+  offset: 0, 0
+  index: -1
+tuan_loc
+  rotate: true
+  xy: 226, 104
+  size: 88, 186
+  orig: 88, 189
+  offset: 0, 3
+  index: -1
+txt
+  rotate: true
+  xy: 434, 318
+  size: 199, 60
+  orig: 203, 64
+  offset: 2, 2
+  index: -1

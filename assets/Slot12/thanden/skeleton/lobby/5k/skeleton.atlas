@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+5k
+  rotate: false
+  xy: 2, 2
+  size: 204, 69
+  orig: 204, 69
+  offset: 0, 0
+  index: -1
+5k-snake
+  rotate: false
+  xy: 460, 2
+  size: 215, 259
+  orig: 215, 259
+  offset: 0, 0
+  index: -1
+bg-light
+  rotate: false
+  xy: 918, 2
+  size: 456, 361
+  orig: 456, 361
+  offset: 0, 0
+  index: -1
+bg-text
+  rotate: false
+  xy: 1376, 2
+  size: 309, 68
+  orig: 309, 68
+  offset: 0, 0
+  index: -1
+star-light
+  rotate: false
+  xy: 2, 365
+  size: 155, 152
+  orig: 155, 152
+  offset: 0, 0
+  index: -1

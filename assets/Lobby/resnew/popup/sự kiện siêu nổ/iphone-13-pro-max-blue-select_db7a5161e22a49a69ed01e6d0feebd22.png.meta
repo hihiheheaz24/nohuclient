@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "6127bc85-5df2-4c71-95a3-7bc331c132b6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 40,
+  "height": 51,
+  "platformSettings": {},
+  "subMetas": {
+    "iphone-13-pro-max-blue-select_db7a5161e22a49a69ed01e6d0feebd22": {
+      "ver": "1.0.4",
+      "uuid": "a137bdbd-90d5-429b-9af8-e50cdeb23596",
+      "rawTextureUuid": "6127bc85-5df2-4c71-95a3-7bc331c132b6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 40,
+      "height": 51,
+      "rawWidth": 40,
+      "rawHeight": 51,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

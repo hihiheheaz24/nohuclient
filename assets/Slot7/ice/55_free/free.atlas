@@ -1,0 +1,27 @@
+
+free.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FREE copy
+  rotate: false
+  xy: 2, 2
+  size: 573, 110
+  orig: 573, 110
+  offset: 0, 0
+  index: -1
+Layer 42
+  rotate: false
+  xy: 2, 114
+  size: 750, 733
+  orig: 750, 733
+  offset: 0, 0
+  index: -1
+Layer 43
+  rotate: false
+  xy: 754, 659
+  size: 185, 188
+  orig: 185, 188
+  offset: 0, 0
+  index: -1

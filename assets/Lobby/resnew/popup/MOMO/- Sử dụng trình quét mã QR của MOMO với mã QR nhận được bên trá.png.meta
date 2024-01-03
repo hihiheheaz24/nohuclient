@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "d94e3ffa-3aa7-4fba-a77a-ca6b51e38951",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 598,
+  "height": 220,
+  "platformSettings": {},
+  "subMetas": {
+    "- Sử dụng trình quét mã QR của MOMO với mã QR nhận được bên trá": {
+      "ver": "1.0.4",
+      "uuid": "65597ac4-c3cd-4223-b69c-34eb43ca1ebc",
+      "rawTextureUuid": "d94e3ffa-3aa7-4fba-a77a-ca6b51e38951",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 598,
+      "height": 220,
+      "rawWidth": 598,
+      "rawHeight": 220,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

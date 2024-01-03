@@ -1,0 +1,174 @@
+
+nohu.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bg
+  rotate: false
+  xy: 1788, 40
+  size: 215, 556
+  orig: 215, 556
+  offset: 0, 0
+  index: -1
+body 2
+  rotate: true
+  xy: 898, 79
+  size: 225, 334
+  orig: 225, 334
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 307, 1508
+  size: 137, 17
+  orig: 137, 17
+  offset: 0, 0
+  index: -1
+flare
+  rotate: false
+  xy: 2, 1527
+  size: 500, 519
+  orig: 500, 519
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 614, 5
+  size: 298, 217
+  orig: 298, 217
+  offset: 0, 0
+  index: -1
+light/Layer 10
+  rotate: true
+  xy: 1118, 1180
+  size: 290, 609
+  orig: 290, 609
+  offset: 0, 0
+  index: -1
+light/Layer 11
+  rotate: false
+  xy: 1740, 1468
+  size: 294, 578
+  orig: 294, 578
+  offset: 0, 0
+  index: -1
+light/Layer 12
+  rotate: true
+  xy: 307, 1166
+  size: 294, 608
+  orig: 294, 608
+  offset: 0, 0
+  index: -1
+light/Layer 13
+  rotate: true
+  xy: 1122, 1472
+  size: 284, 612
+  orig: 284, 612
+  offset: 0, 0
+  index: -1
+light/Layer 14
+  rotate: false
+  xy: 1528, 598
+  size: 288, 580
+  orig: 288, 580
+  offset: 0, 0
+  index: -1
+light/Layer 15
+  rotate: true
+  xy: 918, 890
+  size: 288, 608
+  orig: 288, 608
+  offset: 0, 0
+  index: -1
+light/Layer 16
+  rotate: false
+  xy: 2, 298
+  size: 290, 615
+  orig: 290, 615
+  offset: 0, 0
+  index: -1
+light/Layer 17
+  rotate: true
+  xy: 504, 1754
+  size: 292, 616
+  orig: 292, 616
+  offset: 0, 0
+  index: -1
+light/Layer 18
+  rotate: true
+  xy: 294, 576
+  size: 296, 604
+  orig: 296, 604
+  offset: 0, 0
+  index: -1
+light/Layer 19
+  rotate: true
+  xy: 2, 2
+  size: 294, 610
+  orig: 294, 610
+  offset: 0, 0
+  index: -1
+light/Layer 20
+  rotate: false
+  xy: 2, 915
+  size: 303, 610
+  orig: 303, 610
+  offset: 0, 0
+  index: -1
+light/Layer 21
+  rotate: false
+  xy: 1502, 2
+  size: 284, 594
+  orig: 284, 594
+  offset: 0, 0
+  index: -1
+light/Layer 22
+  rotate: true
+  xy: 900, 306
+  size: 290, 600
+  orig: 290, 600
+  offset: 0, 0
+  index: -1
+light/Layer 23
+  rotate: true
+  xy: 1122, 1758
+  size: 288, 616
+  orig: 288, 616
+  offset: 0, 0
+  index: -1
+light/Layer 6
+  rotate: true
+  xy: 294, 305
+  size: 269, 602
+  orig: 269, 602
+  offset: 0, 0
+  index: -1
+light/Layer 7
+  rotate: true
+  xy: 504, 1462
+  size: 290, 612
+  orig: 290, 612
+  offset: 0, 0
+  index: -1
+light/Layer 8
+  rotate: true
+  xy: 918, 598
+  size: 290, 604
+  orig: 290, 604
+  offset: 0, 0
+  index: -1
+light/Layer 9
+  rotate: true
+  xy: 307, 874
+  size: 290, 609
+  orig: 290, 609
+  offset: 0, 0
+  index: -1
+wild
+  rotate: false
+  xy: 917, 1382
+  size: 182, 78
+  orig: 182, 78
+  offset: 0, 0
+  index: -1

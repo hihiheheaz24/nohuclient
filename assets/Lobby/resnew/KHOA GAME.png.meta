@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "ba89e38d-167d-4503-af70-5d786549a610",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 149,
+  "height": 96,
+  "platformSettings": {},
+  "subMetas": {
+    "KHOA GAME": {
+      "ver": "1.0.4",
+      "uuid": "e130b92e-eae7-43e1-8bf9-7bc7a47e3f69",
+      "rawTextureUuid": "ba89e38d-167d-4503-af70-5d786549a610",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 149,
+      "height": 96,
+      "rawWidth": 149,
+      "rawHeight": 96,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

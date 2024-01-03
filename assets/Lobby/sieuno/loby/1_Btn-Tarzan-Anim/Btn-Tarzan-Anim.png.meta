@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b1fabb4f-bbac-48b0-96d5-907572fdac53",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 512,
+  "height": 256,
+  "platformSettings": {},
+  "subMetas": {
+    "Btn-Tarzan-Anim": {
+      "ver": "1.0.4",
+      "uuid": "877d2833-f54e-4a12-bdd9-8c4beaa6105f",
+      "rawTextureUuid": "b1fabb4f-bbac-48b0-96d5-907572fdac53",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -4.5,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 3,
+      "width": 499,
+      "height": 250,
+      "rawWidth": 512,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

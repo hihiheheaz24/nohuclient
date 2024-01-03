@@ -1,0 +1,62 @@
+
+jacpot icon.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BG
+  rotate: false
+  xy: 2, 16
+  size: 134, 110
+  orig: 134, 110
+  offset: 0, 0
+  index: -1
+JACkPOT
+  rotate: false
+  xy: 219, 96
+  size: 122, 30
+  orig: 122, 30
+  offset: 0, 0
+  index: -1
+TOC
+  rotate: false
+  xy: 343, 112
+  size: 31, 14
+  orig: 31, 14
+  offset: 0, 0
+  index: -1
+la 1
+  rotate: false
+  xy: 2, 2
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+la 2
+  rotate: false
+  xy: 312, 78
+  size: 13, 16
+  orig: 13, 16
+  offset: 0, 0
+  index: -1
+light
+  rotate: true
+  xy: 219, 23
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+nguoi
+  rotate: false
+  xy: 138, 33
+  size: 79, 93
+  orig: 79, 93
+  offset: 0, 0
+  index: -1
+tay
+  rotate: true
+  xy: 219, 68
+  size: 26, 91
+  orig: 26, 91
+  offset: 0, 0
+  index: -1

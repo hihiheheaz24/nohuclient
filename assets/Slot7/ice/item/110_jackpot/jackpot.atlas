@@ -1,0 +1,76 @@
+
+jackpot.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BG2
+  rotate: false
+  xy: 2, 91
+  size: 179, 158
+  orig: 179, 158
+  offset: 0, 0
+  index: -1
+DAU
+  rotate: false
+  xy: 359, 35
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+DUOI
+  rotate: true
+  xy: 170, 2
+  size: 83, 100
+  orig: 83, 100
+  offset: 0, 0
+  index: -1
+JACPOT
+  rotate: false
+  xy: 2, 46
+  size: 166, 43
+  orig: 166, 43
+  offset: 0, 0
+  index: -1
+TAI
+  rotate: false
+  xy: 450, 227
+  size: 27, 22
+  orig: 27, 22
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 183, 87
+  size: 174, 162
+  orig: 174, 162
+  offset: 0, 0
+  index: -1
+cha
+  rotate: false
+  xy: 359, 134
+  size: 89, 115
+  orig: 89, 115
+  offset: 0, 0
+  index: -1
+mat 1
+  rotate: false
+  xy: 2, 27
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+mat2
+  rotate: false
+  xy: 450, 213
+  size: 11, 12
+  orig: 11, 12
+  offset: 0, 0
+  index: -1
+tai 2
+  rotate: false
+  xy: 272, 73
+  size: 15, 12
+  orig: 15, 12
+  offset: 0, 0
+  index: -1

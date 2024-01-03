@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "87e5f7c0-9e9e-443c-a8ed-fa05d36e62ca",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 606,
+  "height": 284,
+  "platformSettings": {},
+  "subMetas": {
+    "CHI TIET QUY DINH": {
+      "ver": "1.0.4",
+      "uuid": "2dba0124-3482-44c0-a743-8973528d808d",
+      "rawTextureUuid": "87e5f7c0-9e9e-443c-a8ed-fa05d36e62ca",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 606,
+      "height": 284,
+      "rawWidth": 606,
+      "rawHeight": 284,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,76 @@
+
+ICON.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BG
+  rotate: false
+  xy: 342, 37
+  size: 213, 214
+  orig: 213, 214
+  offset: 0, 0
+  index: -1
+DAU
+  rotate: true
+  xy: 557, 75
+  size: 176, 215
+  orig: 176, 215
+  offset: 0, 0
+  index: -1
+Group 167
+  rotate: false
+  xy: 886, 210
+  size: 133, 41
+  orig: 133, 41
+  offset: 0, 0
+  index: -1
+KHUYEN1
+  rotate: true
+  xy: 689, 32
+  size: 41, 55
+  orig: 41, 55
+  offset: 0, 0
+  index: -1
+KHUYEN2
+  rotate: false
+  xy: 822, 82
+  size: 43, 55
+  orig: 43, 55
+  offset: 0, 0
+  index: -1
+LIGHT
+  rotate: false
+  xy: 774, 139
+  size: 110, 112
+  orig: 110, 112
+  offset: 0, 0
+  index: -1
+LONGVU
+  rotate: false
+  xy: 2, 2
+  size: 338, 249
+  orig: 338, 249
+  offset: 0, 0
+  index: -1
+MAT1
+  rotate: false
+  xy: 557, 32
+  size: 130, 41
+  orig: 130, 41
+  offset: 0, 0
+  index: -1
+MAT2
+  rotate: false
+  xy: 886, 167
+  size: 131, 41
+  orig: 131, 41
+  offset: 0, 0
+  index: -1
+TOC
+  rotate: false
+  xy: 774, 79
+  size: 46, 58
+  orig: 46, 58
+  offset: 0, 0
+  index: -1
