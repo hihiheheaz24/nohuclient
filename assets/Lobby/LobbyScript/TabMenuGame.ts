@@ -12,8 +12,6 @@ export default class TabMenuGame extends cc.Component {
     @property([cc.Node])
     listTab: cc.Node[] = [];
 
-    @property([cc.Toggle])
-    listToggle: cc.Toggle[] = [];
 
     @property([cc.Node])
     listAllGame: cc.Node[] = [];
@@ -58,7 +56,7 @@ export default class TabMenuGame extends cc.Component {
         this.listSlotGame.forEach(e => {
             if (e) e.active = true;
         });
-        Global.LobbyController.showOrHideSelectTabGame(false);
+        // Global.LobbyController.showOrHideSelectTabGame(false);
     }
     onBtnTabMini() {
         this.listAllGame.forEach(e => {
@@ -67,7 +65,7 @@ export default class TabMenuGame extends cc.Component {
         this.listMiniGame.forEach(e => {
             if (e) e.active = true;
         });
-        Global.LobbyController.showOrHideSelectTabGame(false);
+        // Global.LobbyController.showOrHideSelectTabGame(false);
     }
     onBtnTabCard() {
         this.listAllGame.forEach(e => {
@@ -76,7 +74,7 @@ export default class TabMenuGame extends cc.Component {
         this.listCardGame.forEach(e => {
             if (e) e.active = true;
         });
-        Global.LobbyController.showOrHideSelectTabGame(false);
+        // Global.LobbyController.showOrHideSelectTabGame(false);
     }
     onBtnTabFish() {
         // this.listAllGame.forEach(e => {

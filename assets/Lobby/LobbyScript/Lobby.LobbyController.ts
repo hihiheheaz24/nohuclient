@@ -147,17 +147,6 @@ namespace Lobby {
         @property(cc.Node)
         panelCSKH: cc.Node = null;
         @property(cc.Node)
-        bottomBarLeft: cc.Node = null;
-        @property(cc.Node)
-        bottomBarRight: cc.Node = null;
-        @property(cc.Layout)
-        layoutBtnLeft: cc.Layout = null;
-        @property(cc.Layout)
-        layoutLbLeft: cc.Layout = null;
-        @property(cc.Layout)
-        layoutBtnRight: cc.Layout = null;
-        @property(cc.Layout)
-        layoutLbRight: cc.Layout = null;
 
         @property(GameLiveController)
         gameLiveController: GameLiveController = null;
@@ -186,8 +175,8 @@ namespace Lobby {
         @property(cc.Node)
         bgNotify: cc.Node = null;
 
-        @property(cc.Node)
-        btnLoginFb: cc.Node = null;
+        // @property(cc.Node)
+        // btnLoginFb: cc.Node = null;
 		@property(cc.Node)
         buttonjb: cc.Node = null;
         @property(BoxLixi)
@@ -251,7 +240,7 @@ namespace Lobby {
         onLoad() {
             Global.LobbyController = this;
             if (BundleControl.serverVersion.hasOwnProperty('FbConfig')) {
-                this.btnLoginFb.active = BundleControl.serverVersion['FbConfig'].isShowBtnFb;
+                // this.btnLoginFb.active = BundleControl.serverVersion['FbConfig'].isShowBtnFb;
             }
             this.nodeCenter.active = false;
             this.nodeTop.y = cc.winSize.height / 2 + this.nodeTop.height / 2;
@@ -302,14 +291,11 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
         }
         start() {
             _this = this;
-            let tileScreen = cc.winSize.width / 1280;
-            this.bottomBarLeft.width = this.bottomBarLeft.width * tileScreen
-            this.bottomBarRight.width = this.bottomBarRight.width * tileScreen
             setTimeout(() => {
                 LogEvent.getInstance().sendEventOpenApp();
             }, 1000);
             this.lblCoin.node.parent.active = true;
-            this.showOrHideSelectTabGame(true);
+            // this.showOrHideSelectTabGame(true);
             if (cc.sys.isBrowser) {
                 if (window.localStorage.getItem('u') != null && window.localStorage.getItem('at') != null) {
                     var data = {};
@@ -445,11 +431,6 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                     this.nodeCenter.active = true;
                     this.nodeTop.getComponent(cc.Widget).isAlignTop = true;
                     this.setupListener();
-                    this.layoutBtnLeft.spacingX = 50 * (cc.winSize.width / 1280);
-                    this.layoutLbLeft.spacingX = 50 * (cc.winSize.width / 1280);
-
-                    this.layoutLbRight.spacingX = 50 * (cc.winSize.width / 1280);
-                    this.layoutBtnRight.spacingX = 50 * (cc.winSize.width / 1280);
                 })
                 .delay(0.25)
                // .call(() => {
@@ -1941,7 +1922,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
 
         actBack() {
             if (this.tabSelectGame.active === false) {
-                this.showOrHideSelectTabGame(true);
+                // this.showOrHideSelectTabGame(true);
             } else {
                 App.instance.confirmDialog.show3(App.instance.getTextLang("txt_ask_logout"), "ĐĂNG XUẤT", (isConfirm) => {
                     if (isConfirm) {
