@@ -397,6 +397,7 @@ export default class PopupTransaction extends Dialog {
                     item.parent = this.content;
                     let itemData = res["transactions"][indexData];
                     var isJson = Utils.IsJsonString(itemData["description"]);
+                    item.getChildByName("bg").getComponent(cc.Sprite).enabled = i%2 === 0 ? false : true;          
                     if (isJson) {
                         item.getChildByName("Trans").getComponent(cc.Label).string = itemData["transId"];
                         item.getChildByName("Time").getComponent(cc.Label).string = itemData["transactionTime"];
@@ -455,6 +456,7 @@ export default class PopupTransaction extends Dialog {
                     item.active = true;
                     item.getChildByName('lbTime').getComponent(cc.Label).string = data['CreatedAt'].replace(" ", "\n");
                     item.getChildByName("lbBank").getComponent(cc.Label).string = data['BankCode'];
+                    item.getChildByName("bg").getComponent(cc.Sprite).enabled = i%2 === 0 ? false : true;
                     item.getChildByName("lbAmount").getComponent(cc.Label).string = Utils.formatNumber(data['Amount']);
                     switch (data['Status']) {
                         case 0:

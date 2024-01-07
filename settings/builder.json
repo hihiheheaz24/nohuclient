@@ -1,5 +1,5 @@
 {
-  "title": "SIEUNO",
+  "title": "DAPHU",
   "packageName": "",
   "startScene": "2d26860e-dfe2-44b8-a5fc-eda116a8a40e",
   "excludeScenes": [
@@ -13,7 +13,7 @@
     "upsideDown": false
   },
   "webOrientation": "landscape",
-  "inlineSpriteFrames": true,
+  "inlineSpriteFrames": false,
   "inlineSpriteFrames_native": true,
   "mergeStartScene": false,
   "optimizeHotUpdate": false,

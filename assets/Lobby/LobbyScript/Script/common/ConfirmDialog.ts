@@ -8,10 +8,10 @@ export default class ConfirmDialog extends Dialog {
 
     @property(cc.Label)
     lblMessage: cc.Label = null;
-    @property(cc.Label)
-    lblDone: cc.Label = null;
-    @property(cc.Label)
-    lblConfirm: cc.Label = null;
+    // @property(cc.Label)
+    // lblDone: cc.Label = null;
+    // @property(cc.Label)
+    // lblConfirm: cc.Label = null;
 
     onDismissed: (isConfirm: boolean)=>void = null;
     onConfirmClicked: Function = null;
@@ -32,8 +32,8 @@ export default class ConfirmDialog extends Dialog {
 
     show4(msg: string, doneTitle?: string, confirmTitle?: string, onDismissed?: (isConfirm: boolean)=>void) : void {
         this.isClickdConfirm = false;
-        this.lblDone.string = !doneTitle ? "Hủy" : doneTitle;
-        this.lblConfirm.string = !confirmTitle ? "Đồng ý" : confirmTitle;
+        // this.lblDone.string = !doneTitle ? "Hủy" : doneTitle;
+        // this.lblConfirm.string = !confirmTitle ? "Đồng ý" : confirmTitle;
         this.onConfirmClicked = null
         this.onDismissed = onDismissed;
         this.lblMessage.string = msg;

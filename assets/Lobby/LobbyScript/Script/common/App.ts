@@ -44,20 +44,6 @@ export default class App extends cc.Component {
     gameLiveController: GameLiveController = null;
     @property(UINotifyJackpot)
     uiNotifyJackpot: UINotifyJackpot = null;
-    @property(cc.Prefab)
-    public taiXiuDoublePrefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public miniPokerPrefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public caoThapPrefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public bauCuaPrefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public slot3x3Prefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public oanTuTiPrefab: cc.Prefab = null;
-    @property(cc.Prefab)
-    public TaiXiuMD5Prefab: cc.Prefab = null;
 
     @property(cc.Node)
     public canvas: cc.Node = null;
@@ -326,7 +312,7 @@ export default class App extends cc.Component {
         if (!this.popupChangeAvatar) {
             let cb = (prefab) => {
                 let popupnaprut = cc.instantiate(prefab).getComponent("Lobby.PopupChangeAvatar");
-                App.instance.canvas.addChild(popupnaprut.node);
+                App.instance.node.addChild(popupnaprut.node);
                 this.popupChangeAvatar = popupnaprut;
                 this.popupChangeAvatar.show();
             }
@@ -411,7 +397,7 @@ export default class App extends cc.Component {
         if (!this.popupChangePassword) {
             let cb = (prefab) => {
                 let popupnaprut = cc.instantiate(prefab).getComponent("Lobby.PopupChangePassword");
-                popupnaprut.node.parent = this.canvas;
+                App.instance.node.addChild(popupnaprut.node)
                 this.popupChangePassword = popupnaprut;
                 this.popupChangePassword.show();
             }

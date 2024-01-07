@@ -38,10 +38,11 @@ export default class PopupDetailDaiLy extends Dialog {
 
     setDataItem(item, data) {
         item.opacity = data['rank'] >= 1 ? 255 : 255;
+        item.getComponent(cc.Sprite).enabled = item['itemID'] % 2 ? true : false;
         item.getChildByName('lbStt').getComponent(cc.Label).string = item['itemID'] + 1;
         item.getChildByName('lbName').getComponent(cc.Label).string = data['nameagent'];
         item.getChildByName('lbNickname').getComponent(cc.Label).string = data['nickname'];
-        item.getChildByName('lbRegion').getComponent(cc.Label).string = data['address'];
+        // item.getChildByName('lbRegion').getComponent(cc.Label).string = data['address'];
         item.getChildByName('lbSdt').getComponent(cc.Label).string = data['phone'];
         item['data'] = data;
         item.active = true;

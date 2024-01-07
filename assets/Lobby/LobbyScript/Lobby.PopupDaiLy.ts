@@ -86,6 +86,7 @@ export default class PopupDaiLy extends Dialog {
     itemHistoryContainer: cc.Node = null;
 
     tab = 0;
+    popupProfile = null;
     currentDataDaily = null;
     currentBankDaily = null;
     currentDataUser = null;

@@ -24,7 +24,7 @@ export default class TabBanks extends Dialog {
     @property(cc.Label)
     lblBankAccountName: cc.Label = null;
     @property(cc.Label)
-    lblBankAddress: cc.Label = null;
+    lblBankName: cc.Label = null;
 
     @property(cc.Label)
     lblTransNote: cc.Label = null;
@@ -51,8 +51,9 @@ export default class TabBanks extends Dialog {
 
                     return;
                 }
-
+              
                 let listBank = res.list_bank;
+                cc.log("check data bank ", listBank)
                 this._listBank = listBank;
                 let bankName = ["Chọn ngân hàng"];
                 for(let i = 0; i < listBank.length; i ++){
@@ -61,11 +62,11 @@ export default class TabBanks extends Dialog {
                 this.dropdownBank.setOptions(bankName);
                 this.dropdownBank.setOnValueChange((idx) => {
                     if(idx > 0){
-                       // this.lblBankAddress.string = listBank[idx - 1].bankAddress;
+                       this.lblBankName.string = listBank[idx - 1].bankName;
                         this.lblBankAccountName.string = listBank[idx - 1].bankAccountName;
                         this.lblBankNumber.string = listBank[idx - 1].bankNumber;
                     }else {
-                       // this.lblBankAddress.string = "";
+                       this.lblBankName.string = "";
                         this.lblBankAccountName.string = "";
                         this.lblBankNumber.string = "";
                     }

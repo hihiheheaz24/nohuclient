@@ -17,36 +17,39 @@ export default class PopupChangeAvatar extends Dialog {
 
     private selectedIdx = -1;
 
-    start() {
-        for (let i = 0; i < App.instance.sprFrameAvatars.length; i++) {
-            let item = cc.instantiate(this.itemTemplate);
-            item.parent = this.items;
-            item.getChildByName("sprite").getComponent(cc.Sprite).spriteFrame = App.instance.sprFrameAvatars[i];
-            item.name = App.instance.sprFrameAvatars[i].name;
-
-            item.on("click", () => {
-                this.selectedIdx = i;
-                this.actSubmit();
-            });
-            this.selectedIdx = i;
-        }
-        // this.itemTemplate.removeFromParent();
-        // this.itemTemplate = null;
+    protected onLoad(): void {
+          // cc.log("check name item  : ", item.name)
+          for (let i = 0; i < App.instance.sprFrameAvatars.length; i++) {
+              let item = cc.instantiate(this.itemTemplate);
+              item.parent = this.items;
+              item.getChildByName("sprite").getComponent(cc.Sprite).spriteFrame = App.instance.sprFrameAvatars[i];
+              item.name = App.instance.sprFrameAvatars[i].name;
+  
+              item.on("click", () => {
+                  this.selectedIdx = i;
+                  for (let i = 0; i < this.items.childrenCount; i++) {
+                   const itemAvt = this.items.children[i];
+                       itemAvt.getChildByName("selected").active = false;
+                  }
+                  item.getChildByName("selected").active = true;
+                  // this.actSubmit();
+              });
+              this.selectedIdx = i;
+          }
+          // this.itemTemplate.removeFromParent();
+          // this.itemTemplate = null;
     }
 
     show() {
-         ////Utils.Log("vao day ha aaaa:" + this.name);
         super.show();
         this.selectedIdx = -1;
-        if (this.itemTemplate == null) {
-            for (let i = 0; i < this.items.childrenCount; i++) {
-                let item = this.items.children[i];
-                if (item.name == Configs.Login.Avatar) {
-                    this.selectedIdx = i;
-                    item.getChildByName("selected").active = true;
-                } else {
-                    item.getChildByName("selected").active = false;
-                }
+        for (let i = 0; i < this.items.childrenCount; i++) {
+            let item = this.items.children[i];
+            if (item.name == Configs.Login.Avatar) {
+                this.selectedIdx = i;
+                item.getChildByName("selected").active = true;
+            } else {
+                item.getChildByName("selected").active = false;
             }
         }
     }

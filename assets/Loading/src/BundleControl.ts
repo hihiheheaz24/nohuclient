@@ -68,10 +68,10 @@ export default class BundleControl {
     static loadPrefabPopup(prefabPath, cb) {
         Global.BundleLobby.load(prefabPath, (err, prefab) => {
             if (err) {
-                //  cc.log("Err load prefab bundle:", err);
+                 cc.log("Err load prefab bundle:", err);
                 return;
             } else {
-                //  cc.log("loadPrefabPopup Success");
+                 cc.log("loadPrefabPopup Success");
                 cb(prefab);
             }
         });

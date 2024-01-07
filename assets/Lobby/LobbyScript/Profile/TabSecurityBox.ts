@@ -38,6 +38,9 @@ export default class TabSecurityBox extends cc.Component {
     lbOTPType: cc.Label = null;
     private otpType = OTPType.TELE_SAFE; //default
 
+    hide(){
+        this.node.active = false;
+    }
     show(){
         this.node.active = true;
         var sefl = this;

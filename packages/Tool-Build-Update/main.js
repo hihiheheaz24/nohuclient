@@ -4,7 +4,7 @@ var fs = require('fs');
 var listBundleName = [];
 var listVersion = []
 var bundleVersionData = {};
-var urlBundle = "https://play.mt09l3t2.shop/assets"
+var urlBundle = "https://dev-tlmn.vpl.mobi/test"
 var dest = 'D:\frontend-dev\LOT79\build\web-mobile\assets';
 var assetsUrl = "D:\frontend-dev\LOT79\build\web-mobile\assets"
 function onBuildFinished(options, callback) {

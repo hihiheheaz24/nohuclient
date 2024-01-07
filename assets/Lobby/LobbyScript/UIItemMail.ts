@@ -13,31 +13,34 @@ export default class UIItemDiemDanh extends cc.Component {
     @property(cc.Label)
     txtContent: cc.Label = null;
     
-    @property(cc.Node)
-    nodeNew: cc.Node = null;
-   
-
     private data = null;
     private uiPopupMail = null;
     init(uiPopupMail,data){
         this.uiPopupMail = uiPopupMail;
         this.data = data;
         this.txtContent.string = data.title;
-        this.nodeNew.active = data.status == 0 ?true:false;
+        cc.log("chheck status : ", data.status)
+        if(data.status === 0){
+            this.node.opacity = 255
+        }
+        else{
+            this.node.opacity = 100;
+        }
     }
 
     onBtnRead(){
         this.uiPopupMail.readMail(this.data);
+        cc.log("chheck status red: ", this.data.status)
         if(this.data.status == 0){
             //new
             this.data.status = 1;
-            this.nodeNew.active = this.data.status == 0 ?true:false;
-            Http.get(Configs.App.API, { c: "404", mid: this.data.mail_id }, (err, res) => {
-                App.instance.showLoading(false);
-                if (err != null) return;
-                BroadcastReceiver.send(BroadcastReceiver.ON_UPDATE_MAIL);
+            this.node.opacity = 100;
+            // Http.get(Configs.App.API, { c: "404", mid: this.data.mail_id }, (err, res) => {
+            //     App.instance.showLoading(false);
+            //     if (err != null) return;
+            //     BroadcastReceiver.send(BroadcastReceiver.ON_UPDATE_MAIL);
                 
-            });
+            // });
         }
     }
 }

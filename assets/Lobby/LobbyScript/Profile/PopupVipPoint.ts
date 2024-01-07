@@ -27,64 +27,11 @@ export default class PopupVipPoint extends cc.Component {
     nodePolicy: cc.Node = null;
     @property(ScrollViewControl)
     scrAgency: ScrollViewControl = null;
-    @property(cc.Sprite)
-    sprVip2: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip3: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip4: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip5: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip6: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip7: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip8: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip9: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip10: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip11: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip12: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip13: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip14: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip15: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip2Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip3Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip4Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip5Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip6Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip7Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip8Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip9Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip10Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip11Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip12Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip13Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip14Text: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprVip15Text: cc.Sprite = null;
-
+    
     listVippoint = [];
+
+    @property([cc.Node])
+    listItemVip: cc.Node[] = [];
 
     show(){
         this.node.active = true;
@@ -172,35 +119,17 @@ export default class PopupVipPoint extends cc.Component {
                 }
             }
 
-            this.sprVip2.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 0);
-            this.sprVip3.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 1);
-            this.sprVip4.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 2);
-            this.sprVip5.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 3);
-            this.sprVip6.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 4);
-            this.sprVip7.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 5);
-            this.sprVip8.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 6);
-            this.sprVip9.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 7);
-            this.sprVip10.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 8);
-            this.sprVip11.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 9);
-            this.sprVip12.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 10);
-            this.sprVip13.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 11);
-            this.sprVip14.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 12);
-            this.sprVip15.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 13);
 
-            this.sprVip2Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 0);
-            this.sprVip3Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 1);
-            this.sprVip4Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 2);
-            this.sprVip5Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 3);
-            this.sprVip6Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 4);
-            this.sprVip7Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 5);
-            this.sprVip8Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 6);
-            this.sprVip9Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 7);
-            this.sprVip10Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 8);
-            this.sprVip11Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 9);
-            this.sprVip12Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 10);
-            this.sprVip13Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 11);
-            this.sprVip14Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 12);
-            this.sprVip15Text.getComponent(cc.Button).enableAutoGrayEffect = !(vipPointIdx > 13);
+            cc.log("check vipPointIdx ", vipPointIdx)
+            for (let i = 0; i < this.listItemVip.length; i++) {
+                const itemVip = this.listItemVip[i];
+                if(i < vipPointIdx){
+                    itemVip.getComponent(cc.Button).enableAutoGrayEffect = false;
+                }
+                else{
+                    itemVip.getComponent(cc.Button).enableAutoGrayEffect = true;
+                }
+            }
 
             // let vipPointNextLevel = VipPoints[0];
             // for (let i = VipPoints.length - 1; i >= 0; i--) {
@@ -223,7 +152,7 @@ export default class PopupVipPoint extends cc.Component {
             // }
             //let delta = (Configs.Login.VipPoint - vipPointStartLevel) / (vipPointNextLevel - vipPointStartLevel);
             //Utils.Log("delta: " + delta);
-            this.spriteProgressVipPoint.fillRange = (vipPointIdx - 1) / 13;
+            this.spriteProgressVipPoint.fillRange = (vipPointIdx - 1) / this.listItemVip.length;
 
             this.listVippoint = [];
             let VipPointsMoney = Configs.Login.VipPointsMoney;

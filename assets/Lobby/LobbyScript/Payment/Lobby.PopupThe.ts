@@ -12,8 +12,8 @@ import BroadcastReceiver from "../Script/common/BroadcastReceiver";
 const { ccclass, property } = cc._decorator;
 @ccclass("Lobby.PopupShop.TabNapThe")
 export class TabNapThe {
-    @property(Dropdown)
-    dropdownTelco: Dropdown = null;
+    // @property(Dropdown)
+    // dropdownTelco: Dropdown = null;
     @property(Dropdown)
     dropdownAmount: Dropdown = null;
     @property(cc.EditBox)
@@ -33,6 +33,8 @@ export class TabNapThe {
                 this.tabSelectedNhaMang = i;                
             });
         }
+        cc.log("check menh gia the nap : ", Configs.App.SERVER_CONFIG.listMenhGiaNapThe);
+        cc.log("check menh gia the nap  Configs.App.SERVER_CONFIG.ratioNapThe: ", Configs.App.SERVER_CONFIG.ratioNapThe);
         for (let i = 0; i < Configs.App.SERVER_CONFIG.listMenhGiaNapThe.length; i++) {
             let node = cc.instantiate(this.itemFactorTemplate);
             node.parent = this.itemFactorTemplate.parent;
@@ -40,14 +42,14 @@ export class TabNapThe {
 
             let menhGia = Configs.App.SERVER_CONFIG.listMenhGiaNapThe[i];
             let nhan = Math.ceil(menhGia * Configs.App.SERVER_CONFIG.ratioNapThe);
-            node.getChildByName("menhgia").getComponent(cc.Label).string = Utils.formatNumber(menhGia);
-            node.getChildByName("khuyenmai").getComponent(cc.Label).string = "0%";
+            node.getChildByName("menhgia").getComponent(cc.Label).string = Utils.formatNumber(menhGia) + " VNĐ";
+            node.getChildByName("khuyenmai").getComponent(cc.Label).string = "+0%";
             node.getChildByName("nhan").getComponent(cc.Label).string = Utils.formatNumber(nhan);
         }
     }
     reset() {
         this.tabSelectMang.toggleItems[0].check();
-        this.dropdownTelco.setOptions(["Chọn nhà mạng"].concat(Configs.App.SERVER_CONFIG.listTenNhaMang));
+        // this.dropdownTelco.setOptions(["Chọn nhà mạng"].concat(Configs.App.SERVER_CONFIG.listTenNhaMang));
         let listMenhGia = ["Chọn mệnh giá"];
         for (let i = 0; i < Configs.App.SERVER_CONFIG.listMenhGiaNapThe.length; i++) {
             listMenhGia.push(Utils.formatNumber(Configs.App.SERVER_CONFIG.listMenhGiaNapThe[i]));
@@ -57,7 +59,7 @@ export class TabNapThe {
     }
     resetForm() {
         this.tabSelectMang.toggleItems[0].check();
-        this.dropdownTelco.setValue(0);
+        // this.dropdownTelco.setValue(0);
         this.dropdownAmount.setValue(0);
         this.edbCode.string = "";
         this.edbSerial.string = "";

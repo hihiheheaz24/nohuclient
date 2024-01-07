@@ -32,8 +32,8 @@ export default class PopupTopEvent extends Dialog {
     lblMessage: cc.Label = null;
     @property(cc.Node)
     listVinhDanh: cc.Node = null;
-    @property(cc.Label)
-    lblTime: cc.Label = null;
+    // @property(cc.Label)
+    // lblTime: cc.Label = null;
 
 
     private tabSelectedIdx = 0;
@@ -53,8 +53,8 @@ export default class PopupTopEvent extends Dialog {
                 if (i == 1) {
                     this.loadData();
                 }
-                this.tabRule.active = this.tabSelectedIdx == 0 ? true : false;
-                this.tabVinhDanh.active = this.tabSelectedIdx == 0 ? false : true;
+                this.tabRule.active = true ;//this.tabSelectedIdx == 0 ? true : false;
+                // this.tabVinhDanh.active = this.tabSelectedIdx == 0 ? false : true;
             });
         }
     }
@@ -65,13 +65,14 @@ export default class PopupTopEvent extends Dialog {
     }
 
     loadData() {
+        return;
         App.instance.showLoading(true);
         this.listAgency = [];
         Http.get(Configs.App.API, { "c": 144, "nn": Configs.Login.Nickname }, (err, res) => {
             App.instance.showLoading(false);
             if (err != null) return;
             if (res["success"] && res['topVp'] != null) {
-                this.lblTime.string = res['date'];
+                // this.lblTime.string = res['date'];
                 this.listVinhDanh.active = true;
                 this.tabRule.active = false;
                 this.lblMessage.node.active = false;

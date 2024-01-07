@@ -61,6 +61,7 @@ import BoxLixi from "./Lobby.BoxLixi";
 import PopupKiemTien from "./Lobby.PopupKiemTien";
 import PopupTopVipDay from "./Lobby.PopupTopVipDay";
 import PopupTopEvent from "./Lobby.PopupTopEvent";
+import PopupVipPoint from "./Profile/PopupVipPoint";
 const { ccclass, property } = cc._decorator;
 var _this = null;
 @ccclass("Lobby.LobbyController.PanelMenu")
@@ -99,14 +100,14 @@ export class PanelMenu {
         this.animate = true;
         this.node.stopAllActions();
         this.node.active = true;
-        cc.tween(this.bg).set({ scale: 0.8, opacity: 150 }).to(0.3, { scale: 1.0, opacity: 255 }, { easing: cc.easing.backOut }).call(() => {
+        cc.tween(this.bg).set({ scale: 0.5, opacity: 150 }).to(0.3, { scale: 0.6667, opacity: 255 }, { easing: cc.easing.backOut }).call(() => {
             this.animate = false;
         }).start();
     }
 
     hide() {
         this.node.stopAllActions();
-        cc.tween(this.bg).to(0.3, { scale: 0.8, opacity: 150 }, { easing: cc.easing.backIn }).call(() => {
+        cc.tween(this.bg).to(0.3, { scale: 0.5, opacity: 150 }, { easing: cc.easing.backIn }).call(() => {
             this.node.parent.active = false;
             this.animate = false;
         }).start();
@@ -114,7 +115,7 @@ export class PanelMenu {
     dismiss() {
         if (this.animate) return;
         this.animate = true;
-        cc.tween(this.bg).to(0.3, { scale: 0.8, opacity: 150 }, { easing: cc.easing.backIn }).call(() => {
+        cc.tween(this.bg).to(0.3, { scale: 0.5, opacity: 150 }, { easing: cc.easing.backIn }).call(() => {
             this.node.parent.active = false;
             this.animate = false;
         }).start();
@@ -204,6 +205,8 @@ namespace Lobby {
         popupGiftCode: PopupGiftCode = null;
         popupUpdateNickname: PopupUpdateNickname = null;
         popupTransaction: PopupTransaction = null;
+
+        popupVipPoint: PopupVipPoint = null;
       
         popupTopHu: PopupTopHuDialog = null;
         popupSecurity: PopupSecurity = null;
@@ -1593,6 +1596,28 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 this.popupTransaction.show();
             }
         }
+
+        actVipPoint() {
+            if (!Configs.Login.IsLogin) {
+                App.instance.alertDialog.showMsg(App.instance.getTextLang('txt_need_login'));
+                return;
+            }
+            if (!this.popupVipPoint) {
+                let cb = (prefab) => {
+                    cc.log("chay vao add chil vip pont")
+                    let popupVipPoint = cc.instantiate(prefab).getComponent("PopupVipPoint");
+                    App.instance.node.addChild(popupVipPoint.node)
+                    this.popupVipPoint = popupVipPoint;
+                    this.popupVipPoint.show();
+                }
+                cc.log("chay vao add chil vip pont11")
+                BundleControl.loadPrefabPopup("PrefabPopup/PopupVipPoint", cb);
+            } else {
+                cc.log("chay vao add chil vip pon22t")
+                this.popupVipPoint.show();
+            }
+        }
+
         actForgetPassword() {
             if (!this.popupForgetPassword) {
                 let cb = (prefab) => {
@@ -1816,7 +1841,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 self.isShowCSKH = true;
                 cc.Tween.stopAllByTarget(self.panelCSKH);
                 cc.tween(self.panelCSKH)
-                    .to(0.3, { scaleX: 1, opacity: 255 }, { easing: "backOut" })
+                    .to(0.3, { scaleX: 0.6667, opacity: 255 }, { easing: "backOut" })
                     .start();
 
             }
@@ -2453,11 +2478,11 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                     App.instance.node.addChild(popupProfile.node);
                     this.popupProfile = popupProfile;
 
-                    this.popupProfile.show(tabIndex);
+                    this.popupProfile.show();
                 }
                 BundleControl.loadPrefabPopup("PrefabPopup/PopupProfile", cb);
             } else {
-                this.popupProfile.show(tabIndex);
+                this.popupProfile.show();
             }
         }
 
@@ -2482,7 +2507,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 App.instance.alertDialog.showMsg(App.instance.getTextLang('txt_need_login'));
                 return;
             }
-            this.actAddCoin();
+            this.actAddCoin(null, null);
         }
 
         actGoToTLMN() {

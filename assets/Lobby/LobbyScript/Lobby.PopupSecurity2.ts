@@ -16,12 +16,10 @@ export default class PopupSecurity2 extends Dialog {
     @property(cc.Node)
     tabContents: cc.Node = null;
     private tabSelectedIdx = 0;
-    @property(TabProfileSecurity)
-    tabProfile: TabProfileSecurity = null;
     @property(TabSecurityLogin)
     tabSecurityLogin: TabSecurityLogin = null;
-    @property(TabSecurityBox)
-    tabSecurityBox: TabSecurityBox = null;
+    @property(cc.Node)
+    tabSecurityBox: cc.Node = null;
     start() {
         for (let i = 0; i < this.tabs.toggleItems.length; i++) {
             this.tabs.toggleItems[i].node.on("toggle", () => {
@@ -31,29 +29,6 @@ export default class PopupSecurity2 extends Dialog {
                 }
             });
         } 
-        var sefl = this;
-        MiniGameNetworkClient.getInstance().addListener((data) => {
-            if (!this.node.active) return;
-            let inpacket = new InPacket(data);
-            //  //Utils.Log(inpacket.getCmdId());
-            switch (inpacket.getCmdId()) {
-                case cmd.Code.GET_SECURITY_INFO: {
-                    App.instance.showLoading(false);
-                    let res = new cmd.ResGetSecurityInfo(data);
-                    //Utils.Log("GET_SECURITY_INFO=", res);
-                    Configs.Login.Mail = res.email;
-                    Configs.Login.Address = res.address;
-                    Configs.Login.Gender = res.gender;
-                    Configs.Login.VerifyMobile = res.isVerifyPhone;
-                    Configs.Login.Coin = res.moneyUse;
-                    Configs.Login.SAFE = res.safe;
-                    let msg = App.instance.getTextLang("txt_not_config");
-                    Configs.Login.PhoneNumner = res.mobile == "" ? msg : res.mobile.substring(0, res.mobile.length - 3) + "***";        
-                    sefl.tabProfile.updateInfo();
-                    break;
-                }
-            }
-        }, this);
     }
     show() {
         super.show();
@@ -70,13 +45,10 @@ export default class PopupSecurity2 extends Dialog {
         }
         switch (this.tabSelectedIdx) {
             case 0:
-                this.tabProfile.show();
+                this.tabSecurityBox.active = true;
                 break;
-            case 1:
+            case 1:     
                 this.tabSecurityLogin.show();
-                break;
-            case 2:
-                this.tabSecurityBox.show();
                 break;
         }
     }
@@ -89,15 +61,18 @@ export default class PopupSecurity2 extends Dialog {
         }
         switch (this.tabSelectedIdx) {
             case 0:
-                this.tabProfile.show();
+                this.tabSecurityBox.active = true;
                 break;
-            case 1:
+            case 1:       
                 this.tabSecurityLogin.show();
-                break;
-            case 2:
-                this.tabSecurityBox.show();
                 break;
         }
     }
+
+     
+    onClickGanKetOtp() {
+        App.instance.openTelegram(Configs.App.getLinkTelegram());
+    }
+
 
 }

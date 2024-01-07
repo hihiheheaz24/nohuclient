@@ -20,8 +20,8 @@ export default class UIPopupMail extends Dialog {
     @property(cc.Label)
     txtTitle: cc.Label = null;
 
-    @property(cc.RichText)
-    txtContent: cc.RichText = null;
+    @property(cc.Label)
+    txtContent: cc.Label = null;
 
     @property(cc.Label)
     txtTime: cc.Label = null;
@@ -80,7 +80,7 @@ export default class UIPopupMail extends Dialog {
         Http.get(Configs.App.API, { c: "405", nn: Configs.Login.Nickname, p: this.page }, (err, res) => {
             App.instance.showLoading(false);
             if (err != null) return;
-             //Utils.Log("UIPopupMail:" + JSON.stringify(res));
+             cc.log("UIPopupMail:" + JSON.stringify(res));
             if (res["success"]) {
                 if (res["errorCode"] == "10001") {
                     this.boxEmpty.active = true;
@@ -108,18 +108,27 @@ export default class UIPopupMail extends Dialog {
                     }
                 }
             }
+            else{
+                this.boxEmpty.active = true;
+                this.boxHave.active = false;
+            }
         });
     }
 
     private dataMailReading = null;
     readMail(dataMail) {
-
+        this.content.active = false;
         this.dataMailReading = dataMail;
         this.boxInfo.active = true;
         this.txtTitle.string = dataMail.title;
         this.txtContent.string = dataMail.content;
         this.txtTime.string = App.instance.getTextLang('txt_mail_time_send')+ dataMail.createTime;
         this.txtSender.string = dataMail.author;
+    }
+
+    onClickBackToListMail(){
+        this.content.active = true;
+        this.boxInfo.active = false;
     }
 
     OpenURL() {

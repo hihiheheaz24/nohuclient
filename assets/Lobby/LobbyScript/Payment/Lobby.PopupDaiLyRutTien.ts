@@ -238,6 +238,7 @@ export default class PopupDaiLyRutTien extends Dialog {
 
     setDataItem(item, data) {
         item.opacity = data['rank'] >= 1 ? 255 : 255;
+        item.getChildByName('bg').active = item['itemID'] % 2 === 0 ? false : true;
         item.getChildByName('lbStt').getComponent(cc.Label).string = item['itemID'] + 1;
         item.getChildByName('lbName').getComponent(cc.Label).string = data['nameagent'];
         item.getChildByName('lbNickname').getComponent(cc.Label).string = data['nickname'];

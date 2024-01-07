@@ -56,7 +56,7 @@ export default class Loading extends cc.Component {
         this.nodeSlider.progress = 0;
 
         if (Configs.App.IS_LOCAL == false) {
-            Http.get("https://zanews24h.com/assets/AssetBundleVersion.json", {}, (err, data) => {
+            Http.get("https://dev-tlmn.vpl.mobi/test/assets/AssetBundleVersion.json", {}, (err, data) => {
                 BundleControl.init(data);
               this.loadLobby();  
             });

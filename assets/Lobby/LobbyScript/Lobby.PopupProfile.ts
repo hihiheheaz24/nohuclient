@@ -15,6 +15,8 @@ import TabSecurityLogin from "./Profile/TabSecurityLogin";
 import TabSecurityBox from "./Profile/TabSecurityBox";
 import TabProfile from "./Profile/TabProfile";
 import TabChangePass from "./Profile/TabChangePass";
+import PopupTransaction from "./Lobby.PopupTransaction";
+import BundleControl from "../../Loading/src/BundleControl";
 const { ccclass, property } = cc._decorator;
 
 // @ccclass("Lobby.PopupProfile.TabProfile")
@@ -497,8 +499,6 @@ const { ccclass, property } = cc._decorator;
 // }
 @ccclass
 export default class PopupProfile extends Dialog {
-    @property(cc.ToggleContainer)
-    tabs: cc.ToggleContainer = null;
     @property(cc.Node)
     tabContents: cc.Node = null;
     private tabSelectedIdx = 0;
@@ -512,17 +512,11 @@ export default class PopupProfile extends Dialog {
     @property(TabChangePass)
     tabChangePass: TabChangePass = null;
 
+    popupTransaction: PopupTransaction = null;
+
 
     start() {
 
-        for (let i = 0; i < this.tabs.toggleItems.length; i++) {
-            this.tabs.toggleItems[i].node.on("toggle", () => {
-                if (this.tabSelectedIdx != i) {
-                    this.tabSelectedIdx = i;
-                    this.onTabChanged();
-                }
-            });
-        }
         BroadcastReceiver.register(BroadcastReceiver.USER_INFO_UPDATED, () => {
             if (!this.node.active) return;
             // this.tabProfile.spriteAvatar.spriteFrame = App.instance.getAvatarSpriteFrame(Configs.Login.Avatar);
@@ -695,6 +689,24 @@ export default class PopupProfile extends Dialog {
     actChangeAvatar() {
         App.instance.actChangeAvatar();
     }
+
+    actTransaction() {
+        if (!Configs.Login.IsLogin) {
+            App.instance.alertDialog.showMsg(App.instance.getTextLang('txt_need_login'));
+            return;
+        }
+        if (!this.popupTransaction) {
+            let cb = (prefab) => {
+                let popupDaily = cc.instantiate(prefab).getComponent("Lobby.PopupTransaction");
+                App.instance.node.addChild(popupDaily.node)
+                this.popupTransaction = popupDaily;
+                this.popupTransaction.show();
+            }
+            BundleControl.loadPrefabPopup("PrefabPopup/PopupTransaction", cb);
+        } else {
+            this.popupTransaction.show();
+        }
+    }
     // actUpdateInfo() {
     //     this.popupUpdateInfo.show();
     // }
@@ -729,8 +741,7 @@ export default class PopupProfile extends Dialog {
     //     }
     show() {
         super.show();
-        this.tabSelectedIdx = 0;
-        this.tabs.toggleItems[this.tabSelectedIdx].isChecked = true;
+        this.tabSelectedIdx = 0;        
         this.onTabChanged();
     }
 
@@ -738,7 +749,6 @@ export default class PopupProfile extends Dialog {
         super.show();
 
         this.tabSelectedIdx = 2;
-        this.tabs.toggleItems[this.tabSelectedIdx].isChecked = true;
         this.onTabChanged();
     }
 
