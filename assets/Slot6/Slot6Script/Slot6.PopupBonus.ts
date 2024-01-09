@@ -149,9 +149,9 @@ export class PopupBonus extends Dialog {
             this.dismiss();
             this.onFinished();
         }, 1.5);
-        // this.controller.onBtnSoundSumary();
-        // Tween.showPopup(this.nodeBoxNotify,this.nodeBoxNotify.parent);
-        // Tween.numberTo(this.txtNotify,this.win, 0.3);
+        this.controller.onBtnSoundSumary();
+        Tween.showPopup(this.nodeBoxNotify,this.nodeBoxNotify.parent);
+        Tween.numberTo(this.txtNotify,this.win, 0.3);
         
     }
 

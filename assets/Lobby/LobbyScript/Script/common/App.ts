@@ -56,8 +56,6 @@ export default class App extends cc.Component {
 
     @property(cc.Node)
     loading: cc.Node = null;
-    @property(cc.Node)
-    loadingIcon: cc.Node = null;
     @property(cc.Label)
     loadingLabel: cc.Label = null;
 
@@ -513,9 +511,6 @@ export default class App extends cc.Component {
         } else {
             this.loading.active = false;
         }
-        this.loadingIcon.stopAllActions();
-        this.loadingIcon.runAction(cc.repeatForever(cc.rotateBy(1.5, 360)));
-        // cc.tween(this.loadingIcon).to(0.5, { scale: 1.2 }).to(0.5, { scale: 0.8 }).to(0.5, { scale: 1.0 }).repeatForever().start();
     }
 
     showErrLoading(msg?: string) {

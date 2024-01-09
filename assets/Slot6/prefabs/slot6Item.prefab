@@ -160,7 +160,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a8ce5096-e7ca-46eb-bcb3-dab278365f39"
+      "__uuid__": "da8fa291-2f8e-49a1-8224-42af5373fa7a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -173,9 +173,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": {
-      "__uuid__": "2463af7f-f953-4bc3-b7e9-4f866df934df"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
@@ -216,8 +214,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 236,
-      "height": 200
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -228,8 +226,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        -3.6,
+        -98.636,
         0,
         0,
         0,
@@ -268,7 +266,7 @@
     ],
     "paused": false,
     "defaultSkin": "default",
-    "defaultAnimation": "",
+    "defaultAnimation": "animation",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -279,13 +277,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "ngon nen2",
+    "_animationName": "animation",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "7c53aa64-86f3-4701-9e30-c79836276f55"
+      "__uuid__": "f77d9c6b-1b8a-458d-9b7d-77454f987945"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -321,10 +319,10 @@
       "__id__": 3
     },
     "skeDataSpecical": {
-      "__uuid__": "b3a34b47-75b8-4af1-858b-6be85bd884f9"
+      "__uuid__": "f77d9c6b-1b8a-458d-9b7d-77454f987945"
     },
     "sprAtlast": {
-      "__uuid__": "2463af7f-f953-4bc3-b7e9-4f866df934df"
+      "__uuid__": "7c91d688-3dd3-4933-8692-0a05f54695d8"
     },
     "skeDataWild": {
       "__uuid__": "cda83647-1f02-4323-af86-ab1269cdc733"
@@ -355,18 +353,6 @@
     },
     "skeDataIcon7": {
       "__uuid__": "191eb1c6-1afd-43bf-bb72-3ba5200e9b76"
-    },
-    "spriteFrameIcon10": {
-      "__uuid__": "fc48fb46-6897-4b96-9a91-7a5dcfe8c04b"
-    },
-    "spriteFrameIcon11": {
-      "__uuid__": "f081c6b0-2a34-4ff5-83cf-b4a23bf42853"
-    },
-    "spriteFrameIcon10Blur": {
-      "__uuid__": "fc48fb46-6897-4b96-9a91-7a5dcfe8c04b"
-    },
-    "spriteFrameIcon11Blur": {
-      "__uuid__": "f081c6b0-2a34-4ff5-83cf-b4a23bf42853"
     },
     "_id": ""
   },

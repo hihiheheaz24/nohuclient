@@ -52,15 +52,6 @@ export default class Slot6Item extends cc.Component {
     @property(sp.SkeletonData)
     skeDataIcon7: sp.SkeletonData = null;
 
-    @property(cc.SpriteFrame)
-    spriteFrameIcon10: cc.SpriteFrame = null;
-    @property(cc.SpriteFrame)
-    spriteFrameIcon11: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    spriteFrameIcon10Blur: cc.SpriteFrame = null;
-    @property(cc.SpriteFrame)
-    spriteFrameIcon11Blur: cc.SpriteFrame = null;
 
     private mId: number = -1;
     animName = "";
@@ -76,30 +67,26 @@ export default class Slot6Item extends cc.Component {
             case SLOT6_ID_ITEM.JACKPOT:
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_1")
                 this.skeItem.skeletonData = this.skeDataSpecical;
-                this.skeItem.animation = isWin ? "jackpot" : "jackpot2";
-                this.animName = isWin ? "jackpot" : "jackpot2";
+                this.skeItem.animation = "animation";
+                this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.WILD:
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_2")
-                this.skeItem.skeletonData = this.skeDataWild;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.BONUS:
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_3");
-                this.skeItem.skeletonData = this.skeDataBonus;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.SCATTER:
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_4");
-                this.skeItem.skeletonData = this.skeDataScatter;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.X500:
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_5");
-                this.skeItem.skeletonData = this.skeDataIcon1;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
                 break;
@@ -128,13 +115,13 @@ export default class Slot6Item extends cc.Component {
                 this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.X25:
-                this.sprItem.spriteFrame = this.spriteFrameIcon10;
+                this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_10");
                 this.skeItem.skeletonData = this.skeDataIcon6;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
                 break;
             case SLOT6_ID_ITEM.X5:
-                this.sprItem.spriteFrame = this.spriteFrameIcon11;
+                this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_11");
                 this.skeItem.skeletonData = this.skeDataIcon7;
                 this.skeItem.animation = "animation";
                 this.animName = "animation";
@@ -143,10 +130,13 @@ export default class Slot6Item extends cc.Component {
         this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));
     }
     showItemAnim() {
-        this.skeItem.node.color = cc.Color.WHITE;
-        this.skeItem.node.active = true;
-        this.sprItem.node.active = false;
-        this.skeItem.setAnimation(0, this.animName, true);
+        this.sprItem.node.active = true;
+        if (this.mId === SLOT6_ID_ITEM.JACKPOT) {
+            this.sprItem.node.active = false;
+            this.skeItem.node.color = cc.Color.WHITE;
+            this.skeItem.node.active = true;
+            this.skeItem.setAnimation(0, this.animName, true);
+        }
     }
     setIdBlur(id) {
         this.sprItem.sizeMode = cc.Sprite.SizeMode.TRIMMED;
@@ -179,10 +169,10 @@ export default class Slot6Item extends cc.Component {
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_9_blur");
                 break;
             case SLOT6_ID_ITEM.X25:
-                this.sprItem.spriteFrame = this.spriteFrameIcon10Blur;
+                this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_10_blur");
                 break;
             case SLOT6_ID_ITEM.X5:
-                this.sprItem.spriteFrame = this.spriteFrameIcon11Blur;
+                this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_11_blur");
                 break;
         }
         this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));

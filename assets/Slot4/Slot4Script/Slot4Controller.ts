@@ -181,20 +181,6 @@ export default class Slot4Controller extends cc.Component {
     @property([sp.SkeletonData])
     arrSkeletonIcon100: sp.SkeletonData[] = [];
 
-    @property([cc.SpriteFrame])
-    iconSFBlurArr1K: cc.SpriteFrame[] = [];
-    @property([cc.SpriteFrame])
-    iconSFArr1K: cc.SpriteFrame[] = [];
-    @property([sp.SkeletonData])
-    arrSkeletonIcon1K: sp.SkeletonData[] = [];
-
-    @property([cc.SpriteFrame])
-    iconSFBlurArr10K: cc.SpriteFrame[] = [];
-    @property([cc.SpriteFrame])
-    iconSFArr10K: cc.SpriteFrame[] = [];
-    @property([sp.SkeletonData])
-    arrSkeletonIcon10K: sp.SkeletonData[] = [];
-
     @property([UIItemIconSlot25])
     arrUIItemIcon: UIItemIconSlot25[] = [];
     @property(cc.Button)
@@ -877,38 +863,41 @@ export default class Slot4Controller extends cc.Component {
 
     getSpriteFrameIconBlur(indexIcon) {
         var self = this;
-        if (this.betId == -1)
-            return self.iconSFBlurArr10K[indexIcon];
-        else if (this.betId == 0)
-            return self.iconSFBlurArr100[indexIcon];
-        else if (this.betId == 1)
-            return self.iconSFBlurArr1K[indexIcon];
-        else if (this.betId == 2)
-            return self.iconSFBlurArr10K[indexIcon];
+        self.iconSFBlurArr100[indexIcon];
+        // if (this.betId == -1)
+        //     return self.iconSFBlurArr10K[indexIcon];
+        // else if (this.betId == 0)
+        //     return self.iconSFBlurArr100[indexIcon];
+        // else if (this.betId == 1)
+        //     return self.iconSFBlurArr1K[indexIcon];
+        // else if (this.betId == 2)
+        //     return self.iconSFBlurArr10K[indexIcon];
     }
 
     getSpriteFrameIcon(indexIcon) {
-        var self = this;
-        if (this.betId == -1)
-            return self.iconSFArr10K[indexIcon];
-        else if (this.betId == 0)
-            return self.iconSFArr100[indexIcon];
-        else if (this.betId == 1)
-            return self.iconSFArr1K[indexIcon];
-        else if (this.betId == 2)
-            return self.iconSFArr10K[indexIcon];
+        var self = this
+        return self.iconSFArr100[indexIcon];
+        // if (this.betId == -1)
+        //     return self.iconSFArr10K[indexIcon];
+        // else if (this.betId == 0)
+        //     return self.iconSFArr100[indexIcon];
+        // else if (this.betId == 1)
+        //     return self.iconSFArr1K[indexIcon];
+        // else if (this.betId == 2)
+        //     return self.iconSFArr10K[indexIcon];
     }
 
     getSpineIcon(indexIcon) {
         var self = this;
-        if (this.betId == -1)
-            return self.arrSkeletonIcon10K[indexIcon];
-        else if (this.betId == 0)
-            return self.arrSkeletonIcon100[indexIcon];
-        else if (this.betId == 1)
-            return self.arrSkeletonIcon1K[indexIcon];
-        else if (this.betId == 2)
-            return self.arrSkeletonIcon10K[indexIcon];
+        return self.arrSkeletonIcon100[indexIcon];
+        // if (this.betId == -1)
+        //     return self.arrSkeletonIcon10K[indexIcon];
+        // else if (this.betId == 0)
+        //     return self.arrSkeletonIcon100[indexIcon];
+        // else if (this.betId == 1)
+        //     return self.arrSkeletonIcon1K[indexIcon];
+        // else if (this.betId == 2)
+        //     return self.arrSkeletonIcon10K[indexIcon];
     }
 
     hideWinEffect() {

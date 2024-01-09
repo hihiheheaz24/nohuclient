@@ -184,7 +184,6 @@ namespace Lobby {
                     eventHandler.component = "PopupUpdateNickname";
                     eventHandler.handler = "onClickConfirm";
                     this.btnConfirm.clickEvents[0] = eventHandler;
-                    this.btnConfirm.node.getComponentInChildren(cc.Label).string = App.instance.getTextLang("txt_confirm").toUpperCase();
                     this.lbTitle.string = App.instance.getTextLang("txt_notify").toUpperCase();
                     BroadcastReceiver.send(BroadcastReceiver.UPDATE_NICKNAME_SUCCESS, { "username": _this.username, "password": _this.password });
                 });
@@ -275,7 +274,6 @@ namespace Lobby {
                     eventHandler.component = "PopupUpdateNickname";
                     eventHandler.handler = "onClickConfirm";
                     this.btnConfirm.clickEvents[0] = eventHandler;
-                    this.btnConfirm.node.getComponentInChildren(cc.Label).string = App.instance.getTextLang("txt_confirm");
                     this.lbTitle.string = App.instance.getTextLang("txt_notify");
                 });
             }
