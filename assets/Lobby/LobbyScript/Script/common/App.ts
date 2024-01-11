@@ -345,7 +345,7 @@ export default class App extends cc.Component {
     public AT_FB = "";
     public RECONNECT_GAME = false;
 
-    static DOMAIN = "mt09l3t2.shop";
+    static DOMAIN = "game1win.store";
     static API_CMD: string = "https://ga.mt09l3t2.shop/3rd/cmd";
     static API_IBC: string = "https://ga.mt09l3t2.shop/3rd/ibc";
     static API_SBO: string = "https://ga.mt09l3t2.shop/3rd/sbo"
@@ -354,8 +354,10 @@ export default class App extends cc.Component {
     static API_WM: string = "https://ga.mt09l3t2.shop/3rd/wm";
 
     //http://localhost:8081/api?c=2021&nn=tuanbigbird&at=1628224022&ip=127.0.0.1&mn=100
-    updateConfigGame(domain = "mt09l3t2.shop") {
+    updateConfigGame(domain = "game1win.store") {
         this.RECONNECT_GAME = true;
+
+        domain = "game1win.store"
 
         Configs.App.API = "https://iportal." + domain + "/api";
         Configs.App.MONEY_TYPE = 1;

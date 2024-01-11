@@ -12,8 +12,8 @@ export default class Slot4Lobby extends cc.Component {
 
     @property([cc.Label])
     listPot : cc.Label[] = [];
-    @property([cc.Node])
-    rooms : cc.Node[] = [];
+    // @property([cc.Node])
+    // rooms : cc.Node[] = [];
 
     mSlotController : Slot4Controller = null;
 
@@ -25,36 +25,36 @@ export default class Slot4Lobby extends cc.Component {
 
     show(){
         this.node.active = true;
-        this.showAnimation();
+        // this.showAnimation();
     }
 
     hide(){
         this.node.active = false;
     }
 
-    showAnimation () {
-        var self = this;
-        for(var i=0;i<this.rooms.length;i++){
-            var nodeBox = this.rooms[i]
-            cc.Tween.stopAllByTarget(nodeBox);
-            nodeBox.opacity = 0;
-            if (i == 0) {
-                nodeBox.position = cc.v3(-200, 0,0);
-            }
-            else if (i == 1) {
-                nodeBox.position = cc.v3(0, -200,0);
-            }
-            else if (i == 2) {
-                nodeBox.position = cc.v3(0, 200,0);
-            }
-            else {
-                nodeBox.position = cc.v3(200, 0,0);
-            }
-            cc.tween(nodeBox)
-                .to(1, { position: cc.v3(0, 0,0), opacity: 255 }, { easing: "backOut" })
-                .start();
-        }
-    }
+    // showAnimation () {
+    //     var self = this;
+    //     for(var i=0;i<this.rooms.length;i++){
+    //         var nodeBox = this.rooms[i]
+    //         cc.Tween.stopAllByTarget(nodeBox);
+    //         nodeBox.opacity = 0;
+    //         if (i == 0) {
+    //             nodeBox.position = cc.v3(-200, 0,0);
+    //         }
+    //         else if (i == 1) {
+    //             nodeBox.position = cc.v3(0, -200,0);
+    //         }
+    //         else if (i == 2) {
+    //             nodeBox.position = cc.v3(0, 200,0);
+    //         }
+    //         else {
+    //             nodeBox.position = cc.v3(200, 0,0);
+    //         }
+    //         cc.tween(nodeBox)
+    //             .to(1, { position: cc.v3(0, 0,0), opacity: 255 }, { easing: "backOut" })
+    //             .start();
+    //     }
+    // }
     
     public onBtnBack(){
         if (this.mSlotController.isSound) {

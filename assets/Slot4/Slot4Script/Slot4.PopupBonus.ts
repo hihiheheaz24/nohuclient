@@ -48,13 +48,13 @@ export class PopupBonus extends Dialog {
                         case 0:
                             sefl.factor++;
                             sefl.lblFactor.string = this.factor+"";
-                            node["btn_spine"].setAnimation(0,"idle_0",true);
-                            node["btn_spine"].addAnimation(1,"open_0",false); 
+                            node["btn_spine"].setAnimation(0,"thuong",true);
+                            node["btn_spine"].addAnimation(1,"mo",false); 
                             
                             break;
                         case 1:
-                            node["btn_spine"].setAnimation(0,"idle_1",true);
-                            node["btn_spine"].addAnimation(1,"open_1",false); 
+                            node["btn_spine"].setAnimation(0,"thuong",true);
+                            node["btn_spine"].addAnimation(1,"mo",false);  
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"], 4*this.betValue , 0.3);
@@ -63,8 +63,8 @@ export class PopupBonus extends Dialog {
                             break;
                        
                         case 2:
-                            node["btn_spine"].setAnimation(0,"idle_2",true);
-                            node["btn_spine"].addAnimation(1,"open_2",false); 
+                            node["btn_spine"].setAnimation(0,"thuong",true);
+                            node["btn_spine"].addAnimation(1,"mo",false); 
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"],10* this.betValue * this.factor, 0.3);
@@ -72,8 +72,8 @@ export class PopupBonus extends Dialog {
                             Tween.numberTo(this.lblWin,this.win, 0.3);
                             break;
                         case 3:
-                            node["btn_spine"].setAnimation(0,"idle_3",true);
-                            node["btn_spine"].addAnimation(1,"open_3",false); 
+                            node["btn_spine"].setAnimation(0,"thuong",true);
+                            node["btn_spine"].addAnimation(1,"mo",false); 
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"],15* this.betValue * this.factor, 0.3);
@@ -81,8 +81,8 @@ export class PopupBonus extends Dialog {
                             Tween.numberTo(this.lblWin,this.win, 0.3);
                             break;
                         case 4:
-                            node["btn_spine"].setAnimation(0,"idle_4",true);
-                            node["btn_spine"].addAnimation(1,"open_4",false); 
+                            node["btn_spine"].setAnimation(0,"thuong",true);
+                            node["btn_spine"].addAnimation(1,"mo",false); 
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             this.win += 20* this.betValue * this.factor;
@@ -112,8 +112,8 @@ export class PopupBonus extends Dialog {
             let node = this.items.children[i];
             node["btn"] = node.getChildByName("btn").getComponent(cc.Button);
             node["btn_spine"] = node["btn"].getComponentInChildren(sp.Skeleton);
-            node["btn_spine"].setAnimation(0,"idle",true);
-            node["btn_spine"].addAnimation(1,"appear",false); 
+            node["btn_spine"].setAnimation(0,"thuong",true);
+            // node["btn_spine"].addAnimation(1,"appear",false); 
             node["is_open"] = false;
         }
         for (let i = 0; i < this.items.childrenCount; i++) {

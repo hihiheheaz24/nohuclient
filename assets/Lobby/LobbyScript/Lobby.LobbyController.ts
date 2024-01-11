@@ -62,6 +62,7 @@ import PopupKiemTien from "./Lobby.PopupKiemTien";
 import PopupTopVipDay from "./Lobby.PopupTopVipDay";
 import PopupTopEvent from "./Lobby.PopupTopEvent";
 import PopupVipPoint from "./Profile/PopupVipPoint";
+import LobbyTransferDap from "./Payment/LobbyTransferDap";
 const { ccclass, property } = cc._decorator;
 var _this = null;
 @ccclass("Lobby.LobbyController.PanelMenu")
@@ -226,6 +227,7 @@ namespace Lobby {
         popupTaiApp: PopupTaiApp = null;
         popupProfile: PopupProfile = null;
         popupShop: LobbyShop = null;
+        popupTransferDap: LobbyTransferDap = null;
         popupDetailDaiLy: PopupDetailDaiLy = null;
         popupTopVipDay: PopupTopVipDay = null;
         popupTopEvent: PopupTopEvent = null;
@@ -712,12 +714,12 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                         this.tabsListGame.updateItemJackpots("aztec", pokego["100"]["p"], pokego["100"]["x2"] == 1, pokego["1000"]["p"],
                         pokego["1000"]["x2"] == 1, pokego["10000"]["p"], pokego["10000"]["x2"] == 1);
 
-                        let athur = resJson["athur"];
-                        this.tabsListGame.updateItemJackpots("athur", athur["100"]["p"], athur["100"]["x2"] == 1, athur["1000"]["p"], athur["1000"]["x2"] == 1, athur["10000"]["p"], athur["10000"]["x2"] == 1);
+                        // let athur = resJson["athur"];
+                        // this.tabsListGame.updateItemJackpots("athur", athur["100"]["p"], athur["100"]["x2"] == 1, athur["1000"]["p"], athur["1000"]["x2"] == 1, athur["10000"]["p"], athur["10000"]["x2"] == 1);
 
-                        let thanden = resJson["thanden"];
-                        this.tabsListGame.updateItemJackpots("thanden", thanden["100"]["p"], thanden["100"]["x2"] == 1, thanden["1000"]["p"],
-                        thanden["1000"]["x2"] == 1, thanden["10000"]["p"], thanden["10000"]["x2"] == 1);
+                        // let thanden = resJson["thanden"];
+                        // this.tabsListGame.updateItemJackpots("thanden", thanden["100"]["p"], thanden["100"]["x2"] == 1, thanden["1000"]["p"],
+                        // thanden["1000"]["x2"] == 1, thanden["10000"]["p"], thanden["10000"]["x2"] == 1);
 
                     //    this.createListdata(j100, j1000, j10000);
                         for (var i = 0; i < this.listData100.length; i++) {
@@ -752,16 +754,16 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData100[i].gameid == "pokemon") {
                                 this.listData100[i] = new Tophudata("aztec", "Aztec Gems", pokego["100"]["p"]);
                             }
-                            if (this.listData100[i].gameid == "athur" && athur) {
-                                this.listData100[i] = new Tophudata("athur", "Athur", athur["100"]["p"]);
-                            }
+                            // if (this.listData100[i].gameid == "athur" && athur) {
+                            //     this.listData100[i] = new Tophudata("athur", "Athur", athur["100"]["p"]);
+                            // }
                             
 							if (this.listData100[i].gameid == "maybach") {
                                 this.listData100[i] = new Tophudata("maybach", "Hallowen", maybach["100"]["p"]);
                             }
-                            if (this.listData100[i].gameid == "thanden") {
-                                this.listData100[i] = new Tophudata("thanden", "Thần Đèn", thanden["100"]["p"]);
-                            }
+                            // if (this.listData100[i].gameid == "thanden") {
+                            //     this.listData100[i] = new Tophudata("thanden", "Thần Đèn", thanden["100"]["p"]);
+                            // }
                             // // 1000
                             if (this.listData1000[i].gameid == "chiemtinh") {
                                 this.listData1000[i] = new Tophudata("chiemtinh", "Chiêm Tinh", chiemtinh["1000"]["p"]);
@@ -792,9 +794,9 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData1000[i].gameid == "pokemon") {
                                 this.listData1000[i] = new Tophudata("aztec", "Aztec Gems", pokego["1000"]["p"]);
                             }
-                            if (this.listData1000[i].gameid == "athur" && athur) {
-                                this.listData1000[i] = new Tophudata("athur", "Athur", athur["1000"]["p"]);
-                            }
+                            // if (this.listData1000[i].gameid == "athur" && athur) {
+                            //     this.listData1000[i] = new Tophudata("athur", "Athur", athur["1000"]["p"]);
+                            // }
 							if (this.listData1000[i].gameid == "maybach") {
                                 this.listData1000[i] = new Tophudata("maybach", "Hallowen", maybach["1000"]["p"]);
                             }
@@ -831,9 +833,9 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData10000[i].gameid == "pokemon") {
                                 this.listData10000[i] = new Tophudata("aztec", "Aztec Gems", pokego["10000"]["p"]);
                             }
-                            if (this.listData10000[i].gameid == "athur" && athur) {
-                                this.listData10000[i] = new Tophudata("athur", "Athur", athur["10000"]["p"]);
-                            }
+                            // if (this.listData10000[i].gameid == "athur" && athur) {
+                            //     this.listData10000[i] = new Tophudata("athur", "Athur", athur["10000"]["p"]);
+                            // }
 							if (this.listData10000[i].gameid == "maybach") {
                                 this.listData10000[i] = new Tophudata("maybach", "Hallowen", maybach["10000"]["p"]);
                             }
@@ -866,10 +868,13 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
             this.updateJackpot("pokemon", "pokemon"); //PIKACHU
             this.updateJackpot("minipoker", "minipoker"); // MINIPOKER
             this.updateJackpot("frozen", "frozen"); // DUAXE
-            this.updateJackpot("athur", "athur"); // DUAXE
-            this.updateJackpot("thanden", "thanden"); // THANDEN
+            // this.updateJackpot("athur", "athur"); // DUAXE
+            // this.updateJackpot("thanden", "thanden"); // THANDEN
         }
         updateJackpot(gameName, jackpotID) {
+            // cc.log("check data jacpot : ", App.instance.topHuData )
+            // cc.log("check data jacpot : ",jackpotID )
+            // cc.log("check data jacpot : ",App.instance.topHuData[jackpotID] )
             let data = App.instance.topHuData[jackpotID];
             this.tabsListGame.updateItemJackpots(gameName, data["100"]["p"], data["100"]["x2"] == 1, data["1000"]["p"],
                 data["1000"]["x2"] == 1, data["10000"]["p"], data["10000"]["x2"] == 1)
@@ -1217,6 +1222,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 cc.sys.localStorage.setItem("pass_word", "null");
             }
             App.instance.showLoading(true);
+            cc.log("check link api Configs.App.API : ", Configs.App.API)
             Http.get(Configs.App.API, { c: 3, un: username, pw: md5(password) }, (err, res) => {
                 switch (parseInt(res["errorCode"])) {
                     case 0:
@@ -2374,6 +2380,25 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 BundleControl.loadPrefabPopup("PrefabPopup/PopupShop", cb);
             } else {
                 this.popupShop.show(dataDaiLy);
+            }
+
+        }
+
+        actTransferDap(event, dataDaiLy = null) {
+            if (!Configs.Login.IsLogin) {
+                App.instance.alertDialog.showMsg(App.instance.getTextLang('txt_need_login'));
+                return;
+            }
+            if (!this.popupTransferDap) {
+                let cb = (prefab) => {
+                    let popupTransferDap = cc.instantiate(prefab).getComponent("LobbyTransferDap");
+                    App.instance.node.addChild(popupTransferDap.node)
+                    this.popupTransferDap = popupTransferDap;
+                    this.popupTransferDap.show(dataDaiLy);
+                }
+                BundleControl.loadPrefabPopup("PrefabPopup/PopupTransferDap", cb);
+            } else {
+                this.popupTransferDap.show(dataDaiLy);
             }
 
         }

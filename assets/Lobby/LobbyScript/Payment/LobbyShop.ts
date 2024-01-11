@@ -67,7 +67,7 @@ export default class LobbyShop extends Dialog {
                     if (this.btnTabs[NAME_TABS[Configs.Login.ListPayment[i].providerName]]) {
                         this.btnTabs[NAME_TABS[Configs.Login.ListPayment[i].providerName]].active = true;
                         if (isFind == false) {
-                            this.onBtnChoseTab(null, tabID != null ? "chuyenkhoan" : Configs.Login.ListPayment[i].providerName);
+                            this.onBtnChoseTab(null, tabID != null ? "bank" : Configs.Login.ListPayment[i].providerName);
                             isFind = true;
                         }
                         else if (Configs.Login.ListPayment[i].providerName == "princepay") {

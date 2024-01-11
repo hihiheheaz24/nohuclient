@@ -28,8 +28,8 @@ namespace Lobby {
         nodeChangeNickName: cc.Node = null;
         @property(cc.Button)
         btnConfirm: cc.Button = null;
-        @property(cc.Label)
-        lbTitle: cc.Label = null;
+        // @property(cc.Label)
+        // lbTitle: cc.Label = null;
 
 
         private username: string = "";
@@ -184,7 +184,7 @@ namespace Lobby {
                     eventHandler.component = "PopupUpdateNickname";
                     eventHandler.handler = "onClickConfirm";
                     this.btnConfirm.clickEvents[0] = eventHandler;
-                    this.lbTitle.string = App.instance.getTextLang("txt_notify").toUpperCase();
+                    // this.lbTitle.string = App.instance.getTextLang("txt_notify").toUpperCase();
                     BroadcastReceiver.send(BroadcastReceiver.UPDATE_NICKNAME_SUCCESS, { "username": _this.username, "password": _this.password });
                 });
             }
@@ -274,7 +274,7 @@ namespace Lobby {
                     eventHandler.component = "PopupUpdateNickname";
                     eventHandler.handler = "onClickConfirm";
                     this.btnConfirm.clickEvents[0] = eventHandler;
-                    this.lbTitle.string = App.instance.getTextLang("txt_notify");
+                    // this.lbTitle.string = App.instance.getTextLang("txt_notify");
                 });
             }
 
