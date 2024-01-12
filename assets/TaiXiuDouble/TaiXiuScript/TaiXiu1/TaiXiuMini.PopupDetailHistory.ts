@@ -40,12 +40,10 @@ export default class PopupDetailHistory extends Dialog {
     sprDice2: cc.Sprite = null;
     @property(cc.Sprite)
     sprDice3: cc.Sprite = null;
-    @property(cc.Sprite)
-    sprResult: cc.Sprite = null;
-    @property(cc.Node)
-    sprResult_Tai: cc.Node = null;
-    @property(cc.Node)
-    sprResult_Xiu: cc.Node = null;
+    @property(sp.Skeleton)
+    sprResult_Tai: sp.Skeleton = null;
+    @property(sp.Skeleton)
+    sprResult_Xiu: sp.Skeleton = null;
 
     @property(cc.Node)
     itemTemplate: cc.Node = null;
@@ -73,7 +71,6 @@ export default class PopupDetailHistory extends Dialog {
         this.sprDice1.node.active = false;
         this.sprDice2.node.active = false;
         this.sprDice3.node.active = false;
-        // this.sprResult.node.active = false;
         this.lblSession.string = "Phiên: #" + this.session;
         this.lblResult.string = "";
 
@@ -105,7 +102,6 @@ export default class PopupDetailHistory extends Dialog {
         this.sprDice1.node.active = false;
         this.sprDice2.node.active = false;
         this.sprDice3.node.active = false;
-        // this.sprResult.node.active = false;
         this.lblSession.string = "Phiên: #" + this.session;
         this.lblResult.string = "";
         this.totalBetTai = 0;
@@ -145,45 +141,27 @@ export default class PopupDetailHistory extends Dialog {
 
                 this.lblSession.string = "Phiên: #" + res["resultTX"]["referenceId"];
                 this.lblResult.string = res["resultTX"]["result"] == 1
-                    ? " - Tài " + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"]) + "(" + res["resultTX"]["dice1"] + "-" + res["resultTX"]["dice2"] + "-" + res["resultTX"]["dice3"] + ")"
-                    : " - Xỉu " + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"]) + "(" + res["resultTX"]["dice1"] + "-" + res["resultTX"]["dice2"] + "-" + res["resultTX"]["dice3"] + ")";
+                    ? "=" + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"]) //" - Tài " + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"]) + "(" + res["resultTX"]["dice1"] + "-" + res["resultTX"]["dice2"] + "-" + res["resultTX"]["dice3"] + ")"
+                    : "=" + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"])//" - Xỉu " + (res["resultTX"]["dice1"] + res["resultTX"]["dice2"] + res["resultTX"]["dice3"]) + "(" + res["resultTX"]["dice1"] + "-" + res["resultTX"]["dice2"] + "-" + res["resultTX"]["dice3"] + ")";
                 this.lblTotalBetTai.string = Utils.formatNumber(this.totalBetTai) + " / " + Utils.formatNumber(this.totalRefundTai);
                 this.lblTotalBetXiu.string = Utils.formatNumber(this.totalBetXiu) + " / " + Utils.formatNumber(this.totalRefundXiu);
 
-                this.sprDice1.spriteFrame = this.sfDices[res["resultTX"]["dice1"]];
+                this.sprDice1.spriteFrame = this.sfDices[res["resultTX"]["dice1"] - 1];
                 this.sprDice1.node.active = true;
-                this.sprDice2.spriteFrame = this.sfDices[res["resultTX"]["dice2"]];
+                this.sprDice2.spriteFrame = this.sfDices[res["resultTX"]["dice2"] - 1];
                 this.sprDice2.node.active = true;
-                this.sprDice3.spriteFrame = this.sfDices[res["resultTX"]["dice3"]];
+                this.sprDice3.spriteFrame = this.sfDices[res["resultTX"]["dice3"] - 1];
                 this.sprDice3.node.active = true;
 
-                // this.sprResult.spriteFrame = res["resultTX"]["result"] == 1 ? this.sfTai : this.sfXiu;
                 if (res["resultTX"]["result"] == 1) {
-                    cc.Tween.stopAllByTarget(this.sprResult_Tai);
-                    cc.Tween.stopAllByTarget(this.sprResult_Xiu);
-                    this.sprResult_Tai.scale = 0.6;
-                    this.sprResult_Xiu.scale = 0.6;
-                    cc.tween(this.sprResult_Tai).repeatForever(
-                        cc.tween().sequence(cc.tween().to(0.3,
-                            { scale: 0.7 }),
-                            cc.tween().to(0.3, { scale: 0.6 }),
-                            cc.tween().to(0.3, { scale: 0.5 }),
-                            cc.tween().to(0.3, { scale: 0.6 })))
-                        .start();
+                    this.sprResult_Tai.setAnimation(0, "animation" ,true)
+                    this.sprResult_Xiu.node.active = false;
+                    this.sprResult_Tai.node.active = true;
                 } else {
-                    cc.Tween.stopAllByTarget(this.sprResult_Tai);
-                    cc.Tween.stopAllByTarget(this.sprResult_Xiu);
-                    this.sprResult_Tai.scale = 0.6;
-                    this.sprResult_Xiu.scale = 0.6;
-                    cc.tween(this.sprResult_Xiu).repeatForever(
-                        cc.tween().sequence(
-                            cc.tween().to(0.3, { scale: 0.7 }),
-                            cc.tween().to(0.3, { scale: 0.6 }),
-                            cc.tween().to(0.3, { scale: 0.5 }),
-                            cc.tween().to(0.3, { scale: 0.6 })))
-                        .start();
+                    this.sprResult_Xiu.node.active = true;
+                    this.sprResult_Tai.node.active = false;
+                    this.sprResult_Xiu.setAnimation(0, "animation" ,true)
                 }
-                // this.sprResult.node.active = true;
 
                 this.loadDataPage();
 

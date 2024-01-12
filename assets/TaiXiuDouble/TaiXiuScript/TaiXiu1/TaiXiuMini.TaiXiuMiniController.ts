@@ -57,8 +57,6 @@ export default class TaiXiuMiniController extends cc.Component {
     chatNhanh: cc.Node = null;
     @property(cc.Node)
     contentChatNhanh: cc.Node = null;
-    @property(sp.Skeleton)
-    bgSpine: sp.Skeleton = null;
     @property(cc.Node)
     gamePlay: cc.Node = null;
     @property([cc.SpriteFrame])
@@ -67,10 +65,6 @@ export default class TaiXiuMiniController extends cc.Component {
     sprFrameTai: cc.SpriteFrame = null;
     @property(cc.SpriteFrame)
     sprFrameXiu: cc.SpriteFrame = null;
-    @property(sp.Skeleton)
-    eftai: sp.Skeleton = null;
-    @property(sp.Skeleton)
-    efxiu: sp.Skeleton = null;
     @property(cc.SpriteFrame)
     sprFrameBtnNan: cc.SpriteFrame = null;
     @property(cc.SpriteFrame)
@@ -152,10 +146,8 @@ export default class TaiXiuMiniController extends cc.Component {
 
     @property([cc.Prefab])
     public popupsPr: cc.Prefab[] = [];
-    @property(cc.Animation)
-    diceAnim: cc.Animation = null;
-    @property(cc.Node)
-    animDiceNew: cc.Node = null;
+    @property(sp.Skeleton)
+    diceAnim: sp.Skeleton = null;
     @property(cc.Node)
     layoutBetOther: cc.Node = null;
     @property(cc.Node)
@@ -177,8 +169,8 @@ export default class TaiXiuMiniController extends cc.Component {
     private isCanChat = true;
     private panelChat: PanelChat = null;
     private readonly maxBetValue = 999999999;
-    private listBets = [1000, 10000, 50000, 100000, 500000, 1000000, 10000000, 50000000];
-    private readonly bowlStartPos = cc.v2(-260.219, 52.018);
+    private listBets = [1000, 5000, 10000, 200000, 50000, 100000, 500000, 1000000, 5000000, 10000000];
+    private readonly bowlStartPos = cc.v2(-550.597, 0);
     private currentBtnBet = null;
     private arrTimeoutDice = [];
     private popupHonor: TaiXiuMiniPopupHonors = null;
@@ -330,7 +322,6 @@ export default class TaiXiuMiniController extends cc.Component {
                     this.sessionId = res.referenceId;
                     this.remainTime = res.remainTime;
                     this.diceAnim.node.active = false;
-                    this.animDiceNew.active = false;
                     break;
                 }
                 case cmd.Code.UPDATE_TIME: {
@@ -367,8 +358,8 @@ export default class TaiXiuMiniController extends cc.Component {
                         this.lblRemainTime2.string = "00:" + (res.remainTime < 10 ? "0" + res.remainTime : "" + res.remainTime);
                         this.layoutBet.active = false;
                         this.layoutBet.y = 28;
-                        this.lblBetTai.string = "Đặt";
-                        this.lblBetXiu.string = "Đặt";
+                        this.lblBetTai.string = "ĐẶT CƯỢC";
+                        this.lblBetXiu.string = "ĐẶT CƯỢC";
 
                         if (res.remainTime < 5 && this.isNan && !this.isOpenBowl) {
                             this.bowl.active = false;
@@ -404,15 +395,12 @@ export default class TaiXiuMiniController extends cc.Component {
                     this.dice3.spriteFrame = this.sprDices[res.dice3];
 
                     this.diceAnim.node.active = true;
-                    this.animDiceNew.active = true;
                     console.log("result");
-                    this.diceAnim.play("diceAnimNew");
-                    this.diceAnim.on("finished", () => {
+                    this.playSpine(this.diceAnim.node, "animation", false, ()=>{
                         this.diceAnim.node.active = false;
                         this.dice1.node.active = true;
                         this.dice2.node.active = true;
                         this.dice3.node.active = true;
-                        this.animDiceNew.active = false;
 
                         console.log("ohhhhhhhhhhhhhhhh: " + this.isNan);
                         if (!this.isNan) {
@@ -423,10 +411,10 @@ export default class TaiXiuMiniController extends cc.Component {
                                 this.handleJackpotWin(this.jackpotData);
                             }
                         } else {
-                            this.bowl.position = this.bowlStartPos;
+                            this.bowl.position = cc.v3(this.bowlStartPos.x, this.bowlStartPos.y, 0);
                             this.bowl.active = true;
                         }
-                    });
+                    })
 
                     if (this.histories.length >= 100) {
                         this.histories.slice(0, 1);
@@ -461,7 +449,6 @@ export default class TaiXiuMiniController extends cc.Component {
                     let res = new cmd.ReceiveNewGame(data);
                     //Utils.Log("NEW GAME TX:", res);
                     this.diceAnim.node.active = false;
-                    this.animDiceNew.active = false;
                     this.dice1.node.active = false;
                     this.dice2.node.active = false;
                     this.dice3.node.active = false;
@@ -651,9 +638,22 @@ export default class TaiXiuMiniController extends cc.Component {
         this.dice2.node.active = false;
         this.dice3.node.active = false;
         this.diceAnim.node.active = false;
-        this.animDiceNew.active = false;
         MiniGameNetworkClient.getInstance().send(new cmd.SendScribe());
         this.showChat();
+    }
+
+    playSpine(nAnim , animName, loop, func) {
+        let spine = nAnim.getComponent(sp.Skeleton);
+        let track = spine.setAnimation(0, animName, loop);
+        if (track) {
+            // Register the end callback of the animation
+            spine.setCompleteListener((trackEntry, loopCount) => {
+                let name = trackEntry.animation ? trackEntry.animation.name : '';
+                if (name === animName && func) {
+                    func && func(); // Execute your own logic after the animation ends
+                }
+            });
+        }
     }
 
     showChat() {
@@ -696,9 +696,9 @@ export default class TaiXiuMiniController extends cc.Component {
         }
         this.betingDoor = BetDoor.Tai;
         this.lblBetTai.string = "0";
-        this.lblBetXiu.string = "Đặt";
+        this.lblBetXiu.string = "ĐẶT CƯỢC";
         this.layoutBet.active = true;
-        cc.tween(this.layoutBet).to(0.5, { y: -405 }, { easing: cc.easing.sineOut }).start();
+        cc.tween(this.layoutBet).to(0.5, { y: -301 }, { easing: cc.easing.sineOut }).start();
         this.layoutBet1.active = true;
     }
 
@@ -718,9 +718,9 @@ export default class TaiXiuMiniController extends cc.Component {
         }
         this.betingDoor = BetDoor.Xiu;
         this.lblBetXiu.string = "0";
-        this.lblBetTai.string = "Đặt";
+        this.lblBetTai.string = "ĐẶT CƯỢC";
         this.layoutBet.active = true;
-        cc.tween(this.layoutBet).to(0.5, { y: -405 }, { easing: cc.easing.sineOut }).start();
+        cc.tween(this.layoutBet).to(0.5, { y: -301 }, { easing: cc.easing.sineOut }).start();
         this.layoutBet1.active = true;
     }
 
@@ -751,8 +751,8 @@ export default class TaiXiuMiniController extends cc.Component {
 
     actCancel() {
         App.instance.showBgMiniGame("TaiXiu");
-        this.lblBetXiu.string = "Đặt";
-        this.lblBetTai.string = "Đặt";
+        this.lblBetXiu.string = "ĐẶT CƯỢC";
+        this.lblBetTai.string = "ĐẶT CƯỢC";
         this.betingDoor = BetDoor.None;
         this.layoutBet.active = false;
         this.layoutBetNumber.active = true;
@@ -884,9 +884,6 @@ export default class TaiXiuMiniController extends cc.Component {
         this.lblScore.node.parent.active = true;
         this.lblScore.node.active = true;
         this.lblScore.string = "" + this.lastScore;
-        this.bgSpine.node.active = true;
-        this.eftai.node.active = false;
-        this.efxiu.node.active = false;
         if (this.lastScore >= 11) {
             this.tai.active = true;
         } else {
@@ -900,16 +897,8 @@ export default class TaiXiuMiniController extends cc.Component {
     }
 
     private stopWin() {
-        this.eftai.node.active = false;
-        this.efxiu.node.active = false;
-        this.eftai.node.parent.getChildByName("text").active = true;
-        this.efxiu.node.parent.getChildByName("text").active = true;
         this.tai.active = false;
-        this.xiu.active = false;
-        // this.tai.runAction(cc.spawn(cc.scaleTo(0.3, 1), cc.tintTo(0.3, 255, 255, 255)));
-
-        // this.xiu.stopAllActions();
-        // this.xiu.runAction(cc.spawn(cc.scaleTo(0.3, 1), cc.tintTo(0.3, 255, 255, 255)));
+        this.xiu.active = false
     }
 
     private showToast(message: string) {

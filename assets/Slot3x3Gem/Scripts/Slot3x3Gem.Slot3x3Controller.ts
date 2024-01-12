@@ -80,6 +80,12 @@ export default class Slot3x3GemController extends MiniGame {
     @property([cc.Node])
     public popups: cc.Node[] = [];
 
+    @property(cc.Label)
+    lbLine: cc.Label = null;
+
+    @property(cc.Label)
+    lbBet: cc.Label = null;
+
     private rollStartItemCount = 15;
     private rollAddItemCount = 10;
     private spinDuration = 1.2;
@@ -126,6 +132,7 @@ export default class Slot3x3GemController extends MiniGame {
                 }
                 let oldIdx = this.betIdx;
                 this.betIdx = i;
+                this.lbBet.string = this.listBet[this.betIdx].toString();
                 for (let i = 0; i < this.buttonBets.length; i++) {
                     this.buttonBets[i].setActive(i == this.betIdx);
                 }
@@ -216,6 +223,7 @@ export default class Slot3x3GemController extends MiniGame {
         this.isSpined = true;
         this.isCanChangeBet = true;
         this.betIdx = 0;
+        this.lbBet.string = this.listBet[this.betIdx].toString();
         for (let i = 0; i < this.buttonBets.length; i++) {
             this.buttonBets[i].setActive(i == this.betIdx);
         }
@@ -259,7 +267,7 @@ export default class Slot3x3GemController extends MiniGame {
         this.btnSpin.interactable = isEnabled;
         this.btnClose.interactable = isEnabled;
         this.btnLine.interactable = isEnabled;
-        this.btnSpin.node.getComponentInChildren(sp.Skeleton).node.active = isEnabled;
+        // this.btnSpin.node.getComponentInChildren(sp.Skeleton).node.active = isEnabled;
     }
 
     private showToast(message: string) {
@@ -315,8 +323,8 @@ export default class Slot3x3GemController extends MiniGame {
         let timeScale = this.isBoost ? 0.5 : 1;
         for (let i = 0; i < this.columns.childrenCount; i++) {
             let roll = this.columns.children[i];
-            let step1Pos = this.itemHeight * 0.3;
-            let step2Pos = -this.itemHeight * roll.childrenCount + this.itemHeight * 3 - this.itemHeight * 0.3;
+            let step1Pos = this.itemHeight * 0.5;
+            let step2Pos = -this.itemHeight * roll.childrenCount + this.itemHeight * 3 - this.itemHeight * 0.5;
             let step3Pos = -this.itemHeight * roll.childrenCount + this.itemHeight * 3;
             roll.runAction(cc.sequence(
                 cc.delayTime(0.2 * i * timeScale),

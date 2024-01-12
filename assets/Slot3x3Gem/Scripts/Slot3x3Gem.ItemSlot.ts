@@ -18,42 +18,26 @@ export default class ItemSlot extends cc.Component {
     @property(cc.SpriteAtlas)
     sprAtlas: cc.SpriteAtlas = null;
 
+    @property([sp.SkeletonData])
+    listSpine: sp.SkeletonData[] = [];
+
+    @property([cc.SpriteFrame])
+    listSpr: cc.SpriteFrame[] = [];
+
     id = 0;
     animName = "";
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
     setId(id) {
-
-        id = id + 1;
-        this.id = id;
-        this.sprite.spriteFrame = this.sprAtlas.getSpriteFrame("icon" + this.id);
-        this.spine.node.active = true;
+        this.sprite.spriteFrame = this.listSpr[id];
+        this.spine.skeletonData = this.listSpine[id];
         this.sprite.node.active = false;
-        switch (this.id) {
-            case 1:
-                this.animName = "wild"
-                break;
-            case 2:
-                this.animName = 'do';
-                break;
-            case 3:
-                this.animName = 'xanh luc';
-                break;
-            case 4:
-                this.animName = 'la';
-                break;
-            case 5:
-                this.animName = 'tim';
-                break;
-            case 6:
-                this.animName = 'xanh duong';
-                break;
-        }
-        this.spine.setAnimation(0, this.animName, true);
+        this.spine.node.active = true;
+        this.spine.setAnimation(0, "animation", true);
     }
     setBlur() {
-        this.sprite.spriteFrame = this.sprAtlas.getSpriteFrame("icon" + (this.id + 1) + "_blur");
+        this.sprite.spriteFrame = this.listSpr[this.id]
         this.spine.node.active = false;
         this.sprite.node.active = true;
     }

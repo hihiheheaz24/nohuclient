@@ -31,8 +31,8 @@ namespace taixiumini {
 
         @property(cc.Node)
         page1: cc.Node = null;
-        @property(cc.Label)
-        lblLastSession: cc.Label = null;
+        // @property(cc.Label)
+        // lblLastSession: cc.Label = null;
         @property(cc.Node)
         xx1Draw: cc.Node = null;
         @property(cc.Node)
@@ -45,13 +45,9 @@ namespace taixiumini {
         @property(cc.Node)
         page2: cc.Node = null;
         @property(cc.Label)
-        lblTai1: cc.Label = null;
-        @property(cc.Label)
-        lblTai2: cc.Label = null;
+        lblTai1: cc.Label = null
         @property(cc.Label)
         lblXiu1: cc.Label = null;
-        @property(cc.Label)
-        lblXiu2: cc.Label = null;
         @property(cc.Node)
         contentDraw: cc.Node = null;
 
@@ -108,7 +104,7 @@ namespace taixiumini {
             var last = data[data.length - 1];
             var lastDices = last.dices;
             var lastScore = lastDices[0] + lastDices[1] + lastDices[2];
-            this.lblLastSession.string = "Phiên gần nhất: (#" + last.session + ")  " + (lastScore >= 11 ? "TÀI" : "XỈU") + "  " + lastScore + "(" + lastDices[0] + "-" + lastDices[1] + "-" + lastDices[2] + ")";
+            // this.lblLastSession.string = "Phiên gần nhất: (#" + last.session + ")  " + (lastScore >= 11 ? "TÀI" : "XỈU") + "  " + lastScore + "(" + lastDices[0] + "-" + lastDices[1] + "-" + lastDices[2] + ")";
 
             let endPosX = 337.215;
             let startPosY = -274.135;
@@ -320,8 +316,6 @@ namespace taixiumini {
                     column++;
                 }
             }
-            this.lblTai2.string = countTai + "";
-            this.lblXiu2.string = countXiu + "";
         }
     }
 }

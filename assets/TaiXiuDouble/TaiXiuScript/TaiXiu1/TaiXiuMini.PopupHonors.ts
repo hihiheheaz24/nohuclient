@@ -70,7 +70,7 @@ namespace taixiumini {
 
                   
                     let cb = (item, itemData) => {
-                        item.getChildByName("bg").opacity = item['itemID'] % 2 == 0 ? 255 : 0;
+                        item.getChildByName("bg").opacity = item['itemID'] % 2 !== 0 ? 255 : 0;
                         item.getChildByName("lblRank").getComponent(cc.Label).string = (item['itemID'] + 1).toString();
                         item.getChildByName("lblAccount").getComponent(cc.Label).string = itemData["username"];
                         item.getChildByName("lblWin").getComponent(cc.Label).string = Utils.formatNumber(itemData["money"]);

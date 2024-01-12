@@ -40,14 +40,14 @@ namespace lobby {
             this.reOrder();
             this.node.active = true;
             this.gamePlay.stopAllActions();
-            this.gamePlay.scale = 0.8;
+            this.gamePlay.scale = 0;
             // this.gamePlay.runAction(cc.sequence(
             //     cc.scaleTo(0.3, 1),
             //     cc.callFunc(() => {
             //         this._onShowed();
             //     })
             // ));
-            cc.tween(this.gamePlay).to(0.3, { scale: 1.0, opacity: 255 }, { easing: cc.easing.backOut }).call(() => {
+            cc.tween(this.gamePlay).to(0.2, { scale: 1.0, opacity: 255 }, { easing: cc.easing.backOut }).call(() => {
                 this._onShowed();
             }).start();
         }

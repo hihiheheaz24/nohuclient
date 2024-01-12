@@ -357,8 +357,6 @@ export default class App extends cc.Component {
     updateConfigGame(domain = "game1win.store") {
         this.RECONNECT_GAME = true;
 
-        domain = "game1win.store"
-
         Configs.App.API = "https://iportal." + domain + "/api";
         Configs.App.MONEY_TYPE = 1;
         Configs.App.LINK_DOWNLOAD = "https://" + domain + "";

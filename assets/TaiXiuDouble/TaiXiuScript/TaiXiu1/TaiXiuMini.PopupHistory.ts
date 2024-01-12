@@ -94,14 +94,15 @@ namespace taixiumini {
             for (var i = 0; i < datahistory.length; i++) {
                 var node = cc.instantiate(this.prefab);
                 node.parent = this.scroll.content;
-                this.setItemData(node, datahistory[i]);
+                this.setItemData(node, datahistory[i], i);
             }
         }
-        setItemData(item, itemData) {
+        setItemData(item, itemData, i) {
             let index = itemData['index']
-            item.getChildByName("bg").opacity = index % 2 == 0 ? 255 : 0;
+            cc.log("check index la : ",i )
+            item.getChildByName("bg").opacity = i % 2 !== 0 ? 255 : 0;
             item.getChildByName("lblSession").getComponent(cc.Label).string = "#" + itemData["referenceId"];
-            item.getChildByName("lblTime").getComponent(cc.Label).string = itemData["timestamp"].replace(" ", "\n");
+            item.getChildByName("lblTime").getComponent(cc.Label).string = itemData["timestamp"];
             item.getChildByName("lblBetDoor").getComponent(cc.Label).string = itemData["betSide"] == 1 ? "TÀI" : "XỈU";
             item.getChildByName("lblResult").getComponent(cc.Label).string = itemData["resultPhien"];
             item.getChildByName("lblBet").getComponent(cc.Label).string = Utils.formatNumber(itemData["betValue"]);
