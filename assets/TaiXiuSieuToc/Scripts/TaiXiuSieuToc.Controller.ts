@@ -89,11 +89,11 @@ export default class TaiXiuSieuTocController extends MiniGame {
     @property(cc.Node)
     nodeTxtXiu: cc.Node = null;
 
-    @property(cc.Node)
-    sprBtnBetXiu: cc.Node = null;
+    // @property(cc.Node)
+    // sprBtnBetXiu: cc.Node = null;
 
-    @property(cc.Node)
-    sprBtnBetTai: cc.Node = null;
+    // @property(cc.Node)
+    // sprBtnBetTai: cc.Node = null;
 
     @property(cc.Node)
     bgGame: cc.Node = null;
@@ -117,9 +117,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
     nodeBat: cc.Node = null;
 
     @property(cc.Node)
-    bgLighting: cc.Node = null;
-
-    @property(cc.Node)
     bgTime: cc.Node = null;
 
     @property(cc.EditBox)
@@ -134,10 +131,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
     dice2: sp.Skeleton = null;
     @property(sp.Skeleton)
     dice3: sp.Skeleton = null;
-    @property(sp.Skeleton)
-    dragon: sp.Skeleton = null;
-    @property(sp.Skeleton)
-    table: sp.Skeleton = null;
 
     @property([cc.SpriteFrame])
     sprDots: cc.SpriteFrame[] = [];
@@ -180,8 +173,7 @@ export default class TaiXiuSieuTocController extends MiniGame {
         this.nodeChat.active = false;
 
         TaiXiuSieuTocController.instance = this;
-        TaiXiuSTNetworkClient.TaiXiuSieuTocController = this;
-        TW(this.bgLighting).repeatForever(TW().sequence(TW().to(0.5, { opacity: 0 }), TW().to(0.5, { opacity: 255 }))).start();
+        TaiXiuSTNetworkClient.TaiXiuSieuTocController = this;        
         this.nodeBtnBet.active = false;
 
         var self = this;
@@ -259,12 +251,8 @@ export default class TaiXiuSieuTocController extends MiniGame {
                         this.lbTimeCountDown.node.scale = 1.0;
                         this.lbTimeCountDown.node.setPosition(cc.v2(-2.7, 47));
                         if (timeCd - 33 <= 5) {
-                            this.dragon.node.active = true;
-                            this.dragon.setAnimation(0, ANIM_STATE.DRAGON_X2SPEED, true);
                             this.lbTimeCountDown.node.color = new cc.Color().fromHEX("#FF6A6A");
                         } else {
-                            this.dragon.node.active = false;
-                            this.table.setAnimation(0, ANIM_STATE.TABLE_DRAGON, true);
                             this.lbTimeCountDown.node.color = cc.Color.WHITE;
                         }
                     }
@@ -273,11 +261,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
                     }
                     if (timeCd == 33) {
                         this.showToast(App.instance.getTextLang('txt_taixiu_finish'));
-                    }
-                    if (timeCd == 38) {
-                        this.dragon.node.active = true;
-                        this.dragon.setAnimation(0, ANIM_STATE.DRAGON_X2SPEED, true);
-                        this.table.setAnimation(0, ANIM_STATE.TABLE_NODRAGON, true);
                     }
                     if (timeCd < 36) {
                         this.stateGame = STATE_GAME.PREPARE_RESULT;
@@ -300,8 +283,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
                     break;
                 }
                 case cmd.Code.CMD_51S: { //time xem ket quả,tra ve 1 lan trong 1 phien
-                    this.dragon.node.active = false;
-                    this.table.setAnimation(0, ANIM_STATE.TABLE_NODRAGON, true);
                     this.session = res.id;
                     this.lbSession.string = "#" + this.session;
                     let timeCd = res.cd;
@@ -339,8 +320,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
                         this.lbTimeCountDown.string = "0" + res.cd;
                         this.stateGame = STATE_GAME.RESULT;
                         this.setDice();
-                        this.dragon.node.active = false;
-                        this.table.setAnimation(0, ANIM_STATE.TABLE_NODRAGON, true);
                         this.nodeBat.active = false;
                     }
                     if (res.cd == 0) {
@@ -364,10 +343,12 @@ export default class TaiXiuSieuTocController extends MiniGame {
                         } else {
                             Tween.numberTo(this.lbTotalBetXiu, this.totalBet, 0.3);
                         }
-                        this.sprBtnBetTai.active = true;
-                        this.sprBtnBetXiu.active = true;
-                        this.lbBetTai.node.active = false;
-                        this.lbBetXiu.node.active = false;
+                        // this.sprBtnBetTai.active = true;
+                        // this.sprBtnBetXiu.active = true;
+                        // this.lbBetTai.node.active = false;
+                        // this.lbBetXiu.node.active = false;
+                        this.lbBetTai.string = "Đặt Cược";
+                        this.lbBetXiu.string = "Đặt Cược";
                         Configs.Login.Coin -= res.data.betamount;
                         BroadcastReceiver.send(BroadcastReceiver.USER_UPDATE_COIN);
                     } else {
@@ -504,8 +485,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
         this.nodeBat.scale = 1;
         this.lbTimeCountDown.node.active = false;
         // this.nodeBtnBet.active = false;
-        this.dragon.node.active = false;
-        this.table.setAnimation(0, ANIM_STATE.TABLE_NODRAGON, true);
         this.lbTotalBetXiu.string =
             this.lbTotalBetTai.string =
             this.lbTotalBetXiu.string =
@@ -515,14 +494,14 @@ export default class TaiXiuSieuTocController extends MiniGame {
             this.lbTotalUserXiu.string =
             this.lbBetTai.string =
             this.lbBetXiu.string = "0";
-        this.sprBtnBetTai.active = true;
-        this.sprBtnBetXiu.active = true;
-        this.lbBetTai.node.active = false;
-        this.lbBetXiu.node.active = false;
+        // this.sprBtnBetTai.active = true;
+        // this.sprBtnBetXiu.active = true;
+        // this.lbBetTai.node.active = false;
+        // this.lbBetXiu.node.active = false;
+        this.lbBetTai.string = "Đặt Cược";
+        this.lbBetXiu.string = "Đặt Cược";
         this.lbScore.node.active = false;
         this.bg_Score.active = false;
-        this.sprBtnBetTai.parent.getChildByName("boxBet").active = false;
-        this.sprBtnBetXiu.parent.getChildByName("boxBet").active = false;
         this.totalBet = 0;
         this.currentGate = -1;
         this.nodeTxtTai.scale = 1.0;
@@ -562,9 +541,6 @@ export default class TaiXiuSieuTocController extends MiniGame {
         this.nodeBat.active = true;
         TW(this.nodeBat).delay(1.5)
             .to(0.75, { y: 9, opacity: 255, scale: 1.0 }, { easing: cc.easing.sineOut })
-            .call(() => {
-                this.table.setAnimation(0, ANIM_STATE.TABLE_DRAGON, true);
-            })
             .start();
 
         TW(this.nodeBat).tag(1);
@@ -740,12 +716,15 @@ export default class TaiXiuSieuTocController extends MiniGame {
             let amount = parseInt(data);
             this.currentBet += amount;
             if (this.currentGate == 1) {
-                this.lbBetTai.node.active = true;
-                this.sprBtnBetTai.active = false;
+                // this.lbBetTai.node.active = true;
+                // this.sprBtnBetTai.active = false;
+                // this.lbBetTai.string = "Đặt Cược";
+                this.lbBetXiu.string = "Đặt Cược";
                 Tween.numberTo(this.lbBetTai, this.currentBet, 0.3);
             } else if (this.currentGate == 2) {
-                this.lbBetXiu.node.active = true;
-                this.sprBtnBetXiu.active = false;
+                // this.lbBetXiu.node.active = true;
+                // this.sprBtnBetXiu.active = false;
+                this.lbBetTai.string = "Đặt Cược";
                 Tween.numberTo(this.lbBetXiu, this.currentBet, 0.3);
             }
             if (this.currentBtnBet != null) {
@@ -831,10 +810,12 @@ export default class TaiXiuSieuTocController extends MiniGame {
     onClickCancelBet() {
         App.instance.showBgMiniGame("TaiXiuSieuToc");
         // this.showNodeBtnBet(false);
-        this.sprBtnBetTai.active = true;
-        this.sprBtnBetXiu.active = true;
-        this.lbBetXiu.node.active = false;
-        this.lbBetTai.node.active = false;
+        // this.sprBtnBetTai.active = true;
+        // this.sprBtnBetXiu.active = true;
+        // this.lbBetXiu.node.active = false;
+        // this.lbBetTai.node.active = false;
+        this.lbBetTai.string = "Đặt Cược";
+        this.lbBetXiu.string = "Đặt Cược";
         this.currentBet = 0;
     }
     setTimeCountDown(data) {
@@ -860,23 +841,23 @@ export default class TaiXiuSieuTocController extends MiniGame {
                 this.currentGate = 1;
                 this.currentBet = 0;
                 this.lbBetTai.string = "0";
-                this.lbBetXiu.node.active = false;
-                this.lbBetTai.node.active = true;
-                this.sprBtnBetTai.parent.getChildByName("boxBet").active = true;
-                this.sprBtnBetXiu.parent.getChildByName("boxBet").active = false;
-                this.sprBtnBetTai.active = false;
-                this.sprBtnBetXiu.active = true;
+                // this.lbBetXiu.node.active = false;
+                // this.lbBetTai.node.active = true;
+                // this.sprBtnBetTai.parent.getChildByName("boxBet").active = true;
+                // this.sprBtnBetXiu.parent.getChildByName("boxBet").active = false;
+                // this.sprBtnBetTai.active = false;
+                // this.sprBtnBetXiu.active = true;
                 break;
             case "XIU":
                 this.currentGate = 2;
                 this.currentBet = 0;
                 this.lbBetXiu.string = "0";
-                this.lbBetTai.node.active = false;
-                this.lbBetXiu.node.active = true;
-                this.sprBtnBetTai.active = true;
-                this.sprBtnBetXiu.active = false;
-                this.sprBtnBetTai.parent.getChildByName("boxBet").active = false;
-                this.sprBtnBetXiu.parent.getChildByName("boxBet").active = true;
+                // this.lbBetTai.node.active = false;
+                // this.lbBetXiu.node.active = true;
+                // this.sprBtnBetTai.active = true;
+                // this.sprBtnBetXiu.active = false;
+                // this.sprBtnBetTai.parent.getChildByName("boxBet").active = false;
+                // this.sprBtnBetXiu.parent.getChildByName("boxBet").active = true;
                 break;
         }
         this.showNodeBtnBet(true);

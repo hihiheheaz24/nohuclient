@@ -45,11 +45,7 @@ namespace TaiXiuSieuToc {
         @property(cc.Node)
         page2: cc.Node = null;
         @property(cc.Label)
-        lblTai1: cc.Label = null;
-        @property(cc.Label)
         lblTai2: cc.Label = null;
-        @property(cc.Label)
-        lblXiu1: cc.Label = null;
         @property(cc.Label)
         lblXiu2: cc.Label = null;
         @property([cc.SpriteFrame])
@@ -111,7 +107,7 @@ namespace TaiXiuSieuToc {
             var last = data[0];
             var lastDices = last.dices;
             var lastScore = lastDices[0] + lastDices[1] + lastDices[2];
-            this.lblLastSession.string = "Phiên gần nhất: (#" + last.session + ")  " + (lastScore >= 11 ? "TÀI" : "XỈU") + "  " + lastScore + "(" + lastDices[0] + "-" + lastDices[1] + "-" + lastDices[2] + ")";
+            this.lblLastSession.string = "Phiên gần nhất: (#" + last.session + ")  " + (lastScore >= 11 ? "TÀI" : "XỈU") + "  " + "(" + lastDices[0] + "-" + lastDices[1] + "-" + lastDices[2] + ")";
 
             let endPosX = 337.215;
             let startPosY = -274.135;
@@ -256,8 +252,6 @@ namespace TaiXiuSieuToc {
                 data = data.splice(0, 20);
             }
             data=data.reverse();
-            this.lblTai1.string = countTai + "";
-            this.lblXiu1.string = countXiu + "";
             for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < data[i].length; j++) {
                     let score = data[i][j];

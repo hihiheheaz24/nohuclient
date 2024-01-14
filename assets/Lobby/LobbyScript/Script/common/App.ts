@@ -101,6 +101,7 @@ export default class App extends cc.Component {
     private subpackageLoaded: Object = {};
 
     private taiXiuDouble: MiniGame = null;
+    private Loto: MiniGame = null;
     private miniPoker: MiniGame = null;
     private caoThap: MiniGame = null;
     private bauCua: MiniGame = null;
@@ -259,6 +260,7 @@ export default class App extends cc.Component {
         this.miniPoker = null;
         this.caoThap = null;
         this.taiXiuDouble = null;
+        this.Loto = null;
         this.TaiXiuMD5 = null;
         this.bauCua = null;
         this.slot3x3 = null;
@@ -285,6 +287,7 @@ export default class App extends cc.Component {
         this.miniPoker = null;
         this.caoThap = null;
         this.taiXiuDouble = null;
+        this.Loto = null;
         this.TaiXiuMD5 = null;
         this.bauCua = null;
         this.slot3x3 = null;
@@ -988,6 +991,29 @@ export default class App extends cc.Component {
         // }
     }
 
+    openMiniGameLoto(bundleName, prefabName) {
+        if (this.Loto == null) {
+            this.showLoading(true, -1);
+            BundleControl.loadPrefabGame(bundleName, prefabName, (finish, total) => {
+                this.showErrLoading(App.instance.getTextLang('txt_loading1') + parseInt((finish / total) * 100) + "%");
+            }, prefab => {
+                this.showLoading(false);
+                if (this.Loto == null) {
+                    let node = cc.instantiate(prefab);
+                    node.parent = this.canvas;
+                    node.active = false;
+                    this.Loto = node.getComponent(MiniGame);
+                }                this.showGameMini("Loto", this.Loto.node);
+                this.Loto.show();
+            });
+        } else {
+            this.showGameMini("Loto", this.Loto.node);
+            this.Loto.show();
+        }
+
+        // }
+    }
+
     openMiniGameTaiXiuDouble(bundleName, prefabName) {
         if (this.taiXiuDouble == null) {
             this.showLoading(true, -1);
@@ -1013,26 +1039,27 @@ export default class App extends cc.Component {
         // }
     }
     openMiniGameTaiXiuSieuToc(bundleName, prefabName) {
-        TaiXiuSTNetworkClient.getInstance().checkConnect(() => {
-            if (this.taiXiuSieuToc == null) {
-                this.showLoading(true, -1);
-                BundleControl.loadPrefabGame(bundleName, prefabName, (finish, total) => {
-                    this.showErrLoading(App.instance.getTextLang('txt_loading1') + parseInt((finish / total) * 100) + "%");
-                }, prefab => {
-                    this.showLoading(false);
-                    if (this.taiXiuSieuToc == null) {
-                        let node = cc.instantiate(prefab);
-                        node.parent = this.miniGame;
-                        node.active = false;
-                        this.taiXiuSieuToc = node.getComponent(MiniGame);
-                    }
-                    this.showGameMini("TaiXiuSieuToc", this.taiXiuSieuToc.node);
-                    this.taiXiuSieuToc.show();
-                });
-            } else {
+        if (this.taiXiuSieuToc == null) {
+            this.showLoading(true, -1);
+            BundleControl.loadPrefabGame(bundleName, prefabName, (finish, total) => {
+                this.showErrLoading(App.instance.getTextLang('txt_loading1') + parseInt((finish / total) * 100) + "%");
+            }, prefab => {
+                this.showLoading(false);
+                if (this.taiXiuSieuToc == null) {
+                    let node = cc.instantiate(prefab);
+                    node.parent = this.miniGame;
+                    node.active = false;
+                    this.taiXiuSieuToc = node.getComponent(MiniGame);
+                }
                 this.showGameMini("TaiXiuSieuToc", this.taiXiuSieuToc.node);
                 this.taiXiuSieuToc.show();
-            }
+            });
+        } else {
+            this.showGameMini("TaiXiuSieuToc", this.taiXiuSieuToc.node);
+            this.taiXiuSieuToc.show();
+        }
+        TaiXiuSTNetworkClient.getInstance().checkConnect(() => {
+            
         })
     }
 

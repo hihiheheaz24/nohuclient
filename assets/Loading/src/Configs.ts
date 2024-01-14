@@ -264,7 +264,7 @@ namespace Configs {
             listMenhGiaNapThe: [10000, 100000, 200000, 500000],
             listQuantity: ["1", "2", "3"]
         }
-        static readonly HOST_SOCKJS = "https://st.mt09l3t2.shop/";
+        static readonly HOST_SOCKJS = "https://game1win.store/";
         static readonly SOCKJS_LOGIN = "websocket/ws-taixiu";
         // static readonly SOCKJS_LOGIN = "websocket/ws-minigame";
         static readonly TXST_SUB_TOPIC = "/topic/tx";

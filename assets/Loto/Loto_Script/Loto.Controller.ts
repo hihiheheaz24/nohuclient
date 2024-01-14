@@ -11,29 +11,22 @@ import InPacket from "../../Lobby/LobbyScript/Script/networks/Network.InPacket";
 import SPUtils from "../../Lobby/LobbyScript/Script/common/SPUtils";
 import cmdLobby from "../../Lobby/LobbyScript/Lobby.Cmd"
 import LotoPopupCoinTransfer from "./Loto.LotoPopupCoinTransfer";
+import MiniGame from "../../Lobby/LobbyScript/MiniGame";
 
 @ccclass
-export default class LotoController extends cc.Component {
+export default class LotoController extends MiniGame {
 
     public static instance: LotoController = null;
 
     @property(cc.Label)
     labelUserGold: cc.Label = null;
 
-    // Mode
-    @property(cc.Node)
-    currentMode: cc.Node = null;
-    @property(cc.Node)
-    listModes: cc.Node = null;
-    @property(cc.Node)
-    contentMode: cc.Node = null;
     @property(cc.Label)
     labelGameGuide: cc.Label = null;
 
-    // Location
-    @property(cc.Toggle)
-    listLocation: cc.Toggle[] = [];
-
+    @property(cc.Node)
+    contentBetted: cc.Node = null;
+    
     // Flex
     @property(cc.Toggle)
     listTabs: cc.Toggle[] = [];
@@ -60,20 +53,22 @@ export default class LotoController extends cc.Component {
     labelTabResult: cc.Label[] = [];
 
     // Choose Channel
+    @property(cc.Node)
+    betStore: cc.Node = null;
     @property(cc.Label)
     betDate: cc.Label = null;
-    @property(cc.Label)
-    currentBetChannel: cc.Label = null;
-    @property(cc.Node)
-    btnBetChannel: cc.Node = null;
-    @property(cc.Node)
-    betChannel: cc.Node = null;
-    @property(cc.Node)
-    contentBetChannel: cc.Node = null;
+    // @property(cc.Label)
+    // currentBetChannel: cc.Label = null;
+    // @property(cc.Node)
+    // btnBetChannel: cc.Node = null;
+    // @property(cc.Node)
+    // betChannel: cc.Node = null;
+    // @property(cc.Node)
+    // contentBetChannel: cc.Node = null;
     @property(cc.Prefab)
     prefabItemChannel: cc.Prefab = null;
-    @property(cc.ScrollView)
-    scrollBetChannel: cc.ScrollView = null;
+    // @property(cc.ScrollView)
+    // scrollBetChannel: cc.ScrollView = null;
 
     @property(cc.Node)
     btnTabResultChannel: cc.Node = null;
@@ -89,8 +84,8 @@ export default class LotoController extends cc.Component {
     @property(cc.Label)
     currentPopupResultChannel: cc.Label = null;
 
-    @property(cc.Node)
-    btnCancelChangeChannel: cc.Node = null;
+    // @property(cc.Node)
+    // btnCancelChangeChannel: cc.Node = null;
 
     // Number Selector
     @property(cc.Node)
@@ -127,6 +122,9 @@ export default class LotoController extends cc.Component {
     contentHistory: cc.Node = null;
     @property(cc.Prefab)
     prefabItemHistory: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    prefabItemHistory2: cc.Prefab = null;
 
     @property(cc.Node)
     popupChooseNumber: cc.Node = null
@@ -169,6 +167,8 @@ export default class LotoController extends cc.Component {
 
     private numRequired = 0;
 
+    private currentDay = 0;
+
     private musicSlotState = null;
     private remoteMusicBackground = null;
 
@@ -177,6 +177,8 @@ export default class LotoController extends cc.Component {
 
     private channelsOpen = [];
     private modesOpen = [];
+
+    private dataHistory = [];
 
     private arrDates = null;
     private popupResultCurrentChannelId = null;
@@ -221,6 +223,13 @@ export default class LotoController extends cc.Component {
                 return;
             }
         //    Play.SERVER_CONFIG = Configs.Login.FishConfigs;
+            cc.log("check login game : ", isLogined)
+            this.requestGetChatHistory();
+            this.requestGetNewBetHistory()
+            this.requestGetGameAvailable();
+            this.requestGetCalculateResult();
+            this.chooseTime(null, 0);
+            this.onClickBetted();
             BroadcastReceiver.send(BroadcastReceiver.USER_UPDATE_COIN);
             if (Configs.Login.CoinFish <= 0) {
                 App.instance.confirmDialog.show3("Tiền trong Loto của bạn đã hết, bạn có muốn chuyển tiền vào không?", "Có", (isConfirm) => {
@@ -271,10 +280,10 @@ export default class LotoController extends cc.Component {
 
         ShootFishNetworkClient.getInstance().addListener((route, push) => {
         //    cc.log("LOTO route : ", route);
-         //   cc.log("LOTO push : ", push);
+        //    cc.log("LOTO push : ", push);
             switch (route) {
                 case "onLOTO1":
-               //     cc.log("Loto LOTO1 push : ", push);
+                   cc.log("Loto LOTO1 push : ", push);
                     let itemNewBet = cc.instantiate(this.prefabItemNewBet);
                     itemNewBet.getComponent('Loto.ItemNewBet').initItem({
                         nickname: push["nickname"],
@@ -312,10 +321,13 @@ export default class LotoController extends cc.Component {
                     this.scrollChat.scrollToBottom(0.2);
                     break;
                 case "LOTO8":
-                //    cc.log("Loto LOTO8 push : ", push);
+                    //    cc.log("Loto LOTO8 push : ", push);
                     break;
                 case "LOTO9":
-                 //   cc.log("Loto LOTO9 push : ", push);
+                    //   cc.log("Loto LOTO9 push : ", push);
+                    break;
+                case "LOTO10":
+                    cc.log("Loto LOT10 push : ", push);
                     break;
                 default:
                     break;
@@ -341,116 +353,24 @@ export default class LotoController extends cc.Component {
         // Chat
         this.listTabs[0].isChecked = true;
         this.contentTabs.children[0].active = true;
-        this.requestGetChatHistory();
-        this.requestGetNewBetHistory();
+      ;
+      
 
         // Mode
         App.instance.showLoading(true);
-        this.requestGetGameAvailable();
+      
         this.betDate.string = this.today;
 
         // Lay ket qua cac lan danh truoc xem hom nay co an dc gi k
-        this.requestGetCalculateResult();
+     
 
         this.onBetChannelSelected(2, 1);
-        this.changeMode(null, 1);
         this.popupChooseNumber.active = false;
 
         for (let index = 0; index < this.arrDates.length; index++) {
             let time = this.arrDates[index];
             this.contentTime.children[1].children[index].children[0].getComponent(cc.Label).string = this.formatDate(time);
         }
-    }
-
-
-    // action
-    showListMode() {
-        this.listModes.active = !this.listModes.active;
-        this.listModes.parent.children[2].angle = this.listModes.active ? 0 : 180;
-    }
-
-    changeMode(event, groupId) {
-        var groupMode = parseInt(groupId);
-     //   cc.log("Loto changeMode groupMode : ", groupMode);
-        this.listModes.active = false;
-        this.listModes.parent.children[2].angle = 180;
-
-        let modeName = this.listModes.children[groupMode - 1].children[0].getComponent(cc.Label).string;
-        this.currentMode.children[1].getComponent(cc.Label).string = modeName;
-
-        this.resetContentModeState();
-        // this.contentMode.children[groupMode - 1].active = true;
-        // this.contentMode.children[groupMode - 1].children[0].getComponent(cc.Toggle).isChecked = true;
-
-        let arrModesInGroup = [];
-        switch (groupMode) {
-            case 1:
-                arrModesInGroup = [1, 2];
-                break;
-            case 2:
-                arrModesInGroup = [3, 4, 5];
-                break;
-            case 3:
-                arrModesInGroup = [6, 7];
-                break;
-            case 4:
-                arrModesInGroup = [8, 9, 10];
-                break;
-            case 5:
-                arrModesInGroup = [11, 12, 13, 14];
-                break;
-            case 6:
-                arrModesInGroup = [17, 24, 25];
-                break;
-            case 7:
-                arrModesInGroup = [18, 19, 20];
-                break;
-            case 8:
-                arrModesInGroup = [21, 22, 23];
-                break;
-            default:
-                break;
-        }
-
-        let arrModeAvailableInLocation = [];
-        switch (this.GAME_LOCATION) {
-            case cmd.Code.LOTO_LOCATION.MienBac:
-                arrModeAvailableInLocation = cmd.Code.LOTO_MODE_BAC;
-                break;
-            case cmd.Code.LOTO_LOCATION.MienTrung:
-                arrModeAvailableInLocation = cmd.Code.LOTO_MODE_TRUNG;
-                break;
-            case cmd.Code.LOTO_LOCATION.MienNam:
-                arrModeAvailableInLocation = cmd.Code.LOTO_MODE_NAM;
-                break;
-            default:
-                break;
-        }
-
-        // setup Mode in Group
-        //let nodeMode = this.contentMode.children[groupMode - 1];
-        let firstActive = 0;
-        let count = -1;
-        for (let index = 0; index < arrModesInGroup.length; index++) {
-            let findId = arrModeAvailableInLocation.indexOf(arrModesInGroup[index]);
-            if (findId != -1) {
-                if (count == -1) {
-                    firstActive = index;
-                }
-                count++;
-                //nodeMode.children[index].active = true;
-                // Open
-            } else {
-                // Block
-                //nodeMode.children[index].active = false;
-            }
-        }
-        var firstModeInGroup = arrModesInGroup[firstActive];
-        if (this.GAME_LOCATION == cmd.Code.LOTO_LOCATION.MienTrung && firstModeInGroup == 11) {
-            firstModeInGroup = arrModesInGroup[1];
-            //this.contentMode.children[groupMode - 1].children[1].getComponent(cc.Toggle).isChecked = true;
-        }
-        this.chooseMode(null, firstModeInGroup);
     }
 
     chooseMode(event, modeId) {
@@ -506,6 +426,7 @@ export default class LotoController extends cc.Component {
         this.updateNumSelector(numCount);
         this.requestGetPayWinRate();
         if(event){
+            cc.log("chay vao choose mode")
             this.popupChooseNumber.active = true;
         }
        
@@ -519,48 +440,13 @@ export default class LotoController extends cc.Component {
 
     onClickXacNhanPopupNumber(){
         this.popupChooseNumber.active = false;
+        this.betStore.active = true;
     }
 
     
 
-    chooseLocation(toggle) {
-        var index = this.listLocation.indexOf(toggle);
-     //   cc.log("Loto chooseLocation locationId : ", index);
-        this.GAME_LOCATION = index;
-
-        let firstChannelInLocation = 0;
-        switch (this.GAME_LOCATION) {
-            case cmd.Code.LOTO_LOCATION.MienBac:
-                this.setupGroup(cmd.Code.LOTO_GROUP_BAC);
-                firstChannelInLocation = 1;
-                break;
-            case cmd.Code.LOTO_LOCATION.MienTrung:
-                this.setupGroup(cmd.Code.LOTO_GROUP_TRUNG);
-                firstChannelInLocation = 2;
-                break;
-            case cmd.Code.LOTO_LOCATION.MienNam:
-                this.setupGroup(cmd.Code.LOTO_GROUP_NAM);
-                firstChannelInLocation = 16;
-                break;
-            default:
-                break;
-        }
-
-        this.changeMode(null, 1);
-        this.onBetChannelSelected("0", firstChannelInLocation);
-    }
-
-    setupGroup(arrGroupAvailable) {
-        for (let index = 0; index < this.listModes.childrenCount; index++) {
-            let findId = arrGroupAvailable.indexOf(index + 1);
-            if (findId != -1) {
-                // Open
-                this.listModes.children[index].active = true;
-            } else {
-                // Block
-                this.listModes.children[index].active = false;
-            }
-        }
+    chooseLocation() {
+        this.onBetChannelSelected("0", 1);
     }
 
     actionCancelBet() {
@@ -568,6 +454,7 @@ export default class LotoController extends cc.Component {
         this.labelTotalBet.string = "0";
         this.labelWinValue.string = "" + this.currentWinValue;
         this.edtBet.string = "1";
+        this.betStore.active = false;
         this.resetContentNumberPicked();
         this.chooseMode(null, this.GAME_MODE);
     }
@@ -684,87 +571,78 @@ export default class LotoController extends cc.Component {
 
     // Choose Bet Channel
     showBetChannel(event, type) {
-        this.btnBetChannel.children[0].angle = 180;
-        this.btnTabResultChannel.children[0].angle = 180;
-        this.btnPopupResultChannel.children[0].angle = 180;
+    //     this.btnBetChannel.children[0].angle = 180;
+    //     this.btnTabResultChannel.children[0].angle = 180;
+    //     this.btnPopupResultChannel.children[0].angle = 180;
 
-        this.btnCancelChangeChannel.active = true;
+    //     this.btnCancelChangeChannel.active = true;
 
-        this.betChannel.active = !this.betChannel.active;
-        if (type == "0") {// o phan chon cuoc
-            this.btnBetChannel.children[0].angle = this.betChannel.active ? 0 : 180;
-            this.betChannel.position = cc.v2(-385, -75);
-        } else if (type == "1") { // o phan tab ket qua nho
-            this.btnTabResultChannel.children[0].angle = this.betChannel.active ? 0 : 180;
-            this.betChannel.position = cc.v2(485, -15);
-        } else if (type == "2") { // o phan Tab ket qua To
-            this.btnPopupResultChannel.children[0].angle = this.betChannel.active ? 0 : 180;
-            this.betChannel.position = cc.v2(60, 35);
-        } 
-    //    console.log("showBetChannel: " + this.contentBetChannel.childrenCount);
-        // for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
+    //     this.betChannel.active = !this.betChannel.active;
+    //     if (type == "0") {// o phan chon cuoc
+    //         this.btnBetChannel.children[0].angle = this.betChannel.active ? 0 : 180;
+    //         this.betChannel.position = cc.v2(-385, -75);
+    //     } else if (type == "1") { // o phan tab ket qua nho
+    //         this.btnTabResultChannel.children[0].angle = this.betChannel.active ? 0 : 180;
+    //         this.betChannel.position = cc.v2(485, -15);
+    //     } else if (type == "2") { // o phan Tab ket qua To
+    //         this.btnPopupResultChannel.children[0].angle = this.betChannel.active ? 0 : 180;
+    //         this.betChannel.position = cc.v2(60, 35);
+    //     } 
+    // //    console.log("showBetChannel: " + this.contentBetChannel.childrenCount);
+    //     // for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
 
-        if (this.contentBetChannel.childrenCount == 0) {
-            for (let index = 1; index < 2; index++) { // 0 = NONE
-                let info = {
-                    name: cmd.Code.LOTO_CHANNEL_NAME[index],
-                    id: index,
-                    from: type
-                };
-                let item = cc.instantiate(this.prefabItemChannel);
-                item.getComponent("Loto.ItemChannel").initItem(info);
-                this.contentBetChannel.addChild(item);
-            }
-        } else {
-            // update field From
-            for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
-                this.contentBetChannel.children[index].getComponent("Loto.ItemChannel").updateInfo(type);
-            }
-        }
-        this.contentBetChannel.children[0].active = true;
-        // }
+    //     if (this.contentBetChannel.childrenCount == 0) {
+    //         for (let index = 1; index < 2; index++) { // 0 = NONE
+    //             let info = {
+    //                 name: cmd.Code.LOTO_CHANNEL_NAME[index],
+    //                 id: index,
+    //                 from: type
+    //             };
+    //             let item = cc.instantiate(this.prefabItemChannel);
+    //             item.getComponent("Loto.ItemChannel").initItem(info);
+    //             this.contentBetChannel.addChild(item);
+    //         }
+    //     } else {
+    //         // update field From
+    //         for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
+    //             this.contentBetChannel.children[index].getComponent("Loto.ItemChannel").updateInfo(type);
+    //         }
+    //     }
+    //     this.contentBetChannel.children[0].active = true;
+    //     // }
 
-        if (type == "0") {
-            let arrChannelAvailableInLocation = [];
-            switch (this.GAME_LOCATION) {
-                case cmd.Code.LOTO_LOCATION.MienBac:
-                    arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_BAC;
-                    break;
-                case cmd.Code.LOTO_LOCATION.MienTrung:
-                    arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_TRUNG;
-                    break;
-                case cmd.Code.LOTO_LOCATION.MienNam:
-                    arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_NAM;
-                    break;
-                default:
-                    break;
-            }
+    //     if (type == "0") {
+    //         let arrChannelAvailableInLocation = [];
+    //         switch (this.GAME_LOCATION) {
+    //             case cmd.Code.LOTO_LOCATION.MienBac:
+    //                 arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_BAC;
+    //                 break;
+    //             case cmd.Code.LOTO_LOCATION.MienTrung:
+    //                 arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_TRUNG;
+    //                 break;
+    //             case cmd.Code.LOTO_LOCATION.MienNam:
+    //                 arrChannelAvailableInLocation = cmd.Code.LOTO_CHANNEL_NAM;
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
 
-            for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
-                let findId = arrChannelAvailableInLocation.indexOf(index + 1);
-                if (findId != -1) {
-                    // Open
-                    this.contentBetChannel.children[index].active = true;
-                } else {
-                    // Block
-                    this.contentBetChannel.children[index].active = false;
-                }
-            }
-        }
-        this.scrollBetChannel.scrollToOffset(cc.v2(0, 0), 0.2);
+    //         for (let index = 0; index < this.contentBetChannel.childrenCount; index++) {
+    //             let findId = arrChannelAvailableInLocation.indexOf(index + 1);
+    //             if (findId != -1) {
+    //                 // Open
+    //                 this.contentBetChannel.children[index].active = true;
+    //             } else {
+    //                 // Block
+    //                 this.contentBetChannel.children[index].active = false;
+    //             }
+    //         }
+    //     }
+    //     this.scrollBetChannel.scrollToOffset(cc.v2(0, 0), 0.2);
     }
 
     onBetChannelSelected(type, channelId) {
-    //    cc.log("LotoController onBetChannelSelected type : ", type);
-    //    cc.log("LotoController onBetChannelSelected channelId : ", channelId);
-        this.btnCancelChangeChannel.active = false;
-        this.betChannel.active = false;
-        if (type == "0") {// o phan chon cuoc
-            this.btnBetChannel.children[0].angle = 180;
-            this.currentBetChannel.string = cmd.Code.LOTO_CHANNEL_NAME[channelId];
-            this.GAME_CHANNEL = channelId;
-            this.actionCancelBet();
-        } else if (type == "1") { // o phan tab ket qua nho
+        if (type == "1") { // o phan tab ket qua nho
             this.btnTabResultChannel.children[0].angle = 180;
             this.currentTabResultChannel.string = cmd.Code.LOTO_CHANNEL_NAME[channelId];
             this.requestGetLotoResult(this.sessionDate, channelId);
@@ -775,14 +653,34 @@ export default class LotoController extends cc.Component {
             this.chooseTime(null, 0);
             // this.requestGetLotoResult(this.sessionDate, channelId);
         }
+    //    cc.log("LotoController onBetChannelSelected type : ", type);
+    // //    cc.log("LotoController onBetChannelSelected channelId : ", channelId);
+    //     this.btnCancelChangeChannel.active = false;
+    //     this.betChannel.active = false;
+    //     if (type == "0") {// o phan chon cuoc
+    //         this.btnBetChannel.children[0].angle = 180;
+    //         this.currentBetChannel.string = cmd.Code.LOTO_CHANNEL_NAME[channelId];
+    //         this.GAME_CHANNEL = channelId;
+    //         this.actionCancelBet();
+    //     } else if (type == "1") { // o phan tab ket qua nho
+    //         this.btnTabResultChannel.children[0].angle = 180;
+    //         this.currentTabResultChannel.string = cmd.Code.LOTO_CHANNEL_NAME[channelId];
+    //         this.requestGetLotoResult(this.sessionDate, channelId);
+    //     } else if (type == "2") { // o phan Tab ket qua To
+    //         this.btnPopupResultChannel.children[0].angle = 180;
+    //         this.currentPopupResultChannel.string = cmd.Code.LOTO_CHANNEL_NAME[channelId];
+    //         this.popupResultCurrentChannelId = channelId;
+    //         this.chooseTime(null, 0);
+    //         // this.requestGetLotoResult(this.sessionDate, channelId);
+    //     }
     }
 
     cancelChangeChannel() {
-        this.btnCancelChangeChannel.active = false;
-        this.btnBetChannel.children[0].angle = 180;
-        this.btnTabResultChannel.children[0].angle = 180;
-        this.btnPopupResultChannel.children[0].angle = 180;
-        this.betChannel.active = false;
+        // this.btnCancelChangeChannel.active = false;
+        // this.btnBetChannel.children[0].angle = 180;
+        // this.btnTabResultChannel.children[0].angle = 180;
+        // this.btnPopupResultChannel.children[0].angle = 180;
+        // this.betChannel.active = false;
     }
 
     // Number Selector
@@ -880,12 +778,6 @@ export default class LotoController extends cc.Component {
     }
 
 
-    // State
-    resetContentModeState() {
-        for (let index = 0; index < this.contentMode.childrenCount; index++) {
-            this.contentMode.children[index].active = false;
-        }
-    }
 
     resetContentTabsState() {
         for (let index = 0; index < this.contentTabs.childrenCount; index++) {
@@ -931,12 +823,15 @@ export default class LotoController extends cc.Component {
     }
 
     chooseTime(event, id) {
-     //   cc.log("LOTO chooseTime id : ", id);
-     //   cc.log("LOTO chooseTime arrDates : ", this.arrDates[parseInt(id)]);
-
+      
+        this.currentDay += parseInt(id);
+        if(this.currentDay < 0) this.currentDay = 0;
+        if(this.currentDay > 6) this.currentDay = 6;
+        cc.log("LOTO chooseTime id : ", this.currentDay);
+        cc.log("LOTO chooseTime arrDates : ", this.arrDates[parseInt(id)]);
         this.contentTime.scaleY = 0;
 
-        let time = this.arrDates[parseInt(id)];
+        let time = this.arrDates[this.currentDay];
         this.popupResultDate.string = this.formatDate(time);
         let session = this.getSession(time);
       //  cc.log("LOTO chooseTime session : ", session);
@@ -975,6 +870,32 @@ export default class LotoController extends cc.Component {
 
     showPopupHistory() {
         this.requestGetPlayerRequest();
+        this.popupHistory.active = true;
+        this.contentHistory.removeAllChildren(true);
+        setTimeout(() => {
+            let data = this.dataHistory;
+            cc.log("check data history", data);
+            for (let index = 0; index < data.length; index++) {
+                let item = cc.instantiate(this.prefabItemHistory);
+                item.getComponent("Loto.ItemHistory").initItem(index, data[index]);
+                this.contentHistory.addChild(item);
+            }
+        }, 500);
+       
+    }
+
+    onClickBetted(){
+        this.requestGetPlayerRequest();
+        this.contentBetted.removeAllChildren(true);
+       setTimeout(() => {
+        let data = this.dataHistory;
+        cc.log("check data history", data);
+        for (let index = 0; index < data.length; index++) {
+            let item = cc.instantiate(this.prefabItemHistory2);
+            item.getComponent("Loto.ItemHistory").initItem(index, data[index]);
+            this.contentBetted.addChild(item);
+        }
+       }, 500);
     }
 
     closePopupHistory() {
@@ -1041,7 +962,9 @@ export default class LotoController extends cc.Component {
          //   cc.log("LOTO1 numRequest : ", this.numRequest);
             if (this.numRequest == this.numRequestCompleted) {
                 this.showPopupNotify("Đặt thành công !");
+                this.onClickBetted();
                 // Bet Success -> Can reset
+                this.betStore.active = false;
                 this.numRequest = 0;
                 this.numRequestCompleted = 0;
                 this.actionCancelBet();
@@ -1106,15 +1029,8 @@ export default class LotoController extends cc.Component {
                 return;
             }
             // do something
-
-            this.popupHistory.active = true;
-            this.contentHistory.removeAllChildren(true);
             let data = res["data"];
-            for (let index = 0; index < data.length; index++) {
-                let item = cc.instantiate(this.prefabItemHistory);
-                item.getComponent("Loto.ItemHistory").initItem(index, data[index]);
-                this.contentHistory.addChild(item);
-            }
+            this.dataHistory = data;
         }, this);
     }
 
@@ -1163,7 +1079,7 @@ export default class LotoController extends cc.Component {
                     }
                 }
 
-                let deltaSpaces = this.popupResult.active ? "    " : "  ";
+                let deltaSpaces = this.popupResult.active ? "        " : "  ";
 
                 for (let index = 0; index < 8; index++) {
                     let strJson = resData["result" + index];
@@ -1178,7 +1094,16 @@ export default class LotoController extends cc.Component {
                             if (i == 2 && (index == 3 || index == 5)) {
                                 text = text + rowInfo[i].toString() + "\n";
                             } else {
-                                text = text + rowInfo[i].toString() + deltaSpaces;
+                                if(index === 4){
+                                    text = text + rowInfo[i].toString() + "     ";
+                                }
+                                else if(index === 6){
+                                    text = text + rowInfo[i].toString() + "            ";
+                                }
+                                else{
+                                    text = text + rowInfo[i].toString() + deltaSpaces;
+                                }
+                                
                             }
                         } else {
                             text = text + rowInfo[i].toString();
@@ -1294,9 +1219,7 @@ export default class LotoController extends cc.Component {
           //  cc.log("Channel Open : ", this.channelsOpen);
 
             // Init Game
-            this.chooseLocation(this.listLocation[0]);
-
-            this.listLocation[0].isChecked = true;
+            this.chooseLocation();
             this.GAME_LOCATION = cmd.Code.LOTO_LOCATION.MienBac;
             this.onBetChannelSelected("0", cmd.Code.LOTO_CHANNEL.MIEN_BAC); // param 1 la 0 nghia la chon o phan Bet
 
@@ -1307,8 +1230,9 @@ export default class LotoController extends cc.Component {
 
     // lay danh sach bet cua cac nguoi cho khac cho tab new bet
     requestGetNewBetHistory() {
+        cc.log("chay vao get new bet")
         ShootFishNetworkClient.getInstance().request("LOTO10", null, (res) => {
-         //   cc.log("LOTO10 :", res);
+           cc.log("LOTO10 :", res);
             if (res["code"] != 200) {
                 //App.instance.alertDialog.showMsg("Lỗi " + res["code"] + ", không xác định.");
                 return;
@@ -1316,6 +1240,7 @@ export default class LotoController extends cc.Component {
             // do something
             this.contentNewBet.removeAllChildren(true);
             let arrBet = res["data"];
+            cc.log("check arr bet : ", arrBet)
             for (let index = 0; index < arrBet.length; index++) {
                 let push = arrBet[index];
                 let item = cc.instantiate(this.prefabItemNewBet);
@@ -1343,6 +1268,7 @@ actLogin(): void {
                     return;
                 }
                 // console.log(res);
+                cc.log("Check code login ",  parseInt(res["errorCode"]));
                 switch (parseInt(res["errorCode"])) {
                     case 0:
                       //   console.log("Đăng nhập thành công.");
@@ -1391,7 +1317,7 @@ actLogin(): void {
                         App.instance.alertDialog.showMsg("Thông tin đăng nhập không hợp lệ.");
                         break;
                     case 2001:
-                        this.popupUpdateNickname.show2(username, password);
+                        // this.popupUpdateNickname.show2(username, password);
                         break;
                     default:
                         App.instance.alertDialog.showMsg("Đăng nhập không thành công vui lòng thử lại sau.");
@@ -1402,7 +1328,8 @@ actLogin(): void {
 
     actBack() {
         cc.audioEngine.stopAll();
-        App.instance.loadScene("Lobby");
+        this.node.active = false;
+        // App.instance.loadScene("Lobby");
     }
 
     // update (dt) {}

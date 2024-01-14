@@ -984,7 +984,8 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             }
                         }
                         else {
-                            this.txtMail.node.parent.active = false;
+                            if(this.txtMail)
+                                this.txtMail.node.parent.active = false;
                         }
                     }
                 });
@@ -2349,7 +2350,8 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 return;
             }
             App.instance.removeAllWebView();
-            App.instance.openGame("Loto", "Loto");
+            // App.instance.openGame("Loto", "Loto");
+            App.instance.openMiniGameLoto("Loto", "Loto");
             // App.instance.loadSceneInSubpackage("Loto", "Loto");
         }
 

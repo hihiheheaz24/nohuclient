@@ -152,9 +152,9 @@ export default class PopupDetailHistory extends Dialog {
 
                 this.lblSession.string = "Phiên: #" + res["id"];
                 let totalPoint = res["result"][0] + res["result"][1] + res["result"][2];
-                this.lblResult.string = totalPoint > 10
-                    ? " - Tài " + totalPoint + "(" + res["result"][0] + "-" + res["result"][1] + "-" + res["result"][2] + ")"
-                    : " - Xỉu " + totalPoint + "(" + res["result"][0] + "-" + res["result"][1] + "-" + res["result"][2] + ")";
+                this.lblResult.string = "= " + res["result"][0] + res["result"][1] + res["result"][2];
+                    // ? " - Tài " + totalPoint + "(" + res["result"][0] + "-" + res["result"][1] + "-" + res["result"][2] + ")"
+                    // : " - Xỉu " + totalPoint + "(" + res["result"][0] + "-" + res["result"][1] + "-" + res["result"][2] + ")";
                 this.lblTotalBetTai.string = Utils.formatNumber(this.totalBetTai) + " / " + Utils.formatNumber(this.totalRefundTai);
                 this.lblTotalBetXiu.string = Utils.formatNumber(this.totalBetXiu) + " / " + Utils.formatNumber(this.totalRefundXiu);
 
@@ -204,7 +204,7 @@ export default class PopupDetailHistory extends Dialog {
             var idx = (this.page - 1) * this.items.length + i;
             var item = this.items[i];
             item.active = true;
-
+            item.getChildByName("Bg").opacity = i % 2 !== 0 ? 255 : 0;
             if (idx < this.historiesTai.length) {
                 var itemData = this.historiesTai[idx];
                 let time = itemData['bettime'];

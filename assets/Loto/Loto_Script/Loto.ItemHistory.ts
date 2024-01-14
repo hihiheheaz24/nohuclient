@@ -31,7 +31,8 @@ export default class NewClass extends cc.Component {
     initItem(index, data) {
         this.bg.active = index % 2 == 0 ? false : true;
         this.labelTime.string = data.timePlay.split(" ")[0];
-        this.labelMode.string = cmd.Code.LOTO_GAME_MODE_NAME[data.gameMode];
+        if(this.labelMode)
+            this.labelMode.string = cmd.Code.LOTO_GAME_MODE_NAME[data.gameMode];
         // cc.log("Loto ItemHistory row : ", data);
         let a = data.number.toString();
         let b = a.indexOf(",");
