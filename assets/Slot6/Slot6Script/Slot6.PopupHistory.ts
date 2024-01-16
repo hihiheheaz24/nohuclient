@@ -98,9 +98,9 @@ export default class PopupHistory extends Dialog {
                 let item = this.items[i];
                 if (i < res["results"].length) {
                     let itemData = res["results"][i];
-                    item.getChildByName("bg").active = i % 2 == 0;
+                    item.getChildByName("bg").active = i % 2 !== 0;
                     item.getChildByName("Session").getComponent(cc.Label).string = "#" + itemData["rf"];
-                    item.getChildByName("Time").getComponent(cc.Label).string = itemData["ts"].replace(" ", "\n");
+                    item.getChildByName("Time").getComponent(cc.Label).string = itemData["ts"];
                     item.getChildByName("Bet").getComponent(cc.Label).string = Utils.formatNumber(itemData["bv"]);
                     item.getChildByName("LineBet").getComponent(cc.Label).string = itemData["lb"] === "" ? 0 : itemData["lb"].split(",").length;
                     item.getChildByName("LineWin").getComponent(cc.Label).string = itemData["lw"] === "" ? 0 : itemData["lw"].split(",").length;

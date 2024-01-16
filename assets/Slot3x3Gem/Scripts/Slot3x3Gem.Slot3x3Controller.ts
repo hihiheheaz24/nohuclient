@@ -132,7 +132,7 @@ export default class Slot3x3GemController extends MiniGame {
                 }
                 let oldIdx = this.betIdx;
                 this.betIdx = i;
-                this.lbBet.string = this.listBet[this.betIdx].toString();
+                this.lbBet.string = Utils.formatNumber(this.listBet[this.betIdx]);
                 for (let i = 0; i < this.buttonBets.length; i++) {
                     this.buttonBets[i].setActive(i == this.betIdx);
                 }

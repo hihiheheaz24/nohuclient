@@ -111,9 +111,16 @@ export default class TopHuDialog extends Dialog {
                 return x.value10000 > y.value10000 ? -1 : 1;
             });
         }
+        cc.log("check list hu : ", this.currentList)
+        let index = 0;
         for (let i = 0; i < this.currentList.length; i++) {
             let data = this.currentList[i];
-            let item = this.scrList.content.children[i];
+            if(this.getSprIcon(data['gamename']) == null){
+                cc.log("chay vao ko add item : ",data['gamename'] )
+                continue;
+            } 
+            cc.log("chay vao add item : ",data['gamename'] )
+            let item = this.scrList.content.children[index];
             if (!item) {
                 item = cc.instantiate(this.scrList.content.children[0]);
                 item.parent = this.scrList.content;
@@ -126,62 +133,40 @@ export default class TopHuDialog extends Dialog {
             Tween.numberTo(item.getChildByName('lbJp100').getComponent(cc.Label), data['value100'], 1.0);
             Tween.numberTo(item.getChildByName('lbJp1K').getComponent(cc.Label), data['value1000'], 1.0);
             Tween.numberTo(item.getChildByName('lbJp10K').getComponent(cc.Label), data['value10000'], 1.0);
+            index++
         }
     }
 
     getSprIcon(gameName): cc.SpriteFrame {
-        let sprIcon: cc.SpriteFrame = null;
+        let sprIcon = null;
         switch (gameName) {
-            case 'Tarzan':
+            case 'Vampire':
                 sprIcon = this.sprIconGame[0];
                 break;
-            case 'Thần Tài':
+
+            case 'Zeus':
                 sprIcon = this.sprIconGame[1];
                 break;
-            case 'Aztec Gems':
+
+            case 'Sinbad':
                 sprIcon = this.sprIconGame[2];
                 break;
-            case 'ICE':
+
+            case 'Thần Tài':
                 sprIcon = this.sprIconGame[3];
                 break;
-            case 'Vampire':
+
+            case 'Athur':
                 sprIcon = this.sprIconGame[4];
                 break;
-            case 'Sinbad':
+
+            case 'CanDy':
                 sprIcon = this.sprIconGame[5];
                 break;
-            case 'Chiêm Tinh':
-                sprIcon = this.sprIconGame[6];
-                break;
-            case 'Kim Cương':
-                sprIcon = this.sprIconGame[7];
-                break;
+
+
             case 'Mini Poker':
-                sprIcon = this.sprIconGame[8];
-                break;
-            case 'Cao Thấp':
-                sprIcon = this.sprIconGame[9];
-                break;
-            case 'Zeus':
-                sprIcon = this.sprIconGame[10];
-                break;
-            case 'CanDy':
-                sprIcon = this.sprIconGame[11];
-                break;
-            case 'Tài Xỉu':
-                sprIcon = this.sprIconGame[12];
-                break;
-            case 'Frozen':
-                sprIcon = this.sprIconGame[13];
-                break;
-            case 'Athur':
-                sprIcon = this.sprIconGame[14];
-                break;
-            case 'Hallowen':
-                sprIcon = this.sprIconGame[15];
-                break;
-            case 'Thần Đèn':
-                sprIcon = this.sprIconGame[16];
+                sprIcon = this.sprIconGame[6];
                 break;
         }
         return sprIcon

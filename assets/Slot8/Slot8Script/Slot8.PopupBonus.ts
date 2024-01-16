@@ -25,6 +25,10 @@ export class PopupBonus extends Dialog {
     lblHeso: cc.Label = null;
     @property(cc.Label)
     lblWin: cc.Label = null;
+
+    @property(cc.Label)
+    lblCountDown: cc.Label = null;
+    
     private factor = 1;
     private left = 0;
     private betValue = 0;
@@ -35,6 +39,7 @@ export class PopupBonus extends Dialog {
     private heso:number = 0;
     private win : number = 0;
     private controller:Slot4Controller = null;
+    func: () => void;
     start() {
         
         for (let i = 0; i < this.items.childrenCount; i++) {
@@ -54,20 +59,21 @@ export class PopupBonus extends Dialog {
                     node["is_open"] = true;
                     switch (value) {
                         case 0:
+                            //lat bai bi misss
                             this.factor++;
                             this.lblFactor.string = this.factor+"";
                             node["labai"].active = false;
                             node["miss"].active = true;
                             node["win"].active = false;
-                            node["chat"].node.active = true;
-                            node["chat"].spriteFrame = this.sfMiss[parseInt(Math.random()*this.sfMiss.length+"")];
+                            // node["chat"].node.active = true;
+                            // node["chat"].spriteFrame = this.sfMiss[parseInt(Math.random()*this.sfMiss.length+"")];
                             break;
                         case 1:
-                            node["labai"].active = false;
+                            node["labai"].active = true;
                             node["miss"].active = false;
                             node["win"].active = true;
-                            node["chat"].node.active = true;
-                            node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
+                            // node["chat"].node.active = true;
+                            // node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"], 4*this.betValue , 0.3);
@@ -76,11 +82,11 @@ export class PopupBonus extends Dialog {
                             break;
                        
                         case 2:
-                            node["labai"].active = false;
+                            node["labai"].active = true;
                             node["miss"].active = false;
                             node["win"].active = true;
-                            node["chat"].node.active = true;
-                            node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
+                            // node["chat"].node.active = true;
+                            // node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"],10* this.betValue * this.factor, 0.3);
@@ -88,11 +94,11 @@ export class PopupBonus extends Dialog {
                             Tween.numberTo(this.lblWin,this.win, 0.3);
                             break;
                         case 3:
-                            node["labai"].active = false;
+                            node["labai"].active = true;
                             node["miss"].active = false;
                             node["win"].active = true;
-                            node["chat"].node.active = true;
-                            node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
+                            // node["chat"].node.active = true;
+                            // node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"")];
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             Tween.numberTo(node["label"],15* this.betValue * this.factor, 0.3);
@@ -100,11 +106,11 @@ export class PopupBonus extends Dialog {
                             Tween.numberTo(this.lblWin,this.win, 0.3);
                             break;
                         case 4:
-                            node["labai"].active = false;
+                            node["labai"].active = true;
                             node["miss"].active = false;
                             node["win"].active = true;
-                            node["chat"].node.active = true;
-                            node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"") ];
+                            // node["chat"].node.active = true;
+                            // node["chat"].spriteFrame = this.sfWin[parseInt(Math.random()*this.sfWin.length+"") ];
                             node["label"].node.active = true;
                             node["label"].string = "0";
                             this.win += 20* this.betValue * this.factor;
@@ -150,6 +156,14 @@ export class PopupBonus extends Dialog {
             node["win"].active = false;
             node["chat"].node.active = false;
         }
+        let time = 15;
+        this.lblCountDown.string = this.formatTimeBySec(time);
+        this.schedule(this.func = ()=>{
+            time--;
+            this.lblCountDown.string = this.formatTimeBySec(time);
+            if(time === 0) this.unschedule(this.func);        
+        }, 1)
+
         this.betValue = betValue;
         this.onFinished = onFinished;
         let arrBonus = bonus.split(",");
@@ -163,6 +177,19 @@ export class PopupBonus extends Dialog {
         this.lblFactor.string =  this.factor+"";
         this.heso = this.dataBonus[0];
         this.lblHeso.string = "x"+this.heso;
+    }
+
+    formatTimeBySec(time: number , houre : boolean = true) {
+        // time = parseInt(time);
+        if (time <= 0) return "00:00";
+            let hourse = time / (60 * 60);
+            if (hourse > 0) time -= hourse * (60 * 60);
+            let min = (time / 60).toString();
+            if (parseInt(min) > 0) time -= parseInt(min) * 60;
+            let sec = (time % 60).toString();
+            if (parseInt(min) < 10) min = "0" + min;
+            if (parseInt(sec) < 10) sec = "0" + sec;
+            return `${min}:${sec}`;
     }
 
     

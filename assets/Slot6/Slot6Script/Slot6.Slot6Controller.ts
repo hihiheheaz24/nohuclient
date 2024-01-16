@@ -593,9 +593,9 @@ export default class Slot6Controller extends cc.Component {
                             item.stopAllActions();
                             cc.Tween.stopAllByTarget(item);
                             // TW(item).repeatForever(TW().to(0.2, { scale: 1.1 }).to(0.2, { scale: 1.0 })).start();
-                            item.getComponent(Slot6Item).showItemAnim();
+                            // item.getComponent(Slot6Item).showItemAnim();
                             TW(item).delay(0.9).call(() => {
-                                item.getComponent(Slot6Item).offItemAnim();
+                                // item.getComponent(Slot6Item).offItemAnim();
                             }).start();
                             // item.runAction(cc.repeatForever(cc.sequence(
                             //     cc.scaleTo(0.2, 1.1),
@@ -802,9 +802,9 @@ export default class Slot6Controller extends cc.Component {
                         for (let j = 0; j < this.columnsWild.length; j++) {
                             let c = this.columnsWild[j];
                             let children = this.reels.children[c].children;
-                            children[2].getComponent(Slot6Item).setId(this.wildItemId, true);
-                            children[1].getComponent(Slot6Item).setId(this.wildItemId, true);
-                            children[0].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            // children[2].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            // children[1].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            // children[0].getComponent(Slot6Item).setId(this.wildItemId, true);
                             this.iconWildColumns.children[c].active = true;
                             this.iconWildColumns.children[c].scale = 0;
                             cc.Tween.stopAllByTarget(this.iconWildColumns.children[c]);
@@ -841,20 +841,20 @@ export default class Slot6Controller extends cc.Component {
                 .call(() => {
                     for (let m = 0; m < roll.childrenCount; m++) {
                         let item = roll.children[m];
-                        item.getComponent(Slot6Item).setIdBlur(Utils.randomRangeInt(0, 11));
+                        // item.getComponent(Slot6Item).setIdBlur(Utils.randomRangeInt(0, 11));
                     }
                 })
                 .start();
             TW(roll)
                 .delay((0.47 + 0.2 * i) * timeScale)
                 .call(() => {
-                    let listItemNode = roll.children;
-                    listItemNode[2].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
-                    listItemNode[1].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
-                    listItemNode[0].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
-                    listItemNode[listItemNode.length - 1].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
-                    listItemNode[listItemNode.length - 2].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
-                    listItemNode[listItemNode.length - 3].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
+                    // let listItemNode = roll.children;
+                    // listItemNode[2].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
+                    // listItemNode[1].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
+                    // listItemNode[0].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
+                    // listItemNode[listItemNode.length - 1].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
+                    // listItemNode[listItemNode.length - 2].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
+                    // listItemNode[listItemNode.length - 3].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
                 })
                 .start();
         }

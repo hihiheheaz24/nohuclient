@@ -255,7 +255,7 @@ export default class ButtonMiniGame extends cc.Component {
         this.panel.active = true;
         this.button.active = false;
         this.button.x = cc.winSize.width / 2 - 80;
-        cc.tween(this.panel.getChildByName("Container")).set({ angle: -180, scale: 0 }).to(0.3, { scale: 1.0, angle: 0 }, { easing: cc.easing.sineOut }).start();
+        cc.tween(this.panel.getChildByName("Container")).set({ angle: -180, scale: 0 }).to(0.3, { scale: 0.6667, angle: 0 }, { easing: cc.easing.sineOut }).start();
     }
 
     actHidden() {

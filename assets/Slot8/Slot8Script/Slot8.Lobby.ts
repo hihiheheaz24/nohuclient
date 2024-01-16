@@ -25,7 +25,7 @@ export default class Slot8Lobby extends cc.Component {
     }
 
     onLoad() {
-        this.node.getComponentInChildren(sp.Skeleton).node.setScale(cc.v2(0.67 * (cc.winSize.width / 1280), 0.67 * (cc.winSize.height / 720)));
+        // this.node.getComponentInChildren(sp.Skeleton).node.setScale(cc.v2(0.67 * (cc.winSize.width / 1280), 0.67 * (cc.winSize.height / 720)));
         // for (let i = 0; i < this.rooms.length; i++) {
         //     this.rooms[i].x = this.rooms[i].x * (cc.winSize.width / 1280);
         //     this.rooms[i].y = this.rooms[i].y * (cc.winSize.width / 1280);

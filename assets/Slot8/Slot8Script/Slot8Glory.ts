@@ -82,7 +82,7 @@ export default class Slot8Glory extends Dialog {
                 let item = this.items[i];
                 if (i < res["results"].length) {
                     let itemData = res["results"][i];
-                    // item.getChildByName("bg").opacity = i % 2 == 0 ? 128 : 0;
+                    item.getChildByName("bg").opacity = i % 2 !== 0 ? 255 : 0;
                     item.getChildByName("Time").getComponent(cc.Label).string = itemData["ts"].replace(" ", "\n");
                     item.getChildByName("Bet").getComponent(cc.Label).string = Utils.formatNumber(itemData["bv"]);
                     item.getChildByName("Type").getComponent(cc.Label).string = itemData["rs"] == 3 ? "Nổ hũ" : "Thắng lớn";

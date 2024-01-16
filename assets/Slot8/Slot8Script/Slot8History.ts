@@ -82,7 +82,7 @@ export default class Slot8History extends Dialog {
                 let item = this.items[i];
                 if (i < res["results"].length) {
                     let itemData = res["results"][i];
-                    // item.getChildByName("bg").opacity = i % 2 == 0 ? 128 : 0;
+                    item.getChildByName("bg").opacity = i % 2 !== 0 ? 255 : 0;
                     item.getChildByName("Id").getComponent(cc.Label).string = itemData["rf"];
                     item.getChildByName("Time").getComponent(cc.Label).string = itemData["ts"].replace(" ", "\n");
                     item.getChildByName("Bet").getComponent(cc.Label).string = Utils.formatNumber(itemData["bv"]);

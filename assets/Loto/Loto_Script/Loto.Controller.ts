@@ -119,6 +119,8 @@ export default class LotoController extends MiniGame {
     @property(cc.Node)
     popupHistory: cc.Node = null;
     @property(cc.Node)
+    popupGuide: cc.Node = null;
+    @property(cc.Node)
     contentHistory: cc.Node = null;
     @property(cc.Prefab)
     prefabItemHistory: cc.Prefab = null;
@@ -274,7 +276,8 @@ export default class LotoController extends MiniGame {
         this.initNumSelector(1000);
 
         BroadcastReceiver.register(BroadcastReceiver.USER_UPDATE_COIN, () => {
-            this.labelUserGold.string = Utils.formatNumber(Configs.Login.CoinFish);
+            cc.log("check config login : ", Configs.Login.Coin)
+            this.labelUserGold.string = Utils.formatNumber(Configs.Login.Coin);
         }, this);
         BroadcastReceiver.send(BroadcastReceiver.USER_UPDATE_COIN);
 
@@ -421,7 +424,7 @@ export default class LotoController extends MiniGame {
         this.changeGameGuide();
         this.currentNumPicked = [];
         this.labelTotalBet.string = "0";
-        this.edtBet.string = "1";
+        this.edtBet.string = "1000";
      //   cc.log("Loto chooseMode numCount : ", numCount);
         this.updateNumSelector(numCount);
         this.requestGetPayWinRate();
@@ -453,7 +456,7 @@ export default class LotoController extends MiniGame {
         this.currentNumPicked = [];
         this.labelTotalBet.string = "0";
         this.labelWinValue.string = "" + this.currentWinValue;
-        this.edtBet.string = "1";
+        this.edtBet.string = "1000";
         this.betStore.active = false;
         this.resetContentNumberPicked();
         this.chooseMode(null, this.GAME_MODE);
@@ -493,7 +496,7 @@ export default class LotoController extends MiniGame {
         }
 
         let totalBet = 0;
-        let betOneTurn = parseInt(this.edtBet.string) * 1000;
+        let betOneTurn = parseInt(this.edtBet.string);
         if (this.numRequired == 1) {
             totalBet = betOneTurn * this.currentBetValue * this.currentNumPicked.length;
         } else {
@@ -884,6 +887,14 @@ export default class LotoController extends MiniGame {
        
     }
 
+    showPopupGuide() {
+        this.popupGuide.active = true;
+    }
+
+    closePopupGuilde(){
+        this.popupGuide.active = false;
+    }
+
     onClickBetted(){
         this.requestGetPlayerRequest();
         this.contentBetted.removeAllChildren(true);
@@ -916,18 +927,18 @@ export default class LotoController extends MiniGame {
         if (event.length > 0) {
             if (/^[0-9]*$/.test(event) == false) {
                 App.instance.alertDialog.showMsg("Tiền cược phải là số dương");
-                this.edtBet.string = "1";
-                event = "1";
+                this.edtBet.string = "1000";
+                event = "1000";
             }
             let raw = parseInt(event);
             if (raw == 0) {
-                this.edtBet.string = "1";
-                event = "1";
+                this.edtBet.string = "1000";
+                event = "1000";
             }
             this.edtBet.string = "" + parseInt(event);
         } else {
-            this.edtBet.string = "1";
-            event = "1";
+            this.edtBet.string = "1000";
+            event = "1000";
         }
         let delta = parseInt(event);
         if (this.numRequired == 1) {
@@ -994,6 +1005,7 @@ export default class LotoController extends MiniGame {
                 return;
             }
             // do something
+            cc.log("check data eate bet", res)
             this.currentNumPicked = [];
             this.resetContentNumberPicked();
 

@@ -16,6 +16,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     labelBet: cc.Label = null;
     @property(cc.Label)
+    labelBetTotal: cc.Label = null;
+    @property(cc.Label)
     labelWin: cc.Label = null;
     @property(cc.Label)
     labelResult: cc.Label = null;
@@ -29,7 +31,8 @@ export default class NewClass extends cc.Component {
     }
 
     initItem(index, data) {
-        this.bg.active = index % 2 == 0 ? false : true;
+        cc.log("show data item : ", data)
+        this.bg.active = index % 2 !== 0 ? true : false;
         this.labelTime.string = data.timePlay.split(" ")[0];
         if(this.labelMode)
             this.labelMode.string = cmd.Code.LOTO_GAME_MODE_NAME[data.gameMode];
@@ -54,6 +57,14 @@ export default class NewClass extends cc.Component {
         this.labelBet.string = Utils.formatNumber(data.pay * data.payRate);
         this.labelWin.string = Utils.formatNumber(data.win);
 
+        if(this.labelBetTotal){
+            if(data.number.length > 0 && data.number.toString().indexOf(",")!=-1)
+            this.labelBetTotal.string = Utils.formatNumber(data.pay * data.number.length);
+        else
+            this.labelBetTotal.string = Utils.formatNumber(data.pay * data.payRate);
+        }
+
+        
         if (data.status == 0) {
             this.labelResult.string = "Chờ kết quả XS";
         } else if (data.status == 1) {

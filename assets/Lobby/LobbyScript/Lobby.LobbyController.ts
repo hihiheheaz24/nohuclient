@@ -191,6 +191,9 @@ namespace Lobby {
         @property(cc.Label)
         lblXiuMd5: cc.Label = null;
 
+        @property(cc.RichText)
+        lblTextNoti: cc.RichText = null;
+
         @property(TabsListGame)
         tabsListGame: TabsListGame = null;
         @property(BannerList)
@@ -242,7 +245,18 @@ namespace Lobby {
         private static notifyMarquee = "";
         dataAlertMini: any = {}
         fakeJPInv = null;
+        listTextNoti: any[];
         onLoad() {
+            this.listTextNoti = [" là địa chỉ chính thức duy nhất, mọi link khác đều là giả mạo lừa đảo",
+                                " khuyến cáo, người chơi nên giao dịch qua đại lý để được hỗ trợ nhanh nhất",
+                                " được cấp phép hoạt động bởi tập đoàn giải trí cờ bạc uy tín hàng đầu Las Vegas MGM RESORTS (USA)"];
+
+            let index = 0
+            this.schedule(()=>{
+                if(index > this.listTextNoti.length - 1) index = 0;
+                this.lblTextNoti.string = "<color=#00ECE3>" + "Daphu.vip" + "</c>" + this.listTextNoti[index];
+                index++
+            }, 3)
             Global.LobbyController = this;
             if (BundleControl.serverVersion.hasOwnProperty('FbConfig')) {
                 // this.btnLoginFb.active = BundleControl.serverVersion['FbConfig'].isShowBtnFb;
@@ -1914,11 +1928,13 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
         }
         actOpenFB() {
             cc.sys.openURL(Configs.App.getLinkFanpage());
+            cc.sys.openURL("https://www.facebook.com/daphuvip");
             // App.instance.openWebView("https://www.facebook.com/gaming/lote88com");
         }
 
         actOpenMessager() {
-            cc.sys.openURL(Configs.App.getLinkFanpage());
+            cc.sys.openURL("https://www.facebook.com/groups/hoidaphu");
+            // cc.sys.openURL(Configs.App.getLinkFanpage());
             // App.instance.openWebView("https://www.facebook.com/lote88com/inbox/");
         }
         actOpenZalo() {

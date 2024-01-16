@@ -229,7 +229,7 @@ export default class Slot8Controller extends cc.Component {
         this.dailyFreeSpin = 0;
         this.isSound = true;
         this.isMusic = true;
-        this.totalWinLabel.string = "";
+        this.totalWinLabel.string = "0";
         var musicId = 0;
         SlotNetworkClient.getInstance().addOnClose(() => {
             this.mSlotLobby.onBtnBack();
@@ -363,9 +363,9 @@ export default class Slot8Controller extends cc.Component {
 
     showGamePlay() {
         // if (this.isMusic) cc.audioEngine.playMusic(this.musicGame, true);
-        this.randomIconList();
         this.nodeGamePlay.active = true;
         this.showAnimations();
+        this.randomIconList();
     }
 
     hideGamePlay() {
@@ -374,7 +374,7 @@ export default class Slot8Controller extends cc.Component {
     }
 
     init() {
-        this.totalWinLabel.string = "";
+        this.totalWinLabel.string = "0";
     }
     private showCoins(prize) {
         var number = prize / 20000;
@@ -413,7 +413,7 @@ export default class Slot8Controller extends cc.Component {
             var index = i;
             var itemId = Math.floor(Math.random() * 7);
             self.arrUIItemIcon[i].init(itemId, index, self);
-            self.arrUIItemIcon[i].changeSpineIcon(itemId);
+            // self.arrUIItemIcon[i].changeSpineIcon(itemId);
         }
     }
 
@@ -456,13 +456,13 @@ export default class Slot8Controller extends cc.Component {
             this.hideWinEffect();
             this.hideLineWin(true);
             this.setButtonEnable(false);
-            this.totalWinLabel.string = "";
+            this.totalWinLabel.string = "0";
             SlotNetworkClient.getInstance().send(new cmd.SendPlay(this.arrLineSelected.toString()));
         } else {
             this.hideWinEffect();
             this.hideLineWin(true);
             this.setButtonEnable(false);
-            this.totalWinLabel.string = "";
+            this.totalWinLabel.string = "0";
             var rIdx = Utils.randomRangeInt(0, Slot4TrialResult.results.length);
             this.spinResult(Slot4TrialResult.results[rIdx]);
         }
@@ -546,6 +546,7 @@ export default class Slot8Controller extends cc.Component {
         if (prize > 0) {
             this.lineWinParent.setSiblingIndex(1);
             this.colParent.setSiblingIndex(0);
+            cc.log("check result : ", result)
             if (result == 5) {
                 //bonus
                 if (this.isSound) {
@@ -1088,10 +1089,10 @@ export default class Slot8Controller extends cc.Component {
         this.btnLine.interactable = active;
         if (active == true) {
             this.skeSpin.node.color = cc.Color.WHITE;
-            this.skeSpin.setAnimation(0, "quay", true);
+            this.skeSpin.setAnimation(0, "at", true);
         }
         else {
-            this.skeSpin.setAnimation(0, "quay2", true);
+            this.skeSpin.setAnimation(0, "at2", true);
             this.skeSpin.node.color = cc.Color.GRAY;
         }
     }
@@ -1158,9 +1159,9 @@ export default class Slot8Controller extends cc.Component {
             cc.audioEngine.play(this.soundClick, false, 1);
         }
         this.isFastCurrent = this.toggleFast.isChecked;
-        if (!this.toggleAuto.isChecked) {
-            this.toggleAuto.check();
-        }
+        // if (!this.toggleAuto.isChecked) {
+        //     this.toggleAuto.check();
+        // }
         if (this.toggleFast.isChecked && !this.isSpining) {
             this.spinClick();
         }
@@ -1196,9 +1197,9 @@ export default class Slot8Controller extends cc.Component {
             sprite.node.color = state ? cc.Color.GRAY : cc.Color.WHITE;
             sprite.node.active = true;
             spine.node.color = state ? cc.Color.GRAY : cc.Color.WHITE;
-            spine.node.active = false;
-            spine.node.scale = 0.65;
-            sprite.node.scale = 1.0;
+            // spine.node.active = false;
+            spine.node.scale = 1;
+            sprite.node.scale = 1;
         })
     }
     getItemWinInLine(lineId) {

@@ -43,8 +43,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 240
+      "width": 140,
+      "height": 140
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -56,7 +56,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        82.5,
+        70,
         0,
         0,
         0,
@@ -227,14 +227,14 @@
       "ctor": "Float64Array",
       "array": [
         -3.6,
-        -98.636,
+        -131.546,
         0,
         0,
         0,
         0,
         1,
-        0.65,
-        0.65,
+        1,
+        1,
         1
       ]
     },
@@ -266,7 +266,7 @@
     ],
     "paused": false,
     "defaultSkin": "default",
-    "defaultAnimation": "animation",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -323,36 +323,6 @@
     },
     "sprAtlast": {
       "__uuid__": "7c91d688-3dd3-4933-8692-0a05f54695d8"
-    },
-    "skeDataWild": {
-      "__uuid__": "cda83647-1f02-4323-af86-ab1269cdc733"
-    },
-    "skeDataBonus": {
-      "__uuid__": "ab11a8c2-6d71-4941-ae00-652d2dc765ec"
-    },
-    "skeDataScatter": {
-      "__uuid__": "dd2cc7d2-92d7-40a3-b27b-b74b8f3ce165"
-    },
-    "skeDataIcon1": {
-      "__uuid__": "4bf81e61-673a-4c81-96af-80fd4b9f065f"
-    },
-    "skeDataIcon2": {
-      "__uuid__": "f300590b-968e-4be6-b0b4-829291599473"
-    },
-    "skeDataIcon3": {
-      "__uuid__": "bfe36b7f-f757-4558-a2b1-28efecd10491"
-    },
-    "skeDataIcon4": {
-      "__uuid__": "28868e68-6929-4fa1-8529-eb9caf3db4b4"
-    },
-    "skeDataIcon5": {
-      "__uuid__": "c63341af-4d05-46c1-9719-e057c81e8fe0"
-    },
-    "skeDataIcon6": {
-      "__uuid__": "9961bfac-850f-4f17-9e04-b8c764fb8868"
-    },
-    "skeDataIcon7": {
-      "__uuid__": "191eb1c6-1afd-43bf-bb72-3ba5200e9b76"
     },
     "_id": ""
   },

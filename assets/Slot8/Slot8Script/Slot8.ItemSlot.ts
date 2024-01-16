@@ -12,8 +12,7 @@ export default class Slot8ItemSlot extends cc.Component {
     nodeBox: cc.Node = null;
     @property(cc.SpriteAtlas)
     itemAtlast: cc.SpriteAtlas = null;
-    itemBlur: cc.SpriteAtlas = null;
-
+    
     @property(sp.SkeletonData)
     skeFreeSpin : sp.SkeletonData = null;
 
@@ -31,6 +30,8 @@ export default class Slot8ItemSlot extends cc.Component {
         this.nodeBox = this.node.getChildByName("Box");
     }
     init(itemId, index, gamePlayManager) {
+        if(itemId === 0)
+        cc.log("chay vao day set item : ", itemId)
         var self = this;
         self.gamePlayManager = gamePlayManager;
         self.itemId = itemId;
@@ -58,15 +59,14 @@ export default class Slot8ItemSlot extends cc.Component {
         self.itemId = itemId;
         //  cc.log("itemid=" + itemId);
         itemId = parseInt(itemId);
-
         this.setSpriteFrame(itemId);
-        this.spineIcon.setAnimation(0, "animation", true);
     }
     setSpriteFrame(itemId, isBlur = false) {
         let atlast = this.itemAtlast;
         switch (itemId) {
             case 0:
                 this.spriteIcon.node.active = false;
+                this.spriteIcon.spriteFrame = null;
                 this.spineIcon.node.active = true;
                 this.spineIcon.skeletonData = this.skeJackpot;
                 this.spineIcon.setAnimation(0, "animation", true);
@@ -74,12 +74,14 @@ export default class Slot8ItemSlot extends cc.Component {
             case 1:
                 this.spineIcon.skeletonData = this.skeBonus;
                 this.spriteIcon.node.active = false;
+                this.spriteIcon.spriteFrame = null;
                 this.spineIcon.node.active = true;
                 this.spineIcon.setAnimation(0, "animation", true);
                 break;
             case 2:
                 this.spineIcon.skeletonData = this.skeFreeSpin;
                 this.spriteIcon.node.active = false;
+                this.spriteIcon.spriteFrame = null;
                 this.spineIcon.node.active = true;
                 this.spineIcon.setAnimation(0, "animation", true);
                 break;
@@ -90,7 +92,7 @@ export default class Slot8ItemSlot extends cc.Component {
                 this.spineIcon.skeletonData = null;
                 this.spriteIcon.node.active = true;
                 this.spineIcon.node.active = false;
-                this.spriteIcon.spriteFrame = atlast.getSpriteFrame("item_" + itemId);
+                this.spriteIcon.spriteFrame = atlast.getSpriteFrame("item_" + (itemId - 2));
                 break;
         }
     }
@@ -116,17 +118,18 @@ export default class Slot8ItemSlot extends cc.Component {
                     this.spriteIcon.node.scale = 1.0
                 }).start();
         } else {
+            cc.log("chay vao day la mat", this.itemId)
             this.spineIcon.node.active = true;
             this.spriteIcon.node.active = false;
             this.spineIcon.setAnimation(0, "animation", true);
             this.spineIcon.node.color = cc.Color.WHITE;
 
-            cc.tween(this.spineIcon.node)
-                .delay(0.9).call(() => {
-                    this.spineIcon.node.color = cc.Color.GRAY;
-                    this.spriteIcon.node.active = true;
-                    this.spineIcon.node.active = false;
-                }).start();
+            // cc.tween(this.spineIcon.node)
+            //     .delay(0.9).call(() => {
+            //         this.spineIcon.node.color = cc.Color.GRAY;
+            //         this.spriteIcon.node.active = true;
+            //         this.spineIcon.node.active = false;
+            //     }).start();
         }
     }
 }

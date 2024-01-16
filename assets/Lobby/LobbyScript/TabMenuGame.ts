@@ -25,8 +25,6 @@ export default class TabMenuGame extends cc.Component {
     listMiniGame: cc.Node[] = [];
     @property([cc.Node])
     listGameSport: cc.Node[] = [];
-    @property(TabsListGame)
-    tabListGame: TabsListGame = null;
 
     onBtnTabAll() {
         this.listAllGame.forEach(e => {
@@ -45,6 +43,7 @@ export default class TabMenuGame extends cc.Component {
         this.listAllGame.forEach(e => {
             if (e) e.active = false;
         });
+        cc.log("check list game live ", this.listLiveGame)
         this.listLiveGame.forEach(e => {
             if (e) e.active = true;
         });

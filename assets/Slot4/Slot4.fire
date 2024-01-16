@@ -45569,7 +45569,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 121.91,
+      "width": 145.53,
       "height": 40
     },
     "_anchorPoint": {
@@ -45621,8 +45621,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "MỨC 100",
-    "_N$string": "MỨC 100",
+    "_string": "MỨC 1.000",
+    "_N$string": "MỨC 1.000",
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -46180,7 +46180,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 121.91,
+      "width": 161.66,
       "height": 40
     },
     "_anchorPoint": {
@@ -46232,8 +46232,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "MỨC 100",
-    "_N$string": "MỨC 100",
+    "_string": "MỨC 10.000",
+    "_N$string": "MỨC 10.000",
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
