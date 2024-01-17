@@ -42,6 +42,7 @@ export default class ItemGame extends cc.Component {
     }
     setInfo(dataGame) {
         this.reset();
+        console.log("check data jackpot : ", dataGame)
         this.animIcon.node.setPosition(dataGame['position']);
         switch (dataGame['tabGame']) {
             case 'gamesport':

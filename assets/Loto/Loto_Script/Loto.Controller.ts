@@ -384,14 +384,14 @@ export default class LotoController extends MiniGame {
             // 1 chu so
             case 6:
             case 7:
+            case 8:
                 numCount = 10;
                 break;
             // 2 chu so
             case 1:
             case 3:
             case 4:
-            case 5:
-            case 8:
+            case 5:   
             case 9:
             case 10:
             case 15:
@@ -1012,7 +1012,7 @@ export default class LotoController extends MiniGame {
             this.currentBetValue = res["payRate"];
             this.currentWinValue = res["winRate"];
          //   cc.log("LOTO2 this.currentBetValue : ", this.currentBetValue);
-            this.edtBet.string = "1";
+            this.edtBet.string = "1000";
             this.labelTotalBet.string = "0";
             this.labelWinValue.string = res["winRate"];
         }, this);

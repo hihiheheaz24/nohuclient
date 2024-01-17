@@ -64,6 +64,8 @@ export default class Slot8LobbyAthur extends cc.Component {
     public onUpdateJackpot(pData) {
         let res = new cmd.ResUpdateJackpotSlots(pData);
         let resJson = JSON.parse(res.pots);
+        if(!resJson['athur']) return;
+        cc.log("check res : ", resJson)
         Tween.numberTo(this.listPot[0], resJson['athur']['100'].p, 3.0);
         Tween.numberTo(this.listPot[1], resJson['athur']['1000'].p, 3.0);
         Tween.numberTo(this.listPot[2], resJson['athur']['10000'].p, 3.0);

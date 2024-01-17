@@ -194,6 +194,15 @@ export default class ButtonMiniGame extends cc.Component {
                         this.labelTimePanel.string = res.remainTime > 9 ? res.remainTime.toString() : "0" + res.remainTime;
                     }
                     break;
+                    case cmd.Code.TX_UPDATE_INFO:
+                        {
+                            cc.log("check time tx 111 : ", data);
+                            let res = new cmd.ReceiveUpdateTimeButton(data);
+                            cc.log("check time tx  222: ", res);
+                            // this.labelTime.string = res.remainTime > 9 ? res.remainTime.toString() : "0" + res.remainTime;
+                            // this.labelTimePanel.string = res.remainTime > 9 ? res.remainTime.toString() : "0" + res.remainTime;
+                        }
+                        break;
             }
         }, this);
     }
@@ -302,7 +311,7 @@ export default class ButtonMiniGame extends cc.Component {
     }
 
     actChimDien() {
-        App.instance.alertDialog.showMsg(App.instance.getTextLang("txt_coming_soon"));
+        App.instance.alertDialog.showMsg(App.instance.getTextLang("Trò chơi đang cập nhật"));
         this.actHidden();
     }
     actMaintain() {

@@ -172,6 +172,9 @@ namespace Lobby {
         @property(cc.Label)
         lblCoin: cc.Label = null;
 
+        @property(cc.Label)
+        lblSafe: cc.Label = null;
+
         @property(cc.RichText)
         txtNotifyMarquee: cc.RichText = null;
         @property(cc.Node)
@@ -190,6 +193,11 @@ namespace Lobby {
         lblTaiMd5: cc.Label = null;
         @property(cc.Label)
         lblXiuMd5: cc.Label = null;
+
+        @property(cc.Label)
+        lblTai: cc.Label = null;
+        @property(cc.Label)
+        lblXiu: cc.Label = null;
 
         @property(cc.RichText)
         lblTextNoti: cc.RichText = null;
@@ -314,6 +322,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 LogEvent.getInstance().sendEventOpenApp();
             }, 1000);
             this.lblCoin.node.parent.active = true;
+            this.lblSafe.node.parent.active = true;
             // this.showOrHideSelectTabGame(true);
             if (cc.sys.isBrowser) {
                 if (window.localStorage.getItem('u') != null && window.localStorage.getItem('at') != null) {
@@ -367,6 +376,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
 
             BroadcastReceiver.register(BroadcastReceiver.USER_UPDATE_COIN, () => {
                 Tween.numberTo(this.lblCoin, Configs.Login.Coin, 0.3);
+                Tween.numberTo(this.lblSafe, Configs.Login.SAFE, 0.3);
             }, this);
             BroadcastReceiver.register(BroadcastReceiver.ON_UPDATE_MAIL, () => {
                 this.updateMail();
@@ -384,7 +394,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                 this.updateMail();
                 MiniGameNetworkClient.getInstance().sendCheck(new cmd.ReqGetSecurityInfo());
                 Tween.numberTo(this.lblCoin, Configs.Login.Coin, 0.3);
-                MiniGameNetworkClient.getInstance().sendCheck(new cmd.SendScribe());
+                Tween.numberTo(this.lblSafe, Configs.Login.SAFE, 0.3);                MiniGameNetworkClient.getInstance().sendCheck(new cmd.SendScribe());
                 MiniGameNetworkClient.getInstance().sendCheck(new cmd.SendScribeTxMd5());
 
             }, this);
@@ -551,6 +561,30 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
             MiniGameNetworkClient.getInstance().addListener((data) => {
                 let inPacket = new InPacket(data);
                 switch (inPacket.getCmdId()) {
+
+                    case cmd.Code.TX_GAME_INFO: {
+                        let res = new cmd.TXGameInfo(data);
+                        console.log("check TX_GAME_INFO :", res)
+                        let chipEnd = res.potTai > res.potXiu ? res.potXiu : res.potTai;
+                        let potTai = !res.bettingState ? chipEnd : res.potTai;
+                        let potXiu = !res.bettingState ? chipEnd : res.potXiu;
+
+                        if (this.lblTai) Tween.numberTo(this.lblTai, potTai, 0.3);
+                        if (this.lblXiu) Tween.numberTo(this.lblXiu, potXiu, 0.3);
+                        break;
+                    }
+
+                    case cmd.Code.TX_UPDATE_INFO: {
+                        let res = new cmd.TXUpdateTime(data);
+                        console.log("check TX_UPDATE_INFO :", res)
+                        let chipEnd = res.potTai > res.potXiu ? res.potXiu : res.potTai;
+                        let potTai = !res.bettingState ? chipEnd : res.potTai;
+                        let potXiu = !res.bettingState ? chipEnd : res.potXiu;
+                        if (this.lblTai) Tween.numberTo(this.lblTai, potTai, 0.3);
+                        if (this.lblXiu) Tween.numberTo(this.lblXiu, potXiu, 0.3);
+                        break;
+                    }
+
                     case cmd.Code.GET_SECURITY_INFO:
                         App.instance.showLoading(false);
                         let res = new cmd.ResGetSecurityInfo(data);
@@ -682,6 +716,8 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                         App.instance.DataJackpots = resJson;
                         // //console.log("Update_Jackpots:"+JSON.stringify(resJson));
 
+                        cc.log("check list jp : ", resJson)
+
                         let spartan = resJson["spartan"];
                         this.tabsListGame.updateItemJackpots("spartans", spartan["100"]["p"], spartan["100"]["x2"] == 1, spartan["1000"]["p"], spartan["1000"]["x2"] == 1, spartan["10000"]["p"], spartan["10000"]["x2"] == 1);
 
@@ -728,8 +764,16 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                         this.tabsListGame.updateItemJackpots("aztec", pokego["100"]["p"], pokego["100"]["x2"] == 1, pokego["1000"]["p"],
                         pokego["1000"]["x2"] == 1, pokego["10000"]["p"], pokego["10000"]["x2"] == 1);
 
-                        // let athur = resJson["athur"];
-                        // this.tabsListGame.updateItemJackpots("athur", athur["100"]["p"], athur["100"]["x2"] == 1, athur["1000"]["p"], athur["1000"]["x2"] == 1, athur["10000"]["p"], athur["10000"]["x2"] == 1);
+                        if(resJson["athur"]){
+                            let athur = resJson["athur"];
+                            this.tabsListGame.updateItemJackpots("athur", athur["100"]["p"], athur["100"]["x2"] == 1, athur["1000"]["p"], athur["1000"]["x2"] == 1, athur["10000"]["p"], athur["10000"]["x2"] == 1);
+                        }
+
+                        // if(resJson["minipoker"]){
+                        //     let minipoker = resJson["minipoker"];
+                        //     this.tabsListGame.updateItemJackpots("minipoker", minipoker["100"]["p"], minipoker["100"]["x2"] == 1, minipoker["1000"]["p"], minipoker["1000"]["x2"] == 1, minipoker["10000"]["p"], minipoker["10000"]["x2"] == 1);
+                        // }
+                       
 
                         // let thanden = resJson["thanden"];
                         // this.tabsListGame.updateItemJackpots("thanden", thanden["100"]["p"], thanden["100"]["x2"] == 1, thanden["1000"]["p"],
@@ -768,9 +812,9 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData100[i].gameid == "pokemon") {
                                 this.listData100[i] = new Tophudata("aztec", "Aztec Gems", pokego["100"]["p"]);
                             }
-                            // if (this.listData100[i].gameid == "athur" && athur) {
-                            //     this.listData100[i] = new Tophudata("athur", "Athur", athur["100"]["p"]);
-                            // }
+                            if (this.listData100[i].gameid == "athur" && athur) {
+                                this.listData100[i] = new Tophudata("athur", "Athur", athur["100"]["p"]);
+                            }
                             
 							if (this.listData100[i].gameid == "maybach") {
                                 this.listData100[i] = new Tophudata("maybach", "Hallowen", maybach["100"]["p"]);
@@ -808,9 +852,9 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData1000[i].gameid == "pokemon") {
                                 this.listData1000[i] = new Tophudata("aztec", "Aztec Gems", pokego["1000"]["p"]);
                             }
-                            // if (this.listData1000[i].gameid == "athur" && athur) {
-                            //     this.listData1000[i] = new Tophudata("athur", "Athur", athur["1000"]["p"]);
-                            // }
+                            if (this.listData1000[i].gameid == "athur" && athur) {
+                                this.listData1000[i] = new Tophudata("athur", "Athur", athur["1000"]["p"]);
+                            }
 							if (this.listData1000[i].gameid == "maybach") {
                                 this.listData1000[i] = new Tophudata("maybach", "Hallowen", maybach["1000"]["p"]);
                             }
@@ -847,9 +891,9 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
                             if (this.listData10000[i].gameid == "pokemon") {
                                 this.listData10000[i] = new Tophudata("aztec", "Aztec Gems", pokego["10000"]["p"]);
                             }
-                            // if (this.listData10000[i].gameid == "athur" && athur) {
-                            //     this.listData10000[i] = new Tophudata("athur", "Athur", athur["10000"]["p"]);
-                            // }
+                            if (this.listData10000[i].gameid == "athur" && athur) {
+                                this.listData10000[i] = new Tophudata("athur", "Athur", athur["10000"]["p"]);
+                            }
 							if (this.listData10000[i].gameid == "maybach") {
                                 this.listData10000[i] = new Tophudata("maybach", "Hallowen", maybach["10000"]["p"]);
                             }
@@ -1199,6 +1243,10 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
         }
         actComingSoon() {
             App.instance.alertDialog.showMsg(App.instance.getTextLang("txt_reparing"));
+        }
+
+        actNull() {
+            App.instance.alertDialog.showMsg(App.instance.getTextLang("Trò chơi đang cập nhật"));
         }
 
         actLogin(uname = null, pass = null, callback = null): void {
@@ -1927,7 +1975,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
             }
         }
         actOpenFB() {
-            cc.sys.openURL(Configs.App.getLinkFanpage());
+            // cc.sys.openURL(Configs.App.getLinkFanpage());
             cc.sys.openURL("https://www.facebook.com/daphuvip");
             // App.instance.openWebView("https://www.facebook.com/gaming/lote88com");
         }

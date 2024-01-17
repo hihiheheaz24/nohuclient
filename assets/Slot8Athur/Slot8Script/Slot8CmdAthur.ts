@@ -5,20 +5,20 @@ const { ccclass } = cc._decorator;
 
 export namespace cmd {
     export class Code {
-        static SUBCRIBE = 24003;
-        static UNSUBCRIBE = 24004;
-        static CHANGE_ROOM = 24005;
-        static PLAY = 24001;
-        static UPDATE_RESULT = 24001;
-        static UPDATE_POT = 24002;
-        static AUTO = 24006;
-        static STOP_AUTO = 24006;
-        static FORCE_STOP_AUTO = 24008;
-        static DATE_X2 = 24009;
-        static BIG_WIN = 24010;
-        static FREE = 24011;
-        static FREE_DAI_LY = 24012;
-        static MINIMIZE = 24013;
+        static SUBCRIBE = 5003;
+        static UNSUBCRIBE = 5004;
+        static CHANGE_ROOM = 5005;
+        static PLAY = 5001;
+        static UPDATE_RESULT = 5001;
+        static UPDATE_POT = 5002;
+        static AUTO = 5006;
+        static STOP_AUTO = 5006;
+        static FORCE_STOP_AUTO = 5008;
+        static DATE_X2 = 5009;
+        static BIG_WIN = 5010;
+        static FREE = 5011;
+        static FREE_DAI_LY = 5012;
+        static MINIMIZE = 5013;
         static UPDATE_JACKPOT_SLOTS = 10003;
         static SUBCRIBE_HALL_SLOT = 10001;
     }

@@ -620,6 +620,8 @@ export default class TaiXiuMiniController extends cc.Component {
             if (Math.abs(distance) > 460) {
                 this.bowl.active = false;
                 this.isOpenBowl = true;
+                this.lblRemainTime2.node.parent.active = true;
+                this.lblRemainTime2.node.active = true;
                 this.showResult();
                 this.showWinCash();
             }

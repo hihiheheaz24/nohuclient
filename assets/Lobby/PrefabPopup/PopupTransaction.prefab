@@ -3570,7 +3570,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 783,
-      "height": 90
+      "height": 0
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3618,7 +3618,7 @@
         "__id__": 90
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 123
@@ -4443,7 +4443,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 230,
+      "width": 197.20000000000024,
       "height": 25.2
     },
     "_anchorPoint": {
@@ -4455,7 +4455,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        318.45,
+        306.543,
         0,
         0,
         0,
@@ -4488,7 +4488,7 @@
       "__id__": 109
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 111
@@ -4507,7 +4507,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 21.09,
+      "width": 15.82,
       "height": 25.2
     },
     "_anchorPoint": {
@@ -4519,7 +4519,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -10.545,
+        -7.91,
         -12.6,
         0,
         0,
@@ -4562,7 +4562,7 @@
     "_dstBlendFactor": 771,
     "_string": ".....",
     "_N$string": ".....",
-    "_fontSize": 20,
+    "_fontSize": 15,
     "_lineHeight": 20,
     "_enableWrapText": true,
     "_N$file": {
@@ -4588,7 +4588,7 @@
     "asset": {
       "__uuid__": "099309da-5279-42f6-8a40-f04fb10607de"
     },
-    "fileId": "ffzV1GzD9NzoM/Q/Tpuzi9",
+    "fileId": "77QgaOcdBBhaGGK2FwPhxu",
     "sync": false
   },
   {
@@ -4603,12 +4603,12 @@
     "_isSystemFontUsed": false,
     "_N$string": ".....",
     "_N$horizontalAlign": 1,
-    "_N$fontSize": 20,
+    "_N$fontSize": 15,
     "_N$font": {
       "__uuid__": "9c0910a6-35c2-4d87-a0c3-ddb2df51c0fb"
     },
     "_N$cacheMode": 0,
-    "_N$maxWidth": 230,
+    "_N$maxWidth": 197.20000000000024,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
     "_N$handleTouchEvent": true,
@@ -4954,7 +4954,7 @@
     "_layoutSize": {
       "__type__": "cc.Size",
       "width": 783,
-      "height": 90
+      "height": 0
     },
     "_resize": 1,
     "_N$layoutType": 2,

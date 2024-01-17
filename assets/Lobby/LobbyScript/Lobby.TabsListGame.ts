@@ -780,6 +780,14 @@ export default class TabsListGame extends cc.Component {
     @property([Tab])
     tabs: Tab[] = [];
 
+    
+
+    @property(ItemSlotGame)
+    minipoker: ItemSlotGame = null;
+
+    @property(ItemSlotGame)
+    slotGem: ItemSlotGame = null;;
+
     @property([ItemGame])
     itemGames: ItemGame[] = [];
 
@@ -879,7 +887,26 @@ export default class TabsListGame extends cc.Component {
     }
 
     public updateItemJackpots(id: string, j100: number, x2J100: boolean, j1000: number, x2J1000: boolean, j10000: number, x2J10000: boolean) {
-        let itemGame = this.getItemGameWithId(id);
+        let itemGame = null;
+        if(id === "minipoker"){
+            itemGame = this.minipoker.getComponent("Lobby.ItemSlotGame").lblJackpots;
+            for (let i = 0; i < itemGame.length; i++) {
+                const objItem = itemGame[i];
+                Tween.numberTo(objItem, j100, 3)
+            }
+            return;
+        }
+        else if(id === "audition"){
+                itemGame = this.slotGem.getComponent("Lobby.ItemSlotGame").lblJackpots;
+                for (let i = 0; i < itemGame.length; i++) {
+                    const objItem = itemGame[i];
+                    Tween.numberTo(objItem, j100, 3)
+                }
+                return;
+            }
+        else{
+            itemGame = this.getItemGameWithId(id);
+        }
         for (var i = 0; i < itemGame.length; i++) {
 
             // itemGame[i].lblJackpots[0].string = Utils.formatNumber(j100);
