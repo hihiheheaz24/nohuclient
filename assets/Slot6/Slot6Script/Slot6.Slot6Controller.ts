@@ -39,11 +39,14 @@ export default class Slot6Controller extends cc.Component {
     @property(cc.Node)
     nodeCoin: cc.Node = null;
 
+    @property(sp.Skeleton)
+    skeSpin: sp.Skeleton = null;
+
     @property(cc.Prefab)
     preItem: cc.Prefab = null;
 
     @property(cc.Integer)
-    mHeightItem: number = 140;
+    mHeightItem: number = 150;
 
     @property(cc.Integer)
     mWidthItem: number = 140;
@@ -167,7 +170,6 @@ export default class Slot6Controller extends cc.Component {
     private rollAddItemCount = 10;
     private spinDuration = 1.2;
     private addSpinDuration = 0.3;
-    //private itemHeight = 0;
     public betIdx = -1;
     private listBet = [100, 1000, 10000];
     private listBetLabel = ["100", "1.000", "10.000"];
@@ -225,34 +227,25 @@ export default class Slot6Controller extends cc.Component {
 
 
     start() {
+        this.mHeightItem = 150;
         this.soundInit();
         this.currentNumberFreeSpin = 0;
         this.lblWinNow.string = "0";
         this.iconWildColumns.zIndex = 3;
-        //this.itemHeight = this.itemTemplate.height;
         for (let i = 0; i < this.reels.childrenCount; i++) {
             let reel = this.reels.children[i];
             let count = this.rollStartItemCount + i * this.rollAddItemCount;
             for (let j = 0; j < count; j++) {
-                //let item = cc.instantiate(this.itemTemplate);
                 let itemNode = cc.instantiate(this.preItem);
                 itemNode.height = this.mHeightItem;
+                cc.log("check this.mHeightItem ",this.mHeightItem)
                 itemNode.width = this.mWidthItem;
                 let item: Slot6Item = itemNode.getComponent(Slot6Item);
                 itemNode.parent = reel;
-                // if (j >= 3) {
-                //     item.children[0].getComponent(cc.Sprite).spriteFrame = this.sprFrameItemsBlur[Utils.randomRangeInt(0, this.sprFrameItemsBlur.length)];
-                // } else {
-                //     item.children[0].getComponent(cc.Sprite).spriteFrame = this.sprFrameItems[Utils.randomRangeInt(0, this.sprFrameItems.length)];
-                // }
                 let id = Utils.randomRangeInt(0, 10);
                 item.setId(id);
-                //item.children[0].width=this.itemTemplate.children[0].width;
-                //item.children[0].height=this.itemTemplate.children[0].height;
             }
         }
-        // this.itemTemplate.removeFromParent();
-        // this.itemTemplate = null;
 
         //dang ky khi mat ket noi tu dong back
         SlotNetworkClient.getInstance().addOnClose(() => {
@@ -300,6 +293,7 @@ export default class Slot6Controller extends cc.Component {
                     {
                         let res = new cmd.ReceivePlay(data);
                         // //  cc.log(res);
+                        cc.log("ket qua quay : ", res)
                         this.onSpinResult(res);
                     }
                     break;
@@ -407,12 +401,11 @@ export default class Slot6Controller extends cc.Component {
 
 
     public onJoinRoom() {
+        this.skeSpin.animation = "btnquaythuong";
+        this.skeSpin.loop = true;
         this.lblBet.string = this.listBetLabel[this.betIdx];
         let totalbet = (this.arrLineSelect.length * this.listBet[this.betIdx]);
         Tween.numberTo(this.lblTotalBet, totalbet, 0.3);
-
-        // this.skeSpin.animation = "iat";
-        // this.skeSpin.loop = true;
     }
 
     private showToast(msg: string) {
@@ -425,24 +418,16 @@ export default class Slot6Controller extends cc.Component {
     }
 
     private moneyToK(money: number): string {
-        // if (money < 10000) {
-        //     return money.toString();
-        // }
-        // money = parseInt((money / 1000).toString());
         return Utils.formatNumber(money);
     }
 
     private setEnabledAllButtons(enabled: boolean) {
         this.btnSpin.interactable = enabled;
         this.btnBack.interactable = enabled;
-        // this.btnBetUp.interactable = enabled;
-        // this.btnBetDown.interactable = enabled;
         this.btnLine.interactable = enabled;
         this.btnPlayTry.interactable = false;
         this.btnPlayReal.interactable = false;
-
         this.effSpin.active = false;
-        //this.toggleTrial.interactable = enabled;
     }
 
     private stopAllEffects() {
@@ -507,8 +492,8 @@ export default class Slot6Controller extends cc.Component {
             this.stopShowLinesWin();
             this.changeAllItemToDark(false);
             this.setEnabledAllButtons(false);
-            // this.skeSpin.animation = "at";
-            // this.skeSpin.loop = true;
+            this.skeSpin.animation = "btnquayclick";
+            this.skeSpin.loop = true;
             SlotNetworkClient.getInstance().send(new cmd.SendPlay(this.arrLineSelect.toString()));
         } else {
             this.changeAllItemToDark(false);
@@ -516,8 +501,8 @@ export default class Slot6Controller extends cc.Component {
             this.stopAllEffects();
             this.stopShowLinesWin();
             this.setEnabledAllButtons(false);
-            // this.skeSpin.animation = "at";
-            // this.skeSpin.loop = true;
+            this.skeSpin.animation = "btnquayclick";
+            this.skeSpin.loop = true;
             var rIdx = Utils.randomRangeInt(0, TrialResults.results.length);
             this.onSpinResult(TrialResults.results[rIdx]);
         }
@@ -587,20 +572,25 @@ export default class Slot6Controller extends cc.Component {
                                 break;
                             }
                         }
+                        this.changeAllItemToDark(true)
                         for (let j = 0; j < countItemWin; j++) {
                             let itemRow = parseInt((mLine[j] / 5).toString());
                             let item = rolls[j].children[2 - itemRow];
                             item.stopAllActions();
                             cc.Tween.stopAllByTarget(item);
                             // TW(item).repeatForever(TW().to(0.2, { scale: 1.1 }).to(0.2, { scale: 1.0 })).start();
-                            // item.getComponent(Slot6Item).showItemAnim();
+                            item.getComponent(Slot6Item).showItemAnim();
                             TW(item).delay(0.9).call(() => {
-                                // item.getComponent(Slot6Item).offItemAnim();
+                                item.getComponent(Slot6Item).offItemAnim();
                             }).start();
-                            // item.runAction(cc.repeatForever(cc.sequence(
-                            //     cc.scaleTo(0.2, 1.1),
-                            //     cc.scaleTo(0.2, 1)
-                            // )));
+                            let sprite = item.getComponentInChildren(cc.Sprite);
+                            let spine = item.getComponentInChildren(sp.Skeleton);
+                            spine.node.color = cc.Color.WHITE;
+                            sprite.node.color =  cc.Color.WHITE;
+                            item.runAction(cc.repeatForever(cc.sequence(
+                                cc.scaleTo(0.2, 1.1),
+                                cc.scaleTo(0.2, 1)
+                            )));
                         }
                         // //  cc.log("lineIdx: " + lineIdx + "fisrtItemId: " + fisrtItemId + " countItemWin: " + countItemWin);
                     }));
@@ -802,9 +792,9 @@ export default class Slot6Controller extends cc.Component {
                         for (let j = 0; j < this.columnsWild.length; j++) {
                             let c = this.columnsWild[j];
                             let children = this.reels.children[c].children;
-                            // children[2].getComponent(Slot6Item).setId(this.wildItemId, true);
-                            // children[1].getComponent(Slot6Item).setId(this.wildItemId, true);
-                            // children[0].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            children[2].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            children[1].getComponent(Slot6Item).setId(this.wildItemId, true);
+                            children[0].getComponent(Slot6Item).setId(this.wildItemId, true);
                             this.iconWildColumns.children[c].active = true;
                             this.iconWildColumns.children[c].scale = 0;
                             cc.Tween.stopAllByTarget(this.iconWildColumns.children[c]);
@@ -841,28 +831,28 @@ export default class Slot6Controller extends cc.Component {
                 .call(() => {
                     for (let m = 0; m < roll.childrenCount; m++) {
                         let item = roll.children[m];
-                        // item.getComponent(Slot6Item).setIdBlur(Utils.randomRangeInt(0, 11));
+                        item.getComponent(Slot6Item).setIdBlur(Utils.randomRangeInt(0, 11));
                     }
                 })
                 .start();
             TW(roll)
                 .delay((0.47 + 0.2 * i) * timeScale)
                 .call(() => {
-                    // let listItemNode = roll.children;
-                    // listItemNode[2].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
-                    // listItemNode[1].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
-                    // listItemNode[0].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
-                    // listItemNode[listItemNode.length - 1].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
-                    // listItemNode[listItemNode.length - 2].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
-                    // listItemNode[listItemNode.length - 3].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
+                    let listItemNode = roll.children;
+                    listItemNode[2].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
+                    listItemNode[1].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
+                    listItemNode[0].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
+                    listItemNode[listItemNode.length - 1].getComponent(Slot6Item).setId(parseInt(matrix[i]), true);
+                    listItemNode[listItemNode.length - 2].getComponent(Slot6Item).setId(parseInt(matrix[5 + i]), true);
+                    listItemNode[listItemNode.length - 3].getComponent(Slot6Item).setId(parseInt(matrix[10 + i]), true);
                 })
                 .start();
         }
     }
 
     private spined() {
-        // this.skeSpin.animation = "iat";
-        // this.skeSpin.loop = true;
+        this.skeSpin.animation = "btnquaythuong";
+        this.skeSpin.loop = true;
         this.currentNumberFreeSpin = this.lastSpinRes.currentNumberFreeSpin;
         if (this.lastSpinRes.currentNumberFreeSpin > 0) {
             this.lblFreeSpinCount.node.parent.active = true;

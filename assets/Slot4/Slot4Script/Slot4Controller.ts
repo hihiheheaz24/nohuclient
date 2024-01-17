@@ -360,6 +360,8 @@ export default class Slot4Controller extends cc.Component {
         App.instance.showCoins(number,this.totalWinLabel.node,this.nodeCoin);
     }
     public onJoinRoom(res = null) {
+        this.skeSpin.animation = "at";
+        this.skeSpin.loop = true;
         var betIdTmp = this.betId;
         if(betIdTmp == -1) betIdTmp = 2;
         let totalbet = (this.arrLineSelected.length * this.listBet[betIdTmp]);
@@ -501,6 +503,8 @@ export default class Slot4Controller extends cc.Component {
 
     spinFinish(hasDelay: boolean) {
         this.isSpining = false;
+        this.skeSpin.animation = "at";
+        this.skeSpin.loop = true;
         var that = this;
         this.node.runAction(
             cc.sequence(
@@ -664,6 +668,8 @@ export default class Slot4Controller extends cc.Component {
 
     public beginSpinReel(indexReel) {
         var self = this;
+        this.skeSpin.animation = "iat";
+        this.skeSpin.loop = true;
         self.isFastCurrent = self.toggleFast.isChecked;
         self.numberSpinReel[indexReel] = 0;
         cc.Tween.stopAllByTarget(self.arrReel[indexReel]);
@@ -762,7 +768,7 @@ export default class Slot4Controller extends cc.Component {
             else {
                 itemIdTmp = self.arrUIItemIcon[index - 5].itemId;
             }
-            self.arrUIItemIcon[index].changeSpriteBlurByItemId(itemIdTmp);
+            // self.arrUIItemIcon[index].changeSpriteBlurByItemId(itemIdTmp);
             if (self.arrUIItemIcon[index].spriteIcon.node.active == false) {
                 self.arrUIItemIcon[index].spriteIcon.node.active = true;
                 self.arrUIItemIcon[index].spineIcon.node.active = false;

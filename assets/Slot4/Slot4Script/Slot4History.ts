@@ -83,7 +83,7 @@ export default class Slot4History extends cc.Component {
                     item.getChildByName("Id").getComponent(cc.Label).string = itemData["rf"];
                     item.getChildByName("Time").getComponent(cc.Label).string = itemData["ts"];
                     item.getChildByName("Bet").getComponent(cc.Label).string = Utils.formatNumber(itemData["bv"]);
-                    item.getChildByName("Linebet").getComponent(cc.Label).string = itemData["lb"] === "" ? 0 : itemData["lb"].split(",").length;
+                    // item.getChildByName("Linebet").getComponent(cc.Label).string = itemData["lb"] === "" ? 0 : itemData["lb"].split(",").length;
                     item.getChildByName("Linewin").getComponent(cc.Label).string = itemData["lw"] === "" ? 0 : itemData["lw"].split(",").length;
                     item.getChildByName("Prize").getComponent(cc.Label).string = Utils.formatNumber(itemData["pz"]);
                     item.active = true;

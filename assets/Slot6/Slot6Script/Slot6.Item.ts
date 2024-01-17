@@ -41,7 +41,6 @@ export default class Slot6Item extends cc.Component {
     }
 
     public setId(pId: number, isWin = false) {
-        cc.log("chay vao set id slots")
         this.mId = pId;
         this.sprItem.sizeMode = cc.Sprite.SizeMode.TRIMMED;
         switch (this.mId) {
@@ -82,10 +81,9 @@ export default class Slot6Item extends cc.Component {
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_11");
                 break;
         }
-        // this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));
+        this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));
     }
     showItemAnim() {
-        return;
         this.sprItem.node.active = true;
         if (this.mId === SLOT6_ID_ITEM.JACKPOT) {
             this.sprItem.node.active = false;
@@ -95,7 +93,6 @@ export default class Slot6Item extends cc.Component {
         }
     }
     setIdBlur(id) {
-        return;
         this.sprItem.sizeMode = cc.Sprite.SizeMode.TRIMMED;
         switch (id) {
             case SLOT6_ID_ITEM.JACKPOT:
@@ -132,7 +129,7 @@ export default class Slot6Item extends cc.Component {
                 this.sprItem.spriteFrame = this.sprAtlast.getSpriteFrame("item_11_blur");
                 break;
         }
-        // this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));
+        this.sprItem.node.setContentSize(cc.size(this.sprItem.node.width / 1.2, this.sprItem.node.height / 1.2));
     }
     offItemAnim() {
         this.sprItem.node.active = true;
