@@ -169,7 +169,7 @@ export default class TaiXiuMiniController extends cc.Component {
     private isCanChat = true;
     private panelChat: PanelChat = null;
     private readonly maxBetValue = 999999999;
-    private listBets = [1000, 5000, 10000, 200000, 50000, 100000, 500000, 1000000, 5000000, 10000000];
+    private listBets = [1000, 5000, 10000, 50000, 100000, 200000, 500000, 1000000, 5000000, 10000000];
     private readonly bowlStartPos = cc.v2(-550.597, 0);
     private currentBtnBet = null;
     private arrTimeoutDice = [];
