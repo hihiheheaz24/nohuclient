@@ -30,6 +30,7 @@ export class ButtonBet {
     setActive(isActive: boolean) {
         this._isActive = isActive;
         this.button.interactable = !isActive;
+        this.button.node.color = isActive ? cc.Color.YELLOW :  cc.Color.WHITE 
 
         // if (isActive)
         //     this.border_chip.node.x = this.button.node.x;

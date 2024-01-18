@@ -137,9 +137,9 @@ export default class MiniPokerController extends MiniGame {
             App.instance.showBgMiniGame("MiniPoker");
             if (this.toggleAuto.isChecked) {
                 if (this.isSpined) this.actSpin();
-                this.btnBoost.interactable = false;
+                // this.btnBoost.interactable = false;
             } else {
-                this.btnBoost.interactable = true;
+                // this.btnBoost.interactable = true;
                 if (this.isSpined) {
                     this.setEnableAllButtons(true);
                 }
@@ -150,11 +150,11 @@ export default class MiniPokerController extends MiniGame {
             App.instance.showBgMiniGame("MiniPoker");
             this.isBoost = !this.isBoost;
             if (this.isBoost) {
-                if (this.isSpined) this.actSpin();
-                this.toggleAuto.interactable = false;
+                // if (this.isSpined) this.actSpin();
+                // this.toggleAuto.interactable = false;
                 this.btnBoost.isChecked = true;
             } else {
-                this.toggleAuto.interactable = true;
+                // this.toggleAuto.interactable = true;
                 this.btnBoost.isChecked = false;
                 if (this.isSpined) {
                     this.setEnableAllButtons(true);
@@ -407,7 +407,7 @@ export default class MiniPokerController extends MiniGame {
                     this.lblWinCash.parent.active = false;
                     this.scheduleOnce(() => {
                         this.isSpined = true;
-                        if (this.toggleAuto.isChecked || this.isBoost) {
+                        if (this.toggleAuto.isChecked) {
                             this.actSpin();
                         } else {
                             for (var i = 0; i < this.buttonBets.length; i++) {
@@ -420,7 +420,7 @@ export default class MiniPokerController extends MiniGame {
         } else {
             this.scheduleOnce(() => {
                 this.isSpined = true;
-                if (this.toggleAuto.isChecked || this.isBoost) {
+                if (this.toggleAuto.isChecked) {
                     this.actSpin();
                 } else {
                     for (var i = 0; i < this.buttonBets.length; i++) {

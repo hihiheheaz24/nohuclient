@@ -148,7 +148,7 @@ export class PopupBonus extends Dialog {
         this.scheduleOnce(() => {
             this.dismiss();
             this.onFinished();
-        }, 1.5);
+        }, 3);
         this.controller.onBtnSoundSumary();
         Tween.showPopup(this.nodeBoxNotify,this.nodeBoxNotify.parent);
         Tween.numberTo(this.txtNotify,this.win, 0.3);
@@ -160,7 +160,7 @@ export class PopupBonus extends Dialog {
         this.scheduleOnce(() => {
             this.dismiss();
             this.onFinished();
-        }, 1.5);
+        }, 3);
     }
 }
 export default PopupBonus;

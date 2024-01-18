@@ -85,10 +85,14 @@ export default class TaiXiuMiniController extends cc.Component {
     lblTotalBetTai: cc.Label = null;
     @property(cc.Label)
     lblTotalBetXiu: cc.Label = null;
-    @property(cc.Label)
-    lblBetTai: cc.Label = null;
-    @property(cc.Label)
-    lblBetXiu: cc.Label = null;
+    @property(cc.EditBox)
+    lblBetTai: cc.EditBox = null;
+    @property(cc.EditBox)
+    lblBetXiu: cc.EditBox = null;
+
+    @property(cc.EditBox)
+    edbNo: cc.EditBox = null;
+
     @property(cc.Label)
     lblBetedTai: cc.Label = null;
     @property(cc.Label)
@@ -238,6 +242,81 @@ export default class TaiXiuMiniController extends cc.Component {
     }
     onFocusInEditor() {
         //  cc.log("------------------");
+    }
+
+    edbBeginTai(){
+        App.instance.showBgMiniGame("TaiXiu");
+        // this.lblBetTai.string = "ĐẶT CƯỢC";
+       
+        if (!this.isBetting) {
+            this.showToast(App.instance.getTextLang('txt_bet_error3'));
+            this.lblBetTai.blur();
+            if (cc.sys.isBrowser) {
+                this.edbNo.focus()
+            }
+            return;
+        }
+        if (this.betingValue >= 0) {
+            this.showToast(App.instance.getTextLang('txt_notify_fast_action'));
+            this.lblBetTai.blur();
+            if (cc.sys.isBrowser) {
+                this.edbNo.focus()
+            }
+            return;
+        }
+        if (this.betedXiu > 0) {
+            this.showToast(App.instance.getTextLang('txt_taixiu_chat_error4'));
+            this.lblBetTai.blur();
+            if (cc.sys.isBrowser) {
+                this.edbNo.focus()
+            }
+            return;
+        }
+        this.betingDoor = BetDoor.Tai;
+        this.lblBetTai.string = "";
+        this.lblBetXiu.string = "ĐẶT CƯỢC";
+        this.layoutBet.active = true;
+        cc.tween(this.layoutBet).to(0.5, { y: -301 }, { easing: cc.easing.sineOut }).start();
+        this.layoutBet1.active = true;
+    }
+
+    edbBeginXiu(){
+        App.instance.showBgMiniGame("TaiXiu");
+        // this.lblBetXiu.string = "ĐẶT CƯỢC";
+       
+        if (!this.isBetting) {
+            this.showToast(App.instance.getTextLang('txt_bet_error3'));
+            // this.lblBetXiu.blur();
+            this.edbNo.focus()
+            if (cc.sys.isBrowser) {
+                
+            }
+            return;
+        }
+        if (this.betingValue >= 0) {
+            this.showToast(App.instance.getTextLang('txt_notify_fast_action'));
+            // this.lblBetXiu.blur();
+            this.edbNo.focus()
+            // if (cc.sys.isBrowser) {
+            //     this.edbNo.focus()
+            // }
+            return;
+        }
+        if (this.betedTai > 0) {
+            this.showToast(App.instance.getTextLang('txt_taixiu_chat_error4'));
+            // this.lblBetXiu.blur();
+            this.edbNo.focus()
+            // if (cc.sys.isBrowser) {
+            //     this.edbNo.focus()
+            // }
+            return;
+        }
+        this.betingDoor = BetDoor.Xiu;
+        this.lblBetTai.string = "ĐẶT CƯỢC";
+        this.lblBetXiu.string = "";
+        this.layoutBet.active = true;
+        cc.tween(this.layoutBet).to(0.5, { y: -301 }, { easing: cc.easing.sineOut }).start();
+        this.layoutBet1.active = true;
     }
 
     setupTimeRunInBg() {
@@ -611,13 +690,14 @@ export default class TaiXiuMiniController extends cc.Component {
         }
 
         this.bowl.on(cc.Node.EventType.TOUCH_MOVE, (event: cc.Event.EventTouch) => {
-            var pos = this.bowl.position;
+            var pos = cc.v3(this.bowl.position.x, this.bowl.position.y, 0) ;
             pos.x += event.getDeltaX();
             pos.y += event.getDeltaY();
+            pos.z = 0;
             this.bowl.position = pos;
 
             let distance = Utils.v2Distance(pos, this.bowlStartPos);
-            if (Math.abs(distance) > 460) {
+            if (Math.abs(distance) > 300) {
                 this.bowl.active = false;
                 this.isOpenBowl = true;
                 this.lblRemainTime2.node.parent.active = true;
@@ -683,6 +763,7 @@ export default class TaiXiuMiniController extends cc.Component {
     }
 
     actBetTai() {
+        return;
         App.instance.showBgMiniGame("TaiXiu");
         if (!this.isBetting) {
             this.showToast(App.instance.getTextLang('txt_bet_error3'));
@@ -705,6 +786,7 @@ export default class TaiXiuMiniController extends cc.Component {
     }
 
     actBetXiu() {
+        return;
         App.instance.showBgMiniGame("TaiXiu");
         if (!this.isBetting) {
             this.showToast(App.instance.getTextLang('txt_bet_error3'));

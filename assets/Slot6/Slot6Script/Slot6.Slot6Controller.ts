@@ -714,7 +714,7 @@ export default class Slot6Controller extends cc.Component {
     private showEffectBonus(cb: () => void) {
         this.effectBonus.stopAllActions();
         this.effectBonus.active = true;
-        this.effectBonus.getComponentInChildren(sp.Skeleton).setAnimation(0, "bonus fx", true);
+        // this.effectBonus.getComponentInChildren(sp.Skeleton).setAnimation(0, "bonus fx", true);
         this.particleBonus.resetSystem();
         this.effectBonus.runAction(cc.sequence(
             cc.delayTime(3),

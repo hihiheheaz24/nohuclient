@@ -50,7 +50,7 @@ export default class BannerList extends cc.Component {
         var self = this;
         self.intervalBanner = setInterval(function () {
             self.indexPage++;
-            if (self.indexPage >= 2) {
+            if (self.indexPage >= 3) {
                 self.indexPage = 0;
             }
             self.pageView.scrollToPage(self.indexPage, 0.5);   

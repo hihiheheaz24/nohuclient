@@ -149,10 +149,10 @@ export default class Slot3x3GemController extends MiniGame {
             App.instance.showBgMiniGame("Slot3x3Gem");
             if (this.isAuto) {
                 if (this.isSpined) this.actSpin();
-                this.btnBoost.interactable = false;
+                // this.btnBoost.interactable = false;
                 this.btnAuto.getComponent(cc.Sprite).spriteFrame = this.sfAuto1;
             } else {
-                this.btnBoost.interactable = true;
+                // this.btnBoost.interactable = true;
                 this.btnAuto.getComponent(cc.Sprite).spriteFrame = this.sfAuto0;
                 if (this.isSpined) {
                     this.setEnabledAllButtons(true);
@@ -164,11 +164,11 @@ export default class Slot3x3GemController extends MiniGame {
             this.isBoost = !this.isBoost;
             App.instance.showBgMiniGame("Slot3x3Gem");
             if (this.isBoost) {
-                if (this.isSpined) this.actSpin();
-                this.btnAuto.interactable = false;
+                // if (this.isSpined) this.actSpin();
+                // this.btnAuto.interactable = false;
                 this.btnBoost.getComponent(cc.Sprite).spriteFrame = this.sfBoost1;
             } else {
-                this.btnAuto.interactable = true;
+                // this.btnAuto.interactable = true;
                 this.btnBoost.getComponent(cc.Sprite).spriteFrame = this.sfBoost0;
                 if (this.isSpined) {
                     this.setEnabledAllButtons(true);
@@ -492,7 +492,7 @@ export default class Slot3x3GemController extends MiniGame {
         actions.push(cc.delayTime(0.5));
         actions.push(cc.callFunc(() => {
             this.isSpined = true;
-            if (this.isBoost || this.isAuto) {
+            if (this.isAuto) {
                 this.actSpin();
             } else {
                 this.setEnabledAllButtons(true);

@@ -17123,7 +17123,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "thuycung_text_game2",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 444
@@ -17148,8 +17148,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 539.58,
-      "height": 63
+      "width": 443.66,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -17161,14 +17161,14 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        56.358,
+        59.574,
         0,
         0,
         0,
         0,
         1,
-        0.8,
-        0.8,
+        1,
+        1,
         1
       ]
     },
@@ -17200,10 +17200,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "\bChúc mừng bạn đã nhận được :",
-    "_N$string": "\bChúc mừng bạn đã nhận được :",
-    "_fontSize": 45,
-    "_lineHeight": 50,
+    "_string": "Chúc mừng bạn đã nhận được :",
+    "_N$string": "Chúc mừng bạn đã nhận được :",
+    "_fontSize": 37,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "0c0bdf05-e231-470b-af6b-14a1107bb755"
@@ -17213,8 +17213,8 @@
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
@@ -17228,7 +17228,7 @@
     "asset": {
       "__uuid__": "106525d5-2c96-4d46-b805-857237859798"
     },
-    "fileId": "54U3j8szFHJJe1ME99hYI1",
+    "fileId": "f9RhPHDt5Gc63vEOZvgj4V",
     "sync": false
   },
   {

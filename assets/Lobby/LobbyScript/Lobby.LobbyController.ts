@@ -926,6 +926,7 @@ this.buttonjb.x = cc.winSize.width / 2 - 50;
             this.updateJackpot("pokemon", "pokemon"); //PIKACHU
             this.updateJackpot("minipoker", "minipoker"); // MINIPOKER
             this.updateJackpot("frozen", "frozen"); // DUAXE
+            this.updateJackpot("galaxy", "galaxy"); // DUAXE
             // this.updateJackpot("athur", "athur"); // DUAXE
             // this.updateJackpot("thanden", "thanden"); // THANDEN
         }

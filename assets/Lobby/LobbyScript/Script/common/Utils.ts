@@ -243,7 +243,7 @@ export namespace common {
             return Math.random() * (max - min) + min;
         }
 
-        static v2Distance(v1: cc.Vec2, v2: cc.Vec2): number {
+        static v2Distance(v1: cc.Vec3, v2: cc.Vec2): number {
             return Math.sqrt(Math.pow(v2.x - v1.x, 2) + Math.pow(v2.y - v1.y, 2));
         }
 

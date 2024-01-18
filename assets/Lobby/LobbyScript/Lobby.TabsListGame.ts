@@ -892,15 +892,22 @@ export default class TabsListGame extends cc.Component {
             itemGame = this.minipoker.getComponent("Lobby.ItemSlotGame").lblJackpots;
             for (let i = 0; i < itemGame.length; i++) {
                 const objItem = itemGame[i];
-                Tween.numberTo(objItem, j100, 3)
+                // Tween.numberTo(objItem, j100, 3)
+                Tween.numberTo(itemGame[0], j100, 3)
+                Tween.numberTo(itemGame[1], j1000, 3)
+                Tween.numberTo(itemGame[2], j10000, 3)
             }
             return;
         }
-        else if(id === "audition"){
+        else if(id === "galaxy"){
                 itemGame = this.slotGem.getComponent("Lobby.ItemSlotGame").lblJackpots;
                 for (let i = 0; i < itemGame.length; i++) {
                     const objItem = itemGame[i];
-                    Tween.numberTo(objItem, j100, 3)
+                    // Tween.numberTo(objItem, j100, 3)
+                    Tween.numberTo(itemGame[0], j100, 3)
+                    Tween.numberTo(itemGame[1], j1000, 3)
+                    Tween.numberTo(itemGame[2], j10000, 3)
+                    
                 }
                 return;
             }
