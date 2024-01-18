@@ -952,7 +952,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Type",
+    "_name": "Type copy",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -1057,7 +1057,7 @@
     "asset": {
       "__uuid__": "9e3aa2ff-73d0-47ba-b38e-e146db21ea94"
     },
-    "fileId": "13LahO5gRLr6o79KLrpH4Z",
+    "fileId": "d3PudCH1dPs6REbBHzr4zF",
     "sync": false
   },
   {

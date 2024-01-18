@@ -48,8 +48,8 @@ export default class Slot8Controller extends cc.Component {
     popupBonus: Slot8PopupBonus = null;
     @property(sp.Skeleton)
     skeSpin: sp.Skeleton = null;
-    @property(cc.Node)
-    nodeDemo: cc.Node = null;
+    // @property(cc.Node)
+    // nodeDemo: cc.Node = null;
     @property(cc.Node)
     nodeWinJackpot: cc.Node = null;
     @property(cc.Label)
@@ -388,7 +388,7 @@ export default class Slot8Controller extends cc.Component {
         let totalbet = (this.arrLineSelected.length * this.listBet[betIdTmp]);
         Tween.numberTo(this.totalBetLabel, totalbet, 0.3);
         this.mSlotLobby.hide();
-        this.nodeDemo.active = this.isTrial ? true : false;
+        // this.nodeDemo.active = this.isTrial ? true : false;
         this.showGamePlay();
         this.setButtonEnable(true);
 

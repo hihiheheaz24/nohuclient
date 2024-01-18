@@ -738,7 +738,7 @@ export default class LotoController extends MiniGame {
         } else {
             this.labelTotalBet.string = "" + (this.currentBetValue * parseInt(this.edtBet.string));
         }
-        this.labelWinValue.string = "" + (this.currentWinValue * parseInt(this.edtBet.string));
+        this.labelWinValue.string =  parseInt(this.edtBet.string) + " * " + this.currentBetValue + " * " + this.currentNumPicked.length + " = "+ (this.currentBetValue * parseInt(this.edtBet.string) * this.currentNumPicked.length) ;
     }
 
     removeNumberPicked(number) {
@@ -760,7 +760,7 @@ export default class LotoController extends MiniGame {
         } else {
             this.labelTotalBet.string = "" + (this.currentBetValue * parseInt(this.edtBet.string));
         }
-        this.labelWinValue.string = "" + (this.currentWinValue * parseInt(this.edtBet.string));
+        this.labelWinValue.string =   parseInt(this.edtBet.string) + " * " + this.currentBetValue + " * " + this.currentNumPicked.length + " = "+ (this.currentBetValue *  parseInt(this.edtBet.string) * this.currentNumPicked.length) ;
       //  cc.log("Loto removeNumberPicked currentNumPicked : ", this.currentNumPicked);
     }
 
@@ -944,9 +944,9 @@ export default class LotoController extends MiniGame {
         if (this.numRequired == 1) {
             this.labelTotalBet.string = "" + (this.currentBetValue * delta * this.currentNumPicked.length);
         } else {
-            this.labelTotalBet.string = "" + (this.currentBetValue * delta);
+            this.labelTotalBet.string =  "" + (this.currentBetValue * delta);
         }
-        this.labelWinValue.string = "" + (this.currentWinValue * delta);
+        this.labelWinValue.string = delta + " * " + this.currentBetValue + " * " + this.currentNumPicked.length + " = "+ (this.currentBetValue * delta * this.currentNumPicked.length) ;
     }
 
     // Request

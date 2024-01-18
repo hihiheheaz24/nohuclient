@@ -27,11 +27,11 @@ export default class BannerList extends cc.Component {
     private dataPage = null;
     private indexPage = 0;
     onLoad() {
-
+      
     }
 
     start() {
-        //this.getBanner();
+        this.loadListBanner(null);
     }
     getBanner() {
         var data = {};
@@ -44,9 +44,21 @@ export default class BannerList extends cc.Component {
                 App.instance.alertDialog.showMsg(res.message);
             }
         });
+      
     }
     loadListBanner(data) {
         var self = this;
+        self.intervalBanner = setInterval(function () {
+            self.indexPage++;
+            if (self.indexPage >= 2) {
+                self.indexPage = 0;
+            }
+            self.pageView.scrollToPage(self.indexPage, 0.5);   
+        }, 2000);
+
+        return;
+
+       
         let dataBanner = [];
         data.forEach(element => {
             if (element.status == 1) {

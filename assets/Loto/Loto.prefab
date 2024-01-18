@@ -39511,7 +39511,7 @@
       "ctor": "Float64Array",
       "array": [
         -257.955,
-        110.877,
+        124.64,
         0,
         0,
         0,
@@ -39990,7 +39990,7 @@
       "ctor": "Float64Array",
       "array": [
         -257.167,
-        37.317,
+        64.132,
         0,
         0,
         0,
@@ -40780,7 +40780,7 @@
       "ctor": "Float64Array",
       "array": [
         -260.907,
-        -39.388,
+        -5.454,
         0,
         0,
         0,
@@ -41011,7 +41011,7 @@
         "__id__": 1111
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 1115
@@ -41033,7 +41033,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 333.41,
+      "width": 203.8,
       "height": 46.1
     },
     "_anchorPoint": {
@@ -41094,8 +41094,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 255,
-      "b": 255,
+      "g": 204,
+      "b": 0,
       "a": 255
     },
     "_contentSize": {
@@ -41112,7 +41112,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        347.619,
+        228.965,
         0,
         0,
         0,
@@ -41216,8 +41216,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Tổng tiền thắng / 1 con (K) :",
-    "_N$string": "Tổng tiền thắng / 1 con (K) :",
+    "_string": "Tổng tiền thắng :",
+    "_N$string": "Tổng tiền thắng :",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -41308,7 +41308,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -132.528,
+        -152.699,
         0,
         0,
         0,
@@ -41500,7 +41500,7 @@
       "ctor": "Float64Array",
       "array": [
         -178.848,
-        155.551,
+        161.484,
         0,
         0,
         0,
